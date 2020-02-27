@@ -15,9 +15,4 @@
     <ProjectReference Include="..\CrunchyPeanutButter.Domain\CrunchyPeanutButter.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Foos\" />
-    <Folder Include="Bars\" />
-  </ItemGroup>
-
 </Project>
