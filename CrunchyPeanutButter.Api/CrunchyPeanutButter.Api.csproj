@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <AWSProjectType>Lambda</AWSProjectType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Amazon.Lambda.AspNetCoreServer" Version="4.1.0" />
+    <PackageReference Include="Amazon.Lambda.RuntimeSupport" Version="1.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CrunchyPeanutButter.Data.Commands\CrunchyPeanutButter.Data.Commands.csproj" />
+    <ProjectReference Include="..\CrunchyPeanutButter.Data.Migrations\CrunchyPeanutButter.Data.Migrations.csproj" />
+    <ProjectReference Include="..\CrunchyPeanutButter.Data.Queries\CrunchyPeanutButter.Data.Queries.csproj" />
+    <ProjectReference Include="..\CrunchyPeanutButter.Data\CrunchyPeanutButter.Data.csproj" />
+    <ProjectReference Include="..\CrunchyPeanutButter.Domain.Commands\CrunchyPeanutButter.Domain.Commands.csproj" />
+    <ProjectReference Include="..\CrunchyPeanutButter.Domain.Queries\CrunchyPeanutButter.Domain.Queries.csproj" />
+    <ProjectReference Include="..\CrunchyPeanutButter.Domain\CrunchyPeanutButter.Domain.csproj" />
+    <ProjectReference Include="..\CrunchyPeanutButter.Validation\CrunchyPeanutButter.Validation.csproj" />
+  </ItemGroup>
+</Project>
