@@ -4,7 +4,7 @@ using CrunchyPeanutButter.Domain.Commands.Foos;
 using CrunchyPeanutButter.Domain.Models;
 using MediatR;
 
-namespace CrunchyPeanutButter.Data.Commands.Foos
+namespace CrunchyPeanutButter.Data.CommandHandlers.Foos
 {
     public class CreateFooCommandHandler : IRequestHandler<CreateFooCommand, Foo>
     {

@@ -1,6 +1,6 @@
 using CrunchyPeanutButter.Data;
-using CrunchyPeanutButter.Data.Commands;
-using CrunchyPeanutButter.Data.Queries;
+using CrunchyPeanutButter.Data.CommandHandlers;
+using CrunchyPeanutButter.Data.QueryHandlers;
 using CrunchyPeanutButter.Domain.Commands;
 using CrunchyPeanutButter.Domain.Queries;
 using CrunchyPeanutButter.Validation;

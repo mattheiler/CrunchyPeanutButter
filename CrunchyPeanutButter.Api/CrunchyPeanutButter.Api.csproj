@@ -16,9 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CrunchyPeanutButter.Data.Commands\CrunchyPeanutButter.Data.Commands.csproj" />
+    <ProjectReference Include="..\CrunchyPeanutButter.Data.CommandHandlers\CrunchyPeanutButter.Data.CommandHandlers.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Data.Migrations\CrunchyPeanutButter.Data.Migrations.csproj" />
-    <ProjectReference Include="..\CrunchyPeanutButter.Data.Queries\CrunchyPeanutButter.Data.Queries.csproj" />
+    <ProjectReference Include="..\CrunchyPeanutButter.Data.QueryHandlers\CrunchyPeanutButter.Data.QueryHandlers.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Data\CrunchyPeanutButter.Data.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Domain.Commands\CrunchyPeanutButter.Domain.Commands.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Domain.Queries\CrunchyPeanutButter.Domain.Queries.csproj" />

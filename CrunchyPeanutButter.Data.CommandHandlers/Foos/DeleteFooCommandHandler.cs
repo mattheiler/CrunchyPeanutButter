@@ -1,20 +1,20 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using CrunchyPeanutButter.Domain.Commands.Bars;
+using CrunchyPeanutButter.Domain.Commands.Foos;
 using MediatR;
 
-namespace CrunchyPeanutButter.Data.Commands.Bars
+namespace CrunchyPeanutButter.Data.CommandHandlers.Foos
 {
-    public class DeleteBarCommandHandler : IRequestHandler<DeleteBarCommand, bool>
+    public class DeleteFooCommandHandler : IRequestHandler<DeleteFooCommand, bool>
     {
         private readonly CrunchyPeanutButterDbContext _context;
 
-        public DeleteBarCommandHandler(CrunchyPeanutButterDbContext context)
+        public DeleteFooCommandHandler(CrunchyPeanutButterDbContext context)
         {
             _context = context;
         }
 
-        public async Task<bool> Handle(DeleteBarCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(DeleteFooCommand request, CancellationToken cancellationToken)
         {
             var entity = await _context.Bars.FindAsync(request.Id);
             if (entity == null)

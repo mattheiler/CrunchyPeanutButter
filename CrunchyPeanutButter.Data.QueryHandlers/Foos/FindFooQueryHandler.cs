@@ -4,7 +4,7 @@ using CrunchyPeanutButter.Domain.Models;
 using CrunchyPeanutButter.Domain.Queries.Foos;
 using MediatR;
 
-namespace CrunchyPeanutButter.Data.Queries.Foos
+namespace CrunchyPeanutButter.Data.QueryHandlers.Foos
 {
     public class FindFooQueryHandler : IRequestHandler<FindFooQuery, Foo>
     {

@@ -4,20 +4,20 @@ using CrunchyPeanutButter.Domain.Commands.Bars;
 using CrunchyPeanutButter.Domain.Models;
 using MediatR;
 
-namespace CrunchyPeanutButter.Data.Commands.Bars
+namespace CrunchyPeanutButter.Data.CommandHandlers.Bars
 {
-    public class CreateBarCommandHandler : IRequestHandler<CreateBarCommand, Bar>
+    public class UpdateBarCommandHandler : IRequestHandler<UpdateBarCommand, Bar>
     {
         private readonly CrunchyPeanutButterDbContext _context;
 
-        public CreateBarCommandHandler(CrunchyPeanutButterDbContext context)
+        public UpdateBarCommandHandler(CrunchyPeanutButterDbContext context)
         {
             _context = context;
         }
 
-        public async Task<Bar> Handle(CreateBarCommand request, CancellationToken cancellationToken)
+        public async Task<Bar> Handle(UpdateBarCommand request, CancellationToken cancellationToken)
         {
-            var entry = await _context.Bars.AddAsync(request.Bar, cancellationToken);
+            var entry = _context.Bars.Update(request.Bar);
 
             await _context.SaveChangesAsync(cancellationToken);
 

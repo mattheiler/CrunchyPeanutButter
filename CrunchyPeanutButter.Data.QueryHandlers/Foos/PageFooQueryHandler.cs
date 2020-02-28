@@ -6,7 +6,7 @@ using CrunchyPeanutButter.Domain.Models;
 using CrunchyPeanutButter.Domain.Queries.Foos;
 using MediatR;
 
-namespace CrunchyPeanutButter.Data.Queries.Foos
+namespace CrunchyPeanutButter.Data.QueryHandlers.Foos
 {
     public class PageFooQueryHandler : IRequestHandler<PageFooQuery, Page<Foo>>
     {

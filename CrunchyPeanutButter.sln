@@ -13,15 +13,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Domain.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Domain.Queries", "CrunchyPeanutButter.Domain.Queries\CrunchyPeanutButter.Domain.Queries.csproj", "{0A69287D-809D-417A-8929-1957E87BC640}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Data.Commands", "CrunchyPeanutButter.Data.Commands\CrunchyPeanutButter.Data.Commands.csproj", "{214B1F4D-D51D-45C2-9FAE-65ECD671F438}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Data.CommandHandlers", "CrunchyPeanutButter.Data.CommandHandlers\CrunchyPeanutButter.Data.CommandHandlers.csproj", "{214B1F4D-D51D-45C2-9FAE-65ECD671F438}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Data.Queries", "CrunchyPeanutButter.Data.Queries\CrunchyPeanutButter.Data.Queries.csproj", "{DC433689-D064-4A20-83C8-D17C07DB411E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Data.QueryHandlers", "CrunchyPeanutButter.Data.QueryHandlers\CrunchyPeanutButter.Data.QueryHandlers.csproj", "{DC433689-D064-4A20-83C8-D17C07DB411E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Data", "CrunchyPeanutButter.Data\CrunchyPeanutButter.Data.csproj", "{662AA5E1-5DAB-4E1E-AB31-F71C157FCE7B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8D1EAF74-5453-4335-BC66-3823C4F2FB56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrunchyPeanutButter.Validation", "CrunchyPeanutButter.Validation\CrunchyPeanutButter.Validation.csproj", "{008DDB5D-1E7F-45D4-AF1F-CDE91A58755F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Validation", "CrunchyPeanutButter.Validation\CrunchyPeanutButter.Validation.csproj", "{008DDB5D-1E7F-45D4-AF1F-CDE91A58755F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Data.Migrations", "CrunchyPeanutButter.Data.Migrations\CrunchyPeanutButter.Data.Migrations.csproj", "{FF1F13E1-CCDD-43E5-B1E0-9B4F19F2D988}"
 EndProject

@@ -2,11 +2,11 @@
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CrunchyPeanutButter.Data.Commands
+namespace CrunchyPeanutButter.Data.QueryHandlers
 {
     public static class Setup
     {
-        public static IServiceCollection AddCommands(this IServiceCollection services)
+        public static IServiceCollection AddQueryHandlers(this IServiceCollection services)
         {
             return services.AddMediatR(Assembly.GetExecutingAssembly());
         }

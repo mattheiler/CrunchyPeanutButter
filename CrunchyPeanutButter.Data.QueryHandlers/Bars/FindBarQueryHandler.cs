@@ -4,7 +4,7 @@ using CrunchyPeanutButter.Domain.Models;
 using CrunchyPeanutButter.Domain.Queries.Bars;
 using MediatR;
 
-namespace CrunchyPeanutButter.Data.Queries.Bars
+namespace CrunchyPeanutButter.Data.QueryHandlers.Bars
 {
     public class FindBarQueryHandler : IRequestHandler<FindBarQuery, Bar>
     {
