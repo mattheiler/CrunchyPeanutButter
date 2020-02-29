@@ -1,9 +1,4 @@
 using CrunchyPeanutButter.Data;
-using CrunchyPeanutButter.Data.CommandHandlers;
-using CrunchyPeanutButter.Data.QueryHandlers;
-using CrunchyPeanutButter.Domain.Commands;
-using CrunchyPeanutButter.Domain.Queries;
-using CrunchyPeanutButter.Validation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -33,13 +28,6 @@ namespace CrunchyPeanutButter.Api
 
             services
                 .AddControllers();
-
-            services
-                .AddValidation()
-                .AddCommands()
-                .AddCommandHandlers()
-                .AddQueries()
-                .AddQueryHandlers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -23,6 +23,9 @@
     <ProjectReference Include="..\CrunchyPeanutButter.Domain.Commands\CrunchyPeanutButter.Domain.Commands.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Domain.Queries\CrunchyPeanutButter.Domain.Queries.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Domain\CrunchyPeanutButter.Domain.csproj" />
-    <ProjectReference Include="..\CrunchyPeanutButter.Validation\CrunchyPeanutButter.Validation.csproj" />
+    <ProjectReference Include="..\CrunchyPeanutButter.Events\CrunchyPeanutButter.Events.csproj" />
+    <ProjectReference Include="..\CrunchyPeanutButter.Messages\CrunchyPeanutButter.Messages.csproj" />
+    <ProjectReference Include="..\CrunchyPeanutButter.Notifications\CrunchyPeanutButter.Notifications.csproj" />
+    <ProjectReference Include="..\CrunchyPeanutButter.Validators\CrunchyPeanutButter.Validators.csproj" />
   </ItemGroup>
 </Project>

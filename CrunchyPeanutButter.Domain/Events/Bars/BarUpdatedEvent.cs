@@ -1,6 +1,8 @@
-﻿namespace CrunchyPeanutButter.Domain.Events.Bars
+﻿using MediatR;
+
+namespace CrunchyPeanutButter.Domain.Events.Bars
 {
-    public class BarUpdatedEvent
+    public class BarUpdatedEvent : IDomainEvent
     {
     }
 }

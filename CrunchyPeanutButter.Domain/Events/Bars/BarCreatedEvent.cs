@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MediatR;
 
 namespace CrunchyPeanutButter.Domain.Events.Bars
 {
-    public class BarCreatedEvent
+    public class BarCreatedEvent : IDomainEvent
     {
     }
 }

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
 using MediatR;
-using ValidationException = System.ComponentModel.DataAnnotations.ValidationException;
 
-namespace CrunchyPeanutButter.Validation.Behaviors
+namespace CrunchyPeanutButter.Validators.Behaviors
 {
     public class ValidatorBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
@@ -25,8 +23,7 @@ namespace CrunchyPeanutButter.Validation.Behaviors
                 .Where(error => error != null)
                 .ToList();
             if (failures.Any())
-                throw new AggregateException($"Command Validation Errors for type {typeof(TRequest).Name}",
-                    new ValidationException("Validation exception"));
+                throw new ValidationException("Validation exception");
 
             return await next();
         }

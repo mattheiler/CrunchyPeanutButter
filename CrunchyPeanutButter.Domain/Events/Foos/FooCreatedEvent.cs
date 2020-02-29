@@ -1,6 +1,8 @@
-﻿namespace CrunchyPeanutButter.Domain.Events.Foos
+﻿using MediatR;
+
+namespace CrunchyPeanutButter.Domain.Events.Foos
 {
-    public class FooCreatedEvent
+    public class FooCreatedEvent : IDomainEvent
     {
     }
 }
