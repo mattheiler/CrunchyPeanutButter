@@ -25,6 +25,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Validat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Data.Migrations", "CrunchyPeanutButter.Data.Migrations\CrunchyPeanutButter.Data.Migrations.csproj", "{FF1F13E1-CCDD-43E5-B1E0-9B4F19F2D988}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{D23C4D28-24CD-4DC7-B38F-7C054FD6B915}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{B21EEE7F-CA1E-4B37-923C-4039F6B11F06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -76,7 +80,10 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{8C4C4CCA-AA66-4117-A10C-35290269D637} = {D23C4D28-24CD-4DC7-B38F-7C054FD6B915}
 		{740A0083-7CC1-4AD1-A0E0-FFA5ADC04698} = {8D1EAF74-5453-4335-BC66-3823C4F2FB56}
+		{90431464-C293-48F2-8F01-DCAA987CD9BC} = {D23C4D28-24CD-4DC7-B38F-7C054FD6B915}
+		{0A69287D-809D-417A-8929-1957E87BC640} = {D23C4D28-24CD-4DC7-B38F-7C054FD6B915}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1DDC67EE-68B3-407C-BD96-F05C472FF225}
