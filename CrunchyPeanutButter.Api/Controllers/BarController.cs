@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using CrunchyPeanutButter.Domain.Collections;
-using CrunchyPeanutButter.Domain.Commands.Bars;
-using CrunchyPeanutButter.Domain.Models;
-using CrunchyPeanutButter.Domain.Queries.Bars;
+using CrispyBacon.Collections;
+using CrunchyPeanutButter.Domain.Bars;
+using CrunchyPeanutButter.Domain.Bars.Commands;
+using CrunchyPeanutButter.Domain.Bars.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,33 +20,33 @@ namespace CrunchyPeanutButter.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public Task<Bar> FindAsync(int id)
+        public Task<Bar> FindAsync(FindBarQuery query)
         {
-            return _mediator.Send(new FindBarQuery(id));
+            return _mediator.Send(query);
         }
 
         [HttpGet]
-        public Task<Page<Bar>> PageAsync(int pageIndex, int pageSize, string sortBy, SortDirection sortDirection)
+        public Task<Page<Bar>> PageAsync(PageBarQuery query)
         {
-            return _mediator.Send(new PageBarQuery(pageIndex, pageSize, sortBy, sortDirection));
+            return _mediator.Send(query);
         }
 
         [HttpPost]
-        public Task<Bar> CreateAsync(Bar bar)
+        public Task<Bar> CreateAsync(CreateBarCommand command)
         {
-            return _mediator.Send(new CreateBarCommand(bar));
+            return _mediator.Send(command);
         }
 
         [HttpPut("{id}")]
-        public Task<Bar> UpdateAsync(Bar bar)
+        public Task<Bar> UpdateAsync(UpdateBarCommand command)
         {
-            return _mediator.Send(new UpdateBarCommand(bar));
+            return _mediator.Send(command);
         }
 
         [HttpDelete("{id}")]
-        public Task<bool> DeleteAsync(int id)
+        public Task<bool> DeleteAsync(DeleteBarCommand command)
         {
-            return _mediator.Send(new DeleteBarCommand(id));
+            return _mediator.Send(command);
         }
     }
 }

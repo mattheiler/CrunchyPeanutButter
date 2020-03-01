@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using CrunchyPeanutButter.Domain.Collections;
-using CrunchyPeanutButter.Domain.Commands.Foos;
-using CrunchyPeanutButter.Domain.Models;
-using CrunchyPeanutButter.Domain.Queries.Foos;
+using CrispyBacon.Collections;
+using CrunchyPeanutButter.Domain.Foos;
+using CrunchyPeanutButter.Domain.Foos.Commands;
+using CrunchyPeanutButter.Domain.Foos.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,33 +20,33 @@ namespace CrunchyPeanutButter.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public Task<Foo> FindAsync(int id)
+        public Task<Foo> FindAsync(FindFooQuery query)
         {
-            return _mediator.Send(new FindFooQuery(id));
+            return _mediator.Send(query);
         }
 
         [HttpGet]
-        public Task<Page<Foo>> PageAsync(int pageIndex, int pageSize, string sortBy, SortDirection sortDirection)
+        public Task<Page<Foo>> PageAsync(PageFooQuery query)
         {
-            return _mediator.Send(new PageFooQuery(pageIndex, pageSize, sortBy, sortDirection));
+            return _mediator.Send(query);
         }
 
         [HttpPost]
-        public Task<Foo> CreateAsync(Foo foo)
+        public Task<Foo> CreateAsync(CreateFooCommand command)
         {
-            return _mediator.Send(new CreateFooCommand(foo));
+            return _mediator.Send(command);
         }
 
         [HttpPut("{id}")]
-        public Task<Foo> UpdateAsync(Foo foo)
+        public Task<Foo> UpdateAsync(UpdateFooCommand command)
         {
-            return _mediator.Send(new UpdateFooCommand(foo));
+            return _mediator.Send(command);
         }
 
         [HttpDelete("{id}")]
-        public Task<bool> DeleteAsync(int id)
+        public Task<bool> DeleteAsync(DeleteFooCommand command)
         {
-            return _mediator.Send(new DeleteFooCommand(id));
+            return _mediator.Send(command);
         }
     }
 }
