@@ -15,9 +15,4 @@
     <ProjectReference Include="..\CrunchyPeanutButter.Domain\CrunchyPeanutButter.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="CommandHandlers\Foos\CommandHandlers\" />
-    <Folder Include="CommandHandlers\Foos\QueryHandlers\" />
-  </ItemGroup>
-
 </Project>

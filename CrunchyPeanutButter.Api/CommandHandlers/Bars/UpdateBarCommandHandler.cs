@@ -2,8 +2,8 @@
 using System.Threading;
 using System.Threading.Tasks;
 using CrispyBacon.Data;
+using CrunchyPeanutButter.Api.Commands.Bars;
 using CrunchyPeanutButter.Domain.Bars;
-using CrunchyPeanutButter.Domain.Bars.Commands;
 using MediatR;
 
 namespace CrunchyPeanutButter.Api.CommandHandlers.Bars

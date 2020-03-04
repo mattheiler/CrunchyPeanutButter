@@ -1,8 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using CrispyBacon.Data;
+using CrunchyPeanutButter.Api.Commands.Foos;
 using CrunchyPeanutButter.Domain.Foos;
-using CrunchyPeanutButter.Domain.Foos.Commands;
 using MediatR;
 
 namespace CrunchyPeanutButter.Api.CommandHandlers.Foos

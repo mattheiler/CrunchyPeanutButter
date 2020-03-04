@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="CommandHandlers\Foos\CommandHandlers\**" />
+    <Compile Remove="CommandHandlers\Foos\QueryHandlers\**" />
+    <Content Remove="CommandHandlers\Foos\CommandHandlers\**" />
+    <Content Remove="CommandHandlers\Foos\QueryHandlers\**" />
+    <EmbeddedResource Remove="CommandHandlers\Foos\CommandHandlers\**" />
+    <EmbeddedResource Remove="CommandHandlers\Foos\QueryHandlers\**" />
+    <None Remove="CommandHandlers\Foos\CommandHandlers\**" />
+    <None Remove="CommandHandlers\Foos\QueryHandlers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Amazon.Lambda.AspNetCoreServer" Version="4.1.0" />
     <PackageReference Include="Amazon.Lambda.RuntimeSupport" Version="1.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.2">
@@ -21,10 +32,5 @@
     <ProjectReference Include="..\CrunchyPeanutButter.Data\CrunchyPeanutButter.Data.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Domain\CrunchyPeanutButter.Domain.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Validators\CrunchyPeanutButter.Validators.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="CommandHandlers\Foos\CommandHandlers\" />
-    <Folder Include="CommandHandlers\Foos\QueryHandlers\" />
   </ItemGroup>
 </Project>

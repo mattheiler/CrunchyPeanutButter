@@ -1,8 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using CrispyBacon.Data;
+using CrunchyPeanutButter.Api.Commands.Bars;
 using CrunchyPeanutButter.Domain.Bars;
-using CrunchyPeanutButter.Domain.Bars.Commands;
 using MediatR;
 
 namespace CrunchyPeanutButter.Api.CommandHandlers.Bars
@@ -22,7 +22,7 @@ namespace CrunchyPeanutButter.Api.CommandHandlers.Bars
 
             var entity = new Bar {Name = request.Name};
 
-            await _context.GetRepository<Bar>().AddAsync(entity, cancellationToken);
+            await repository.AddAsync(entity, cancellationToken);
 
             await _context.SaveAsync(cancellationToken);
 

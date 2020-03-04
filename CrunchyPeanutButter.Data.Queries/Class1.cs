@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CrunchyPeanutButter.Queries
+namespace CrunchyPeanutButter.Data.Queries
 {
     public class Class1
     {

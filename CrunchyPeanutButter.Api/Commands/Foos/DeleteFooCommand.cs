@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using MediatR;
 
-namespace CrunchyPeanutButter.Domain.Foos.Commands
+namespace CrunchyPeanutButter.Api.Commands.Foos
 {
     public class DeleteFooCommand : IRequest<bool>
     {

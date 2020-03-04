@@ -15,27 +15,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8D1EAF74
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Data.Migrations", "CrunchyPeanutButter.Data.Migrations\CrunchyPeanutButter.Data.Migrations.csproj", "{FF1F13E1-CCDD-43E5-B1E0-9B4F19F2D988}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{D23C4D28-24CD-4DC7-B38F-7C054FD6B915}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{B21EEE7F-CA1E-4B37-923C-4039F6B11F06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrunchyPeanutButter.Validators", "CrunchyPeanutButter.Validators\CrunchyPeanutButter.Validators.csproj", "{62D835C9-8548-4024-9137-4F134F98EE5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Validators", "CrunchyPeanutButter.Validators\CrunchyPeanutButter.Validators.csproj", "{62D835C9-8548-4024-9137-4F134F98EE5D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{1A8B861E-33F4-41F3-A66E-7D553B6EC9AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrispyBacon.Events.AwsEventBridge", "CrispyBacon.Events.AwsEventBridge\CrispyBacon.Events.AwsEventBridge.csproj", "{B36F4056-2381-4D4E-BDAC-8DBE28B3DCA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrispyBacon.Events.AwsEventBridge", "CrispyBacon.Events.AwsEventBridge\CrispyBacon.Events.AwsEventBridge.csproj", "{B36F4056-2381-4D4E-BDAC-8DBE28B3DCA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrispyBacon.Events", "CrispyBacon.Events\CrispyBacon.Events.csproj", "{8010518B-B718-490B-B7B2-FDFABB3E61EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrispyBacon.Events", "CrispyBacon.Events\CrispyBacon.Events.csproj", "{8010518B-B718-490B-B7B2-FDFABB3E61EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrispyBacon.Data", "CrispyBacon.Data\CrispyBacon.Data.csproj", "{4FE175E6-8A22-4A21-A2CE-D4421CDCD00F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrispyBacon.Data", "CrispyBacon.Data\CrispyBacon.Data.csproj", "{4FE175E6-8A22-4A21-A2CE-D4421CDCD00F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrispyBacon.Data.EntityFrameworkCore", "CrispyBacon.Data.EntityFrameworkCore\CrispyBacon.Data.EntityFrameworkCore.csproj", "{4A824970-E189-45D1-A118-37DB556FDF04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrispyBacon.Data.EntityFrameworkCore", "CrispyBacon.Data.EntityFrameworkCore\CrispyBacon.Data.EntityFrameworkCore.csproj", "{4A824970-E189-45D1-A118-37DB556FDF04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrispyBacon.Data.EntityFrameworkCore.Collections", "CrispyBacon.Data.EntityFrameworkCore.Collections\CrispyBacon.Data.EntityFrameworkCore.Collections.csproj", "{35245866-9062-4BD9-92E9-E7246F6B99CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrispyBacon.Data.EntityFrameworkCore.Collections", "CrispyBacon.Data.EntityFrameworkCore.Collections\CrispyBacon.Data.EntityFrameworkCore.Collections.csproj", "{35245866-9062-4BD9-92E9-E7246F6B99CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrispyBacon.Core", "CrispyBacon.Core\CrispyBacon.Core.csproj", "{CC7EF198-90D8-4BBD-B0FB-1100AB561C5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrispyBacon.Core", "CrispyBacon.Core\CrispyBacon.Core.csproj", "{CC7EF198-90D8-4BBD-B0FB-1100AB561C5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrunchyPeanutButter.Queries", "CrunchyPeanutButter.Queries\CrunchyPeanutButter.Queries.csproj", "{5DD5F203-619A-43CC-9980-62E366631706}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{C03A87A4-313A-4F05-AC4C-B07A2DAE6B1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,16 +89,12 @@ Global
 		{CC7EF198-90D8-4BBD-B0FB-1100AB561C5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC7EF198-90D8-4BBD-B0FB-1100AB561C5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC7EF198-90D8-4BBD-B0FB-1100AB561C5E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5DD5F203-619A-43CC-9980-62E366631706}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5DD5F203-619A-43CC-9980-62E366631706}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5DD5F203-619A-43CC-9980-62E366631706}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5DD5F203-619A-43CC-9980-62E366631706}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{8C4C4CCA-AA66-4117-A10C-35290269D637} = {D23C4D28-24CD-4DC7-B38F-7C054FD6B915}
+		{8C4C4CCA-AA66-4117-A10C-35290269D637} = {C03A87A4-313A-4F05-AC4C-B07A2DAE6B1D}
 		{740A0083-7CC1-4AD1-A0E0-FFA5ADC04698} = {8D1EAF74-5453-4335-BC66-3823C4F2FB56}
 		{662AA5E1-5DAB-4E1E-AB31-F71C157FCE7B} = {B21EEE7F-CA1E-4B37-923C-4039F6B11F06}
 		{FF1F13E1-CCDD-43E5-B1E0-9B4F19F2D988} = {B21EEE7F-CA1E-4B37-923C-4039F6B11F06}

@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using CrispyBacon.Data;
-using CrunchyPeanutButter.Domain.Bars.Commands;
+using CrunchyPeanutButter.Api.Commands.Bars;
 using CrunchyPeanutButter.Domain.Foos;
 using MediatR;
 

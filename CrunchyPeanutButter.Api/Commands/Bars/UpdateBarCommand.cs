@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using CrunchyPeanutButter.Domain.Bars;
 using MediatR;
 
-namespace CrunchyPeanutButter.Domain.Bars.Commands
+namespace CrunchyPeanutButter.Api.Commands.Bars
 {
     public class UpdateBarCommand : IRequest<Bar>
     {

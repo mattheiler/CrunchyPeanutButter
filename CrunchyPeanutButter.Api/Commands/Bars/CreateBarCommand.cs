@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using CrunchyPeanutButter.Domain.Bars;
 using MediatR;
 
-namespace CrunchyPeanutButter.Domain.Foos.Commands
+namespace CrunchyPeanutButter.Api.Commands.Bars
 {
-    public class CreateFooCommand : IRequest<Foo>
+    public class CreateBarCommand : IRequest<Bar>
     {
         [Required]
         public string Name { get; private set; }

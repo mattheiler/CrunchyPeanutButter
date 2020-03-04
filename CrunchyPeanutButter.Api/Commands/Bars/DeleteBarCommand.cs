@@ -1,14 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using MediatR;
 
-namespace CrunchyPeanutButter.Domain.Foos.Commands
+namespace CrunchyPeanutButter.Api.Commands.Bars
 {
-    public class UpdateFooCommand : IRequest<Foo>
+    public class DeleteBarCommand : IRequest<bool>
     {
         [Range(1, int.MaxValue, ErrorMessage = "Please enter a value bigger than {1}.")]
         public int Id { get; private set; }
-
-        [Required]
-        public string Name { get; private set; }
     }
 }
