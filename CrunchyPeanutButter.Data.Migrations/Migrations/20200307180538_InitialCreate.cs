@@ -7,149 +7,143 @@ namespace CrunchyPeanutButter.Data.Migrations.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Bars",
-                columns: table => new
+                "Bars",
+                table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>()
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
                     Fum_Name = table.Column<string>(nullable: true)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Bars", x => x.Id);
-                });
+                constraints: table => { table.PrimaryKey("PK_Bars", x => x.Id); });
 
             migrationBuilder.CreateTable(
-                name: "Foos",
-                columns: table => new
+                "Foos",
+                table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>()
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true)
                 },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Foos", x => x.Id);
-                });
+                constraints: table => { table.PrimaryKey("PK_Foos", x => x.Id); });
 
             migrationBuilder.CreateTable(
-                name: "Ack",
-                columns: table => new
+                "Ack",
+                table => new
                 {
-                    BarId = table.Column<int>(nullable: false),
+                    BarId = table.Column<int>(),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Ack", x => x.BarId);
                     table.ForeignKey(
-                        name: "FK_Ack_Bars_BarId",
-                        column: x => x.BarId,
-                        principalTable: "Bars",
-                        principalColumn: "Id",
+                        "FK_Ack_Bars_BarId",
+                        x => x.BarId,
+                        "Bars",
+                        "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Baz",
-                columns: table => new
+                "Baz",
+                table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>()
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FooId = table.Column<int>(nullable: false),
+                    FooId = table.Column<int>(),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Baz", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Baz_Foos_FooId",
-                        column: x => x.FooId,
-                        principalTable: "Foos",
-                        principalColumn: "Id",
+                        "FK_Baz_Foos_FooId",
+                        x => x.FooId,
+                        "Foos",
+                        "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "FooBar",
-                columns: table => new
+                "FooBar",
+                table => new
                 {
-                    FooId = table.Column<int>(nullable: false),
-                    BarId = table.Column<int>(nullable: false)
+                    FooId = table.Column<int>(),
+                    BarId = table.Column<int>()
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FooBar", x => new { x.FooId, x.BarId });
+                    table.PrimaryKey("PK_FooBar", x => new {x.FooId, x.BarId});
                     table.ForeignKey(
-                        name: "FK_FooBar_Bars_BarId",
-                        column: x => x.BarId,
-                        principalTable: "Bars",
-                        principalColumn: "Id",
+                        "FK_FooBar_Bars_BarId",
+                        x => x.BarId,
+                        "Bars",
+                        "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_FooBar_Foos_FooId",
-                        column: x => x.FooId,
-                        principalTable: "Foos",
-                        principalColumn: "Id",
+                        "FK_FooBar_Foos_FooId",
+                        x => x.FooId,
+                        "Foos",
+                        "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Qux",
-                columns: table => new
+                "Qux",
+                table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>()
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BazId = table.Column<int>(nullable: false),
+                    BazId = table.Column<int>(),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Qux", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Qux_Baz_BazId",
-                        column: x => x.BazId,
-                        principalTable: "Baz",
-                        principalColumn: "Id",
+                        "FK_Qux_Baz_BazId",
+                        x => x.BazId,
+                        "Baz",
+                        "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Baz_FooId",
-                table: "Baz",
-                column: "FooId");
+                "IX_Baz_FooId",
+                "Baz",
+                "FooId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_FooBar_BarId",
-                table: "FooBar",
-                column: "BarId");
+                "IX_FooBar_BarId",
+                "FooBar",
+                "BarId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Qux_BazId",
-                table: "Qux",
-                column: "BazId");
+                "IX_Qux_BazId",
+                "Qux",
+                "BazId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Ack");
+                "Ack");
 
             migrationBuilder.DropTable(
-                name: "FooBar");
+                "FooBar");
 
             migrationBuilder.DropTable(
-                name: "Qux");
+                "Qux");
 
             migrationBuilder.DropTable(
-                name: "Bars");
+                "Bars");
 
             migrationBuilder.DropTable(
-                name: "Baz");
+                "Baz");
 
             migrationBuilder.DropTable(
-                name: "Foos");
+                "Foos");
         }
     }
 }

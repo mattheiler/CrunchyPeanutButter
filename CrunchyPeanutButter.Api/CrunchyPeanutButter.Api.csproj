@@ -9,9 +9,9 @@
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.AspNetCoreServer" Version="4.1.0" />
     <PackageReference Include="Amazon.Lambda.RuntimeSupport" Version="1.1.0" />
-    <PackageReference Include="AutoMapper" Version="9.0.0" />
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.3.101" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -20,6 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CrispyBacon.Events.AwsEventBridge\CrispyBacon.Events.AwsEventBridge.csproj" />
+    <ProjectReference Include="..\CrispyBacon.Events\CrispyBacon.Events.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Data.Migrations\CrunchyPeanutButter.Data.Migrations.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Data.Queries\CrunchyPeanutButter.Data.Queries.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Data\CrunchyPeanutButter.Data.csproj" />

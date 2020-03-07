@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AWSSDK.EventBridge" Version="3.3.101.4" />
+    <PackageReference Include="AWSSDK.EventBridge" Version="3.3.101.7" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.2" />
     <PackageReference Include="System.Text.Json" Version="4.7.1" />
   </ItemGroup>

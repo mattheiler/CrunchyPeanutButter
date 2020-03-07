@@ -11,7 +11,7 @@ namespace CrunchyPeanutButter.Api
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             if (string.IsNullOrEmpty(Environment.GetEnvironmentVariable("AWS_LAMBDA_FUNCTION_NAME")))
             {
@@ -20,21 +20,25 @@ namespace CrunchyPeanutButter.Api
             else
             {
                 var lambdaEntry = new LambdaEntryPoint();
-                var functionHandler =
-                    (Func<APIGatewayProxyRequest, ILambdaContext, Task<APIGatewayProxyResponse>>) lambdaEntry
-                        .FunctionHandlerAsync;
+                var functionHandler = (Func<APIGatewayProxyRequest, ILambdaContext, Task<APIGatewayProxyResponse>>)lambdaEntry.FunctionHandlerAsync;
 
                 using var handlerWrapper = HandlerWrapper.GetHandlerWrapper(functionHandler, new JsonSerializer());
                 using var bootstrap = new LambdaBootstrap(handlerWrapper);
 
-                bootstrap.RunAsync().Wait();
+                await bootstrap.RunAsync();
             }
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
-            return Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+            return
+                Host
+                    .CreateDefaultBuilder(args)
+                    .ConfigureWebHostDefaults(webBuilder =>
+                    {
+                        webBuilder
+                            .UseStartup<Startup>();
+                    });
         }
     }
 }

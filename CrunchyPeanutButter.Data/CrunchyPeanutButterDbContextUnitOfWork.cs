@@ -1,10 +1,8 @@
 ﻿using CrispyBacon.Data.EntityFrameworkCore;
 using CrunchyPeanutButter.Data.Stores;
-using CrunchyPeanutButter.Domain;
-using CrunchyPeanutButter.Domain.Bars;
-using CrunchyPeanutButter.Domain.Bars.Stores;
-using CrunchyPeanutButter.Domain.Foos;
-using CrunchyPeanutButter.Domain.Foos.Stores;
+using CrunchyPeanutButter.Domain.Aggregates.Bars;
+using CrunchyPeanutButter.Domain.Aggregates.Foos;
+using CrunchyPeanutButter.Domain.Stores;
 
 namespace CrunchyPeanutButter.Data
 {

@@ -1,21 +1,23 @@
-﻿using System.Net.Mime;
+﻿using System;
+using System.Net.Mime;
 using System.Reflection;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Amazon.EventBridge;
 using Amazon.EventBridge.Model;
+using MediatR;
 using Microsoft.Extensions.Options;
 
 namespace CrispyBacon.Events.AwsEventBridge
 {
-    public sealed class AwsEventBridgeDomainEventHandler<T> : IDomainEventHandler<T> where T : IDomainEvent
+    public sealed class AwsEventBridgeDomainEventHandler<T> : INotificationHandler<T> where T : INotification
     {
         private readonly IAmazonEventBridge _eb;
 
         private readonly IOptions<AwsEventBridgeDomainEventHandlerOptions> _options;
 
-        internal AwsEventBridgeDomainEventHandler(IAmazonEventBridge eb, IOptions<AwsEventBridgeDomainEventHandlerOptions> options)
+        public AwsEventBridgeDomainEventHandler(IAmazonEventBridge eb, IOptions<AwsEventBridgeDomainEventHandlerOptions> options)
         {
             _eb = eb;
             _options = options;

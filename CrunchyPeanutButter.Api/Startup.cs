@@ -1,8 +1,12 @@
+using System;
+using System.Linq;
 using System.Reflection;
-using AutoMapper;
+using Amazon.EventBridge;
+using CrispyBacon.Events.AwsEventBridge;
 using CrunchyPeanutButter.Data;
 using CrunchyPeanutButter.Data.Queries;
-using CrunchyPeanutButter.Domain;
+using CrunchyPeanutButter.Domain.Events;
+using CrunchyPeanutButter.Domain.Stores;
 using CrunchyPeanutButter.Queries.Bars;
 using CrunchyPeanutButter.Queries.Foos;
 using MediatR;
@@ -13,6 +17,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 
 namespace CrunchyPeanutButter.Api
 {
@@ -30,34 +35,39 @@ namespace CrunchyPeanutButter.Api
         {
             services
                 .AddDbContext<CrunchyPeanutButterDbContext>(ef =>
-                    ef.UseSqlServer(Configuration.GetConnectionString("CrunchyPeanutButter"),
-                        sql => sql.MigrationsAssembly("CrunchyPeanutButter.Data.Migrations")));
+                    ef.UseSqlServer(Configuration.GetConnectionString("CrunchyPeanutButter"), sql =>
+                        sql.MigrationsAssembly("CrunchyPeanutButter.Data.Migrations")));
 
             services
                 .AddScoped<ICrunchyPeanutButterUnitOfWork, CrunchyPeanutButterDbContextUnitOfWork>();
 
-            // TODO from infrastructure project...
-            // TODO services.AddCrunchyPeanutButter().AddCommands().AddCommandHandlers().AddQueries();
+            services
+                .AddAWSService<IAmazonEventBridge>();
+            services
+                .Configure<AwsEventBridgeDomainEventHandlerOptions>(Configuration.GetSection("DomainEvents"));
 
             services
-                .AddMediatR(Assembly.Load("CrunchyPeanutButter.Domain"));
+                .AddMediatR(
+                    Assembly.Load("CrispyBacon.Events.AwsEventBridge"),
+                    Assembly.Load("CrunchyPeanutButter.Domain"));
+
             services
                 .AddScoped<IBarQueries, BarQueries>()
                 .AddScoped<IFooQueries, FooQueries>();
 
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services
+                .AddControllers()
+                .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
             services
-                .AddControllers();
-
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo
+                .AddSwaggerGen(c =>
                 {
-                    Title = "My API",
-                    Version = "v1"
+                    c.SwaggerDoc("v1", new OpenApiInfo
+                    {
+                        Title = "My API",
+                        Version = "v1"
+                    });
                 });
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
