@@ -18,6 +18,7 @@ namespace CrunchyPeanutButter.Domain.Foos
 
         public int FooId { get; private set; }
 
+        // TODO hide this, but expose the bar ID....
         public Bar Bar { get; private set; }
 
         public int BarId { get; private set; }

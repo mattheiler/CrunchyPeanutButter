@@ -10,5 +10,7 @@ namespace CrunchyPeanutButter.Domain.Foos
         public string Name { get; set; }
 
         public ICollection<FooBar> Bars { get; } = new List<FooBar>();
+
+        public ICollection<Baz> Bazes { get; } = new List<Baz>();
     }
 }

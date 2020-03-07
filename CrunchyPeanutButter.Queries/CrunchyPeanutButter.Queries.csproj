@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CrunchyPeanutButter.Domain\CrunchyPeanutButter.Domain.csproj" />
+    <ProjectReference Include="..\CrispyBacon.Core\CrispyBacon.Core.csproj" />
   </ItemGroup>
 
 </Project>

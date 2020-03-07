@@ -29,7 +29,10 @@ namespace CrispyBacon.Events.AwsEventBridge
             };
 
             var content = JsonSerializer.Serialize(@event, settings);
-            var detail = JsonSerializer.Serialize(new AwsEventBridgeDomainEvent(content, MediaTypeNames.Application.Json), settings);
+            var contentType = MediaTypeNames.Application.Json;
+
+            var detail = JsonSerializer.Serialize(new AwsEventBridgeDomainEvent(content, contentType), settings);
+            var detailType = typeof(T).GetCustomAttribute<DomainEventAttribute>()?.Name ?? typeof(T).Name;
 
             // TODO inject a transformer as a mediator to do the serialization
 
@@ -39,7 +42,7 @@ namespace CrispyBacon.Events.AwsEventBridge
                 {
                     new PutEventsRequestEntry
                     {
-                        DetailType = typeof(T).GetCustomAttribute<DomainEventAttribute>()?.Name ?? typeof(T).Name,
+                        DetailType = detailType,
                         Detail = detail,
                         EventBusName = _options.Value.EventBusName,
                         Source = _options.Value.Source

@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using CrispyBacon.Collections;
-using CrunchyPeanutButter.Api.Commands.Bars;
-using CrunchyPeanutButter.Api.Queries;
-using CrunchyPeanutButter.Domain.Bars;
+using AutoMapper;
+using CrunchyPeanutButter.Api.Models.Bars;
+using CrunchyPeanutButter.Domain.Bars.Commands;
+using CrunchyPeanutButter.Queries.Bars;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,44 +12,47 @@ namespace CrunchyPeanutButter.Api.Controllers
     [ApiController]
     public class BarController : ControllerBase
     {
+        private readonly IMapper _mapper;
+
         private readonly IMediator _mediator;
 
         private readonly IBarQueries _queries;
 
-        public BarController(IMediator mediator, IBarQueries queries)
+        public BarController(IMediator mediator, IBarQueries queries, IMapper mapper)
         {
             _mediator = mediator;
             _queries = queries;
+            _mapper = mapper;
         }
 
-        [HttpGet("{id:int}")]
-        public Task<Bar> FindAsync(int id)
+        [HttpGet("{id:long}")]
+        public async Task<BarFindResponse> FindAsync([FromRoute] long id)
         {
-            return _queries.FindAsync(id);
+            return _mapper.Map<BarFindResponse>(await _queries.FindAsync(id));
         }
 
         [HttpGet]
-        public Task<Page<Bar>> PageAsync(string sortBy, SortDirection sortDirection, int pageIndex, int pageSize)
+        public async Task<BarPageResponse> PageAsync([FromQuery] BarPageRequest request)
         {
-            return _queries.PageAsync(sortBy, sortDirection, pageIndex, pageSize);
+            return _mapper.Map<BarPageResponse>(await _queries.PageAsync(request.SortBy, request.SortDirection, request.PageIndex, request.PageSize));
         }
 
         [HttpPost]
-        public Task<Bar> CreateAsync(CreateBarCommand command)
+        public async Task<BarCreateResponse> CreateAsync([FromBody] BarCreateRequest request)
         {
-            return _mediator.Send(command);
+            return _mapper.Map<BarCreateResponse>(await _mediator.Send(_mapper.Map<CreateBarCommand>(request)));
         }
 
-        [HttpPut("{id:int}")]
-        public Task<Bar> UpdateAsync(UpdateBarCommand command)
+        [HttpPut("{id:long}")]
+        public async Task<BarUpdateResponse> UpdateAsync([FromBody] BarUpdateRequest request)
         {
-            return _mediator.Send(command);
+            return _mapper.Map<BarUpdateResponse>(await _mediator.Send(_mapper.Map<UpdateBarCommand>(request)));
         }
 
-        [HttpDelete("{id:int}")]
-        public Task<bool> DeleteAsync(DeleteBarCommand command)
+        [HttpDelete("{id:long}")]
+        public async Task<BarDeleteResponse> DeleteAsync([FromRoute] BarDeleteRequest request)
         {
-            return _mediator.Send(command);
+            return _mapper.Map<BarDeleteResponse>(await _mediator.Send(_mapper.Map<DeleteBarCommand>(request)));
         }
     }
 }

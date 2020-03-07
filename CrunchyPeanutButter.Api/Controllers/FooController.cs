@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using CrispyBacon.Collections;
-using CrunchyPeanutButter.Api.Commands.Foos;
-using CrunchyPeanutButter.Api.Queries;
-using CrunchyPeanutButter.Domain.Foos;
+using AutoMapper;
+using CrunchyPeanutButter.Api.Models.Foos;
+using CrunchyPeanutButter.Domain.Foos.Commands;
+using CrunchyPeanutButter.Queries.Foos;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,44 +12,47 @@ namespace CrunchyPeanutButter.Api.Controllers
     [ApiController]
     public class FooController : ControllerBase
     {
+        private readonly IMapper _mapper;
+
         private readonly IMediator _mediator;
 
         private readonly IFooQueries _queries;
 
-        public FooController(IMediator mediator, IFooQueries queries)
+        public FooController(IMediator mediator, IFooQueries queries, IMapper mapper)
         {
             _mediator = mediator;
             _queries = queries;
+            _mapper = mapper;
         }
 
-        [HttpGet("{id:int}")]
-        public Task<Foo> FindAsync(int id)
+        [HttpGet("{id:long}")]
+        public async Task<FooFindResponse> FindAsync([FromRoute] long id)
         {
-            return _queries.FindAsync(id);
+            return _mapper.Map<FooFindResponse>(await _queries.FindAsync(id));
         }
 
         [HttpGet]
-        public Task<Page<Foo>> PageAsync(string sortBy, SortDirection sortDirection, int pageIndex, int pageSize)
+        public async Task<FooPageResponse> PageAsync([FromQuery] FooPageRequest request)
         {
-            return _queries.PageAsync(sortBy, sortDirection, pageIndex, pageSize);
+            return _mapper.Map<FooPageResponse>(await _queries.PageAsync(request.SortBy, request.SortDirection, request.PageIndex, request.PageSize));
         }
 
         [HttpPost]
-        public Task<Foo> CreateAsync(CreateFooCommand command)
+        public async Task<FooCreateResponse> CreateAsync([FromBody] FooCreateRequest request)
         {
-            return _mediator.Send(command);
+            return _mapper.Map<FooCreateResponse>(await _mediator.Send(_mapper.Map<CreateFooCommand>(request)));
         }
 
-        [HttpPut("{id:int}")]
-        public Task<Foo> UpdateAsync(UpdateFooCommand command)
+        [HttpPut("{id:long}")]
+        public async Task<FooUpdateResponse> UpdateAsync([FromBody] FooUpdateRequest request)
         {
-            return _mediator.Send(command);
+            return _mapper.Map<FooUpdateResponse>(await _mediator.Send(_mapper.Map<UpdateFooCommand>(request)));
         }
 
-        [HttpDelete("{id:int}")]
-        public Task<bool> DeleteAsync(DeleteFooCommand command)
+        [HttpDelete("{id:long}")]
+        public async Task<FooDeleteResponse> DeleteAsync([FromRoute] FooDeleteRequest request)
         {
-            return _mediator.Send(command);
+            return _mapper.Map<FooDeleteResponse>(await _mediator.Send(_mapper.Map<DeleteFooCommand>(request)));
         }
     }
 }

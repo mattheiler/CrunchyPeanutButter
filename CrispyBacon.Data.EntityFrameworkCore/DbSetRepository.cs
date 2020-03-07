@@ -9,18 +9,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CrispyBacon.Data.EntityFrameworkCore
 {
-    public class DbSetRepository<TEntity> : IRepository<TEntity> where TEntity : class, IAggregateRoot
+    public class DbSetRepository<TEntity> : IRepository<TEntity>
+        where TEntity : class, IAggregateRoot
     {
-        private readonly DbSet<TEntity> _set;
-
         public DbSetRepository(DbSet<TEntity> set)
         {
-            _set = set;
+            Set = set;
         }
+
+        protected DbSet<TEntity> Set { get; }
 
         public IEnumerator<TEntity> GetEnumerator()
         {
-            return _set.AsQueryable().GetEnumerator();
+            return Set.AsQueryable().GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -28,60 +29,60 @@ namespace CrispyBacon.Data.EntityFrameworkCore
             return GetEnumerator();
         }
 
-        public Type ElementType => _set.AsQueryable().ElementType;
+        public Type ElementType => Set.AsQueryable().ElementType;
 
-        public Expression Expression => _set.AsQueryable().Expression;
+        public Expression Expression => Set.AsQueryable().Expression;
 
-        public IQueryProvider Provider => _set.AsQueryable().Provider;
+        public IQueryProvider Provider => Set.AsQueryable().Provider;
 
         public IAsyncEnumerator<TEntity> GetAsyncEnumerator(CancellationToken cancellationToken = default)
         {
-            return _set.AsAsyncEnumerable().GetAsyncEnumerator(cancellationToken);
+            return Set.AsAsyncEnumerable().GetAsyncEnumerator(cancellationToken);
         }
 
         public void Add(TEntity entity)
         {
-            _set.Add(entity);
+            Set.Add(entity);
         }
 
         public async Task AddAsync(TEntity entity, CancellationToken cancellationToken = default)
         {
-            await _set.AddAsync(entity, cancellationToken);
+            await Set.AddAsync(entity, cancellationToken);
         }
 
         public void AddRange(TEntity[] entities)
         {
-            _set.AddRange(entities);
+            Set.AddRange(entities);
         }
 
         public Task AddRangeAsync(TEntity[] entities, CancellationToken cancellationToken = default)
         {
-            return _set.AddRangeAsync(entities, cancellationToken);
+            return Set.AddRangeAsync(entities, cancellationToken);
         }
 
         public async Task<TEntity> FindAsync(params object[] keys)
         {
-            return await _set.FindAsync(keys);
+            return await Set.FindAsync(keys);
         }
 
         public void Update(TEntity entity)
         {
-            _set.Update(entity);
+            Set.Update(entity);
         }
 
         public void UpdateRange(TEntity[] entities)
         {
-            _set.UpdateRange(entities);
+            Set.UpdateRange(entities);
         }
 
         public void Remove(TEntity entity)
         {
-            _set.Remove(entity);
+            Set.Remove(entity);
         }
 
         public void RemoveRange(TEntity[] entities)
         {
-            _set.RemoveRange(entities);
+            Set.RemoveRange(entities);
         }
     }
 }

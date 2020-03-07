@@ -7,30 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="CommandHandlers\Foos\CommandHandlers\**" />
-    <Compile Remove="CommandHandlers\Foos\QueryHandlers\**" />
-    <Content Remove="CommandHandlers\Foos\CommandHandlers\**" />
-    <Content Remove="CommandHandlers\Foos\QueryHandlers\**" />
-    <EmbeddedResource Remove="CommandHandlers\Foos\CommandHandlers\**" />
-    <EmbeddedResource Remove="CommandHandlers\Foos\QueryHandlers\**" />
-    <None Remove="CommandHandlers\Foos\CommandHandlers\**" />
-    <None Remove="CommandHandlers\Foos\QueryHandlers\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Amazon.Lambda.AspNetCoreServer" Version="4.1.0" />
     <PackageReference Include="Amazon.Lambda.RuntimeSupport" Version="1.1.0" />
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.2">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CrispyBacon.Data.EntityFrameworkCore.Collections\CrispyBacon.Data.EntityFrameworkCore.Collections.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Data.Migrations\CrunchyPeanutButter.Data.Migrations.csproj" />
+    <ProjectReference Include="..\CrunchyPeanutButter.Data.Queries\CrunchyPeanutButter.Data.Queries.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Data\CrunchyPeanutButter.Data.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Domain\CrunchyPeanutButter.Domain.csproj" />
+    <ProjectReference Include="..\CrunchyPeanutButter.Queries\CrunchyPeanutButter.Queries.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Validators\CrunchyPeanutButter.Validators.csproj" />
   </ItemGroup>
 </Project>

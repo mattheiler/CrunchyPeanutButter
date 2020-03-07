@@ -24,6 +24,14 @@ namespace CrunchyPeanutButter.Data
             base.OnModelCreating(model);
 
             model
+                .Entity<Ack>()
+                .HasKey(e => e.BarId);
+
+            model
+                .Entity<Bar>()
+                .OwnsOne(e => e.Fum);
+
+            model
                 .Entity<FooBar>()
                 .HasKey(e => new {e.FooId, e.BarId});
         }

@@ -6,40 +6,42 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CrispyBacon.Data.EntityFrameworkCore
 {
-    public class DbContextUnitOfWork<TContext> : IUnitOfWork where TContext : DbContext
+    public abstract class DbContextUnitOfWork<TContext> : IUnitOfWork where TContext : DbContext
     {
-        private readonly TContext _context;
-
         private readonly ConcurrentDictionary<Type, object> _repositories = new ConcurrentDictionary<Type, object>();
 
-        public DbContextUnitOfWork(TContext context)
+        protected DbContextUnitOfWork(TContext context)
         {
-            _context = context;
+            Context = context;
         }
 
-        public IRepository<TEntity> GetRepository<TEntity>() where TEntity : class, IAggregateRoot
-        {
-            return (IRepository<TEntity>) _repositories.GetOrAdd(typeof(TEntity), _ => new DbSetRepository<TEntity>(_context.Set<TEntity>()));
-        }
+        protected TContext Context { get; }
 
         public void Save()
         {
-            _context.SaveChanges();
+            Context.SaveChanges();
         }
 
         public async Task SaveAsync(CancellationToken cancellationToken = default)
         {
-            await _context.SaveChangesAsync(cancellationToken);
+            await Context.SaveChangesAsync(cancellationToken);
         }
 
         public void Dispose()
         {
-            _context.Dispose();
+            Context.Dispose();
         }
 
         public ValueTask DisposeAsync()
         {
-            return _context.DisposeAsync();
+            return Context.DisposeAsync();
+        }
+
+        protected TRepository GetRepository<TRepository, TAggregate>(Func<TRepository> factory)
+            where TRepository : IRepository<TAggregate>
+            where TAggregate : class, IAggregateRoot
+        {
+            return (TRepository) _repositories.GetOrAdd(typeof(TRepository), _ => factory());
         }
     }
 }

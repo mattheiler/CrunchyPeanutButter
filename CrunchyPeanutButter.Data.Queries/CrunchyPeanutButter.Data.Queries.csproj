@@ -1,11 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CrunchyPeanutButter.Domain\CrunchyPeanutButter.Domain.csproj" />
+    <ProjectReference Include="..\CrispyBacon.Data.EntityFrameworkCore.Collections\CrispyBacon.Data.EntityFrameworkCore.Collections.csproj" />
+    <ProjectReference Include="..\CrunchyPeanutButter.Data\CrunchyPeanutButter.Data.csproj" />
+    <ProjectReference Include="..\CrunchyPeanutButter.Queries\CrunchyPeanutButter.Queries.csproj" />
   </ItemGroup>
 
 </Project>

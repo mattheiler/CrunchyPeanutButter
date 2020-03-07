@@ -7,5 +7,9 @@ namespace CrunchyPeanutButter.Domain.Bars
         public int Id { get; private set; }
 
         public string Name { get; set; }
+
+        public Ack Ack { get; private set; } = new Ack();
+
+        public Fum Fum { get; private set; } = new Fum();
     }
 }

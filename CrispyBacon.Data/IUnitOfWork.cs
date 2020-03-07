@@ -6,7 +6,7 @@ namespace CrispyBacon.Data
 {
     public interface IUnitOfWork : IDisposable, IAsyncDisposable
     {
-        IRepository<TEntity> GetRepository<TEntity>() where TEntity : class, IAggregateRoot;
+        // IRepository<TEntity> GetRepository<TEntity>() where TEntity : class, IAggregateRoot;
 
         void Save();
 
