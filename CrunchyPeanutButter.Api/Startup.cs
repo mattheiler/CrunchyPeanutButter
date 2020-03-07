@@ -49,7 +49,8 @@ namespace CrunchyPeanutButter.Api
             services
                 .AddMediatR(
                     Assembly.Load("CrispyBacon.Events.AwsEventBridge"),
-                    Assembly.Load("CrunchyPeanutButter.Domain"));
+                    Assembly.Load("CrunchyPeanutButter.Domain"),
+                    Assembly.Load("CrunchyPeanutButter.Validators"));
 
             services
                 .AddScoped<IBarQueries, BarQueries>()
