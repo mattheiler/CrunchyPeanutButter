@@ -37,11 +37,10 @@ namespace CrispyBacon.Data.EntityFrameworkCore
             return Context.DisposeAsync();
         }
 
-        protected TRepository GetRepository<TRepository, TAggregate>(Func<TRepository> factory)
-            where TRepository : IRepository<TAggregate>
+        protected IRepository<TAggregate> GetRepository<TAggregate>(Func<IRepository<TAggregate>> factory)
             where TAggregate : class, IAggregateRoot
         {
-            return (TRepository) _repositories.GetOrAdd(typeof(TRepository), _ => factory());
+            return (IRepository<TAggregate>)_repositories.GetOrAdd(typeof(TAggregate), _ => factory());
         }
     }
 }
