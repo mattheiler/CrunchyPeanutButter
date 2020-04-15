@@ -1,9 +1,9 @@
-﻿using CrunchyPeanutButter.Domain.Aggregates.Bars;
-using MediatR;
+﻿using CrispyBacon.Commands;
+using CrunchyPeanutButter.Domain.Models.Bars;
 
 namespace CrunchyPeanutButter.Domain.Commands.Bars
 {
-    public class CreateBarCommand : IRequest<Bar>
+    public class CreateBarCommand : ICommand<Bar>
     {
         public CreateBarCommand(Bar bar)
         {

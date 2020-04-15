@@ -5,7 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CrispyBacon.Core\CrispyBacon.Core.csproj" />
+    <ProjectReference Include="..\CrispyBacon.Collections\CrispyBacon.Collections.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\Shared\" />
   </ItemGroup>
 
 </Project>

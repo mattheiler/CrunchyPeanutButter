@@ -1,8 +1,8 @@
-﻿using MediatR;
+﻿using CrispyBacon.Commands;
 
 namespace CrunchyPeanutButter.Domain.Commands.Bars
 {
-    public class DeleteBarCommand : IRequest<bool>
+    public class DeleteBarCommand : ICommand<bool>
     {
         public DeleteBarCommand(in long id)
         {

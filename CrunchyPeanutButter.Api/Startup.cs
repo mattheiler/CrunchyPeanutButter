@@ -1,14 +1,11 @@
-using System;
-using System.Linq;
 using System.Reflection;
 using Amazon.EventBridge;
 using CrispyBacon.Events.AwsEventBridge;
 using CrunchyPeanutButter.Data;
 using CrunchyPeanutButter.Data.Queries;
-using CrunchyPeanutButter.Domain.Events;
+using CrunchyPeanutButter.Data.Stores;
 using CrunchyPeanutButter.Domain.Stores;
-using CrunchyPeanutButter.Queries.Bars;
-using CrunchyPeanutButter.Queries.Foos;
+using CrunchyPeanutButter.Queries.Facades;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -39,12 +36,12 @@ namespace CrunchyPeanutButter.Api
                         sql.MigrationsAssembly("CrunchyPeanutButter.Data.Migrations")));
 
             services
-                .AddScoped<ICrunchyPeanutButterUnitOfWork, CrunchyPeanutButterDbContextUnitOfWork>();
+                .AddScoped<ICrunchyPeanutButterUnitOfWork, CrunchyPeanutButterUnitOfWork>();
 
             services
                 .AddAWSService<IAmazonEventBridge>();
             services
-                .Configure<AwsEventBridgeDomainEventHandlerOptions>(Configuration.GetSection("DomainEvents"));
+                .Configure<EventBridgeEventDispatcherOptions>(Configuration.GetSection("DomainEvents"));
 
             services
                 .AddMediatR(

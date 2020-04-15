@@ -1,16 +1,16 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using CrunchyPeanutButter.Domain.Aggregates.Foos;
+using CrispyBacon.Commands;
 using CrunchyPeanutButter.Domain.Commands.Foos;
+using CrunchyPeanutButter.Domain.Models.Foos;
 using CrunchyPeanutButter.Domain.Stores;
-using MediatR;
 
 namespace CrunchyPeanutButter.Domain.Services
 {
     public class FooService :
-        IRequestHandler<CreateFooCommand, Foo>,
-        IRequestHandler<UpdateFooCommand, Foo>,
-        IRequestHandler<DeleteFooCommand, bool>
+        ICommandHandler<CreateFooCommand, Foo>,
+        ICommandHandler<UpdateFooCommand, Foo>,
+        ICommandHandler<DeleteFooCommand, bool>
     {
         private readonly ICrunchyPeanutButterUnitOfWork _context;
 
@@ -30,17 +30,6 @@ namespace CrunchyPeanutButter.Domain.Services
             return foo;
         }
 
-        public async Task<Foo> Handle(UpdateFooCommand request, CancellationToken cancellationToken)
-        {
-            var foo = request.Foo;
-
-            _context.Foos.Update(foo);
-
-            await _context.SaveAsync(cancellationToken);
-
-            return foo;
-        }
-
         public async Task<bool> Handle(DeleteFooCommand request, CancellationToken cancellationToken)
         {
             var entity = await _context.Foos.FindAsync(request.Id);
@@ -52,6 +41,17 @@ namespace CrunchyPeanutButter.Domain.Services
             await _context.SaveAsync(cancellationToken);
 
             return true;
+        }
+
+        public async Task<Foo> Handle(UpdateFooCommand request, CancellationToken cancellationToken)
+        {
+            var foo = request.Foo;
+
+            _context.Foos.Update(foo);
+
+            await _context.SaveAsync(cancellationToken);
+
+            return foo;
         }
     }
 }

@@ -1,9 +1,9 @@
-﻿using CrunchyPeanutButter.Domain.Aggregates.Bars;
-using MediatR;
+﻿using CrispyBacon.Events;
+using CrunchyPeanutButter.Domain.Models.Bars;
 
 namespace CrunchyPeanutButter.Domain.Events
 {
-    public class BarCreatedEvent : INotification
+    public class BarCreatedEvent : IEvent
     {
         public BarCreatedEvent(Bar bar)
         {
@@ -11,5 +11,7 @@ namespace CrunchyPeanutButter.Domain.Events
         }
 
         public Bar Bar { get; }
+
+        public string Name { get; } = nameof(BarCreatedEvent);
     }
 }

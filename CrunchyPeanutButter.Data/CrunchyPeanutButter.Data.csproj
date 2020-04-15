@@ -9,8 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CrispyBacon.Data.EntityFrameworkCore\CrispyBacon.Data.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="..\CrispyBacon.Data\CrispyBacon.Data.csproj" />
+    <ProjectReference Include="..\CrispyBacon.Stores.EntityFrameworkCore\CrispyBacon.Stores.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Domain\CrunchyPeanutButter.Domain.csproj" />
   </ItemGroup>
 

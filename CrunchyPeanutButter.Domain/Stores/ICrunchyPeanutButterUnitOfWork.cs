@@ -1,4 +1,4 @@
-﻿using CrispyBacon.Data;
+﻿using CrispyBacon.Stores;
 
 namespace CrunchyPeanutButter.Domain.Stores
 {

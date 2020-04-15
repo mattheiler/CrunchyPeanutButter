@@ -1,5 +1,5 @@
-﻿using CrispyBacon.Data;
-using CrunchyPeanutButter.Domain.Aggregates.Bars;
+﻿using CrispyBacon.Stores;
+using CrunchyPeanutButter.Domain.Models.Bars;
 
 namespace CrunchyPeanutButter.Domain.Stores
 {

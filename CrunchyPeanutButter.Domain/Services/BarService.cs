@@ -1,28 +1,27 @@
-﻿using System;
-using System.Linq;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
-using CrunchyPeanutButter.Domain.Aggregates.Bars;
+using CrispyBacon.Commands;
+using CrispyBacon.Events;
 using CrunchyPeanutButter.Domain.Commands.Bars;
 using CrunchyPeanutButter.Domain.Events;
+using CrunchyPeanutButter.Domain.Models.Bars;
 using CrunchyPeanutButter.Domain.Stores;
-using MediatR;
 
 namespace CrunchyPeanutButter.Domain.Services
 {
     public class BarService :
-        IRequestHandler<CreateBarCommand, Bar>,
-        IRequestHandler<UpdateBarCommand, Bar>,
-        IRequestHandler<DeleteBarCommand, bool>
+        ICommandHandler<CreateBarCommand, Bar>,
+        ICommandHandler<UpdateBarCommand, Bar>,
+        ICommandHandler<DeleteBarCommand, bool>
     {
         private readonly ICrunchyPeanutButterUnitOfWork _context;
 
-        private readonly IMediator _mediator;
+        private readonly IEventDispatcher _events;
 
-        public BarService(ICrunchyPeanutButterUnitOfWork context, IMediator mediator)
+        public BarService(ICrunchyPeanutButterUnitOfWork context, IEventDispatcher events)
         {
             _context = context;
-            _mediator = mediator;
+            _events = events;
         }
 
         public async Task<Bar> Handle(CreateBarCommand request, CancellationToken cancellationToken)
@@ -33,18 +32,7 @@ namespace CrunchyPeanutButter.Domain.Services
 
             await _context.SaveAsync(cancellationToken);
 
-            await _mediator.Publish(new BarCreatedEvent(bar), cancellationToken);
-
-            return bar;
-        }
-
-        public async Task<Bar> Handle(UpdateBarCommand request, CancellationToken cancellationToken)
-        {
-            var bar = request.Bar;
-
-            _context.Bars.Update(bar);
-
-            await _context.SaveAsync(cancellationToken);
+            await _events.DispatchAsync(new BarCreatedEvent(bar), cancellationToken);
 
             return bar;
         }
@@ -60,6 +48,17 @@ namespace CrunchyPeanutButter.Domain.Services
             await _context.SaveAsync(cancellationToken);
 
             return true;
+        }
+
+        public async Task<Bar> Handle(UpdateBarCommand request, CancellationToken cancellationToken)
+        {
+            var bar = request.Bar;
+
+            _context.Bars.Update(bar);
+
+            await _context.SaveAsync(cancellationToken);
+
+            return bar;
         }
     }
 }

@@ -1,9 +1,9 @@
-﻿using CrunchyPeanutButter.Domain.Aggregates.Foos;
-using MediatR;
+﻿using CrispyBacon.Commands;
+using CrunchyPeanutButter.Domain.Models.Foos;
 
 namespace CrunchyPeanutButter.Domain.Commands.Foos
 {
-    public class CreateFooCommand : IRequest<Foo>
+    public class CreateFooCommand : ICommand<Foo>
     {
         public CreateFooCommand(Foo foo)
         {

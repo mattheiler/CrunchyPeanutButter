@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CrispyBacon.Collections;
-using CrunchyPeanutButter.Domain.Aggregates.Bars;
 using CrunchyPeanutButter.Domain.Commands.Bars;
-using CrunchyPeanutButter.Queries.Bars;
+using CrunchyPeanutButter.Domain.Models.Bars;
+using CrunchyPeanutButter.Queries.Facades;
+using CrunchyPeanutButter.Queries.Models.Bars;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

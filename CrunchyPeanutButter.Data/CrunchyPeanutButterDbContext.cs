@@ -1,5 +1,5 @@
-﻿using CrunchyPeanutButter.Domain.Aggregates.Bars;
-using CrunchyPeanutButter.Domain.Aggregates.Foos;
+﻿using CrunchyPeanutButter.Domain.Models.Bars;
+using CrunchyPeanutButter.Domain.Models.Foos;
 using Microsoft.EntityFrameworkCore;
 
 namespace CrunchyPeanutButter.Data

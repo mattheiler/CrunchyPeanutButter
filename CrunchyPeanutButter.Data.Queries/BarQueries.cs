@@ -1,8 +1,9 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using CrispyBacon.Collections;
-using CrispyBacon.Data.EntityFrameworkCore.Collections;
-using CrunchyPeanutButter.Queries.Bars;
+using CrispyBacon.Collections.EntityFrameworkCore;
+using CrunchyPeanutButter.Queries.Facades;
+using CrunchyPeanutButter.Queries.Models.Bars;
 using Microsoft.EntityFrameworkCore;
 
 namespace CrunchyPeanutButter.Data.Queries

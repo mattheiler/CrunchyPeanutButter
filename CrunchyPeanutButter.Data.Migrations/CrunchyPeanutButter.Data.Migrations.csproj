@@ -8,4 +8,8 @@
     <ProjectReference Include="..\CrunchyPeanutButter.Data\CrunchyPeanutButter.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Scripts\" />
+  </ItemGroup>
+
 </Project>
