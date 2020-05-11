@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
@@ -19,26 +17,11 @@ namespace CrispyBacon.Stores.EntityFrameworkCore
 
         protected DbSet<TEntity> Set { get; }
 
-        public IEnumerator<TEntity> GetEnumerator()
-        {
-            return Set.AsQueryable().GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
         public Type ElementType => Set.AsQueryable().ElementType;
 
         public Expression Expression => Set.AsQueryable().Expression;
 
         public IQueryProvider Provider => Set.AsQueryable().Provider;
-
-        public IAsyncEnumerator<TEntity> GetAsyncEnumerator(CancellationToken cancellationToken = default)
-        {
-            return Set.AsAsyncEnumerable().GetAsyncEnumerator(cancellationToken);
-        }
 
         public void Add(TEntity entity)
         {

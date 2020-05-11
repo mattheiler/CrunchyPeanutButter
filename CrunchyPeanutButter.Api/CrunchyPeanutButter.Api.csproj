@@ -22,7 +22,6 @@
   <ItemGroup>
     <ProjectReference Include="..\CrispyBacon.Events.AwsEventBridge\CrispyBacon.Events.AwsEventBridge.csproj" />
     <ProjectReference Include="..\CrispyBacon.Events\CrispyBacon.Events.csproj" />
-    <ProjectReference Include="..\CrunchyPeanutButter.Data.Migrations\CrunchyPeanutButter.Data.Migrations.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Data.Queries\CrunchyPeanutButter.Data.Queries.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Data.Stores\CrunchyPeanutButter.Data.Stores.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Data\CrunchyPeanutButter.Data.csproj" />

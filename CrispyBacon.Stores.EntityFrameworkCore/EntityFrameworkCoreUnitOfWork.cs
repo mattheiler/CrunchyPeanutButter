@@ -17,11 +17,6 @@ namespace CrispyBacon.Stores.EntityFrameworkCore
 
         protected TContext Context { get; }
 
-        public void Save()
-        {
-            Context.SaveChanges();
-        }
-
         public async Task SaveAsync(CancellationToken cancellationToken = default)
         {
             await Context.SaveChangesAsync(cancellationToken);

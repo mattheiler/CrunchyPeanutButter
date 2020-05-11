@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace CrispyBacon.Events
 {
@@ -13,15 +11,5 @@ namespace CrispyBacon.Events
         }
 
         public string Name { get; }
-    }
-
-    public interface IEvent
-    {
-        string Name { get; }
-    }
-
-    public interface IEventDispatcher
-    {
-        Task DispatchAsync<TEvent>(TEvent @event, CancellationToken cancellationToken = default) where TEvent : IEvent;
     }
 }

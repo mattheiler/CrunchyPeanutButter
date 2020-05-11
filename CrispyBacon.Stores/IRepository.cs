@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace CrispyBacon.Stores
 {
-    public interface IRepository<TEntity> : IQueryable<TEntity>, IAsyncEnumerable<TEntity>
+    public interface IRepository<TEntity>
     {
         public void Add(TEntity entity);
 

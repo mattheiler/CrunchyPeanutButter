@@ -18,8 +18,4 @@
     <ProjectReference Include="..\CrispyBacon.Stores\CrispyBacon.Stores.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\Shared\" />
-  </ItemGroup>
-
 </Project>
