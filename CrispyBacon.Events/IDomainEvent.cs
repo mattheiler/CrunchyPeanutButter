@@ -1,6 +1,6 @@
 ﻿namespace CrispyBacon.Events
 {
-    public interface IEvent
+    public interface IDomainEvent
     {
         string Name { get; }
     }

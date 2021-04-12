@@ -1,7 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using CrispyBacon.Collections;
-using CrunchyPeanutButter.Domain.Commands.Bars;
+using CrunchyPeanutButter.Domain.Commands.Bars.CreateBar;
+using CrunchyPeanutButter.Domain.Commands.Bars.DeleteBar;
+using CrunchyPeanutButter.Domain.Commands.Bars.UpdateBar;
 using CrunchyPeanutButter.Domain.Models.Bars;
 using CrunchyPeanutButter.Queries.Facades;
 using CrunchyPeanutButter.Queries.Models.Bars;
@@ -37,22 +38,21 @@ namespace CrunchyPeanutButter.Api.Controllers
         }
 
         [HttpPost]
-        public Task<Bar> CreateAsync(Bar bar)
+        public Task CreateAsync(Bar bar)
         {
             return _mediator.Send(new CreateBarCommand(bar));
         }
 
         [HttpPut("{id:long}")]
-        public Task<Bar> UpdateAsync(long id, Bar bar)
+        public Task UpdateAsync(long id, Bar bar)
         {
-            if (bar.Id != id) throw new InvalidOperationException("Route ID doesn't match the body ID.");
             return _mediator.Send(new UpdateBarCommand(bar));
         }
 
         [HttpDelete("{id:long}")]
-        public async Task<bool> DeleteAsync(long id)
+        public Task DeleteAsync(long id)
         {
-            return await _mediator.Send(new DeleteBarCommand(id));
+            return _mediator.Send(new DeleteBarCommand(id));
         }
     }
 }

@@ -1,7 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using CrispyBacon.Collections;
-using CrunchyPeanutButter.Domain.Commands.Foos;
+using CrunchyPeanutButter.Domain.Commands.Foos.CreateFoo;
+using CrunchyPeanutButter.Domain.Commands.Foos.DeleteFoo;
+using CrunchyPeanutButter.Domain.Commands.Foos.UpdateFoo;
 using CrunchyPeanutButter.Domain.Models.Foos;
 using CrunchyPeanutButter.Queries.Facades;
 using CrunchyPeanutButter.Queries.Models.Foos;
@@ -37,22 +38,21 @@ namespace CrunchyPeanutButter.Api.Controllers
         }
 
         [HttpPost]
-        public Task<Foo> CreateAsync(Foo foo)
+        public Task CreateAsync(Foo foo)
         {
             return _mediator.Send(new CreateFooCommand(foo));
         }
 
         [HttpPut("{id:long}")]
-        public Task<Foo> UpdateAsync(long id, Foo foo)
+        public Task UpdateAsync(long id, Foo foo)
         {
-            if (foo.Id != id) throw new InvalidOperationException("Route ID doesn't match the body ID.");
             return _mediator.Send(new UpdateFooCommand(foo));
         }
 
         [HttpDelete("{id:long}")]
-        public async Task<bool> DeleteAsync(long id)
+        public Task DeleteAsync(long id)
         {
-            return await _mediator.Send(new DeleteFooCommand(id));
+            return _mediator.Send(new DeleteFooCommand(id));
         }
     }
 }

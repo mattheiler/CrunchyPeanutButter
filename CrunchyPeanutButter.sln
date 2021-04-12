@@ -41,7 +41,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrispyBacon.Stores.EntityFr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrispyBacon.Commands", "CrispyBacon.Commands\CrispyBacon.Commands.csproj", "{C19BDBBA-1DD4-489B-97A8-7A07EBCF1585}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{66B618A2-D786-4513-B02C-3EA6B8569D20}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{66B618A2-D786-4513-B02C-3EA6B8569D20}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrispyBacon.Stores.AwsDynamoDb", "CrispyBacon.Stores.AwsDynamoDb\CrispyBacon.Stores.AwsDynamoDb.csproj", "{04966459-47D5-4AB6-AC9E-A46ACA4CED67}"
 EndProject

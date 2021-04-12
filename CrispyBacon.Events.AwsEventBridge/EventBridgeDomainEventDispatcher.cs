@@ -8,19 +8,19 @@ using Microsoft.Extensions.Options;
 
 namespace CrispyBacon.Events.AwsEventBridge
 {
-    public sealed class EventBridgeEventDispatcher : IEventDispatcher
+    public sealed class EventBridgeDomainEventDispatcher : IDomainEventDispatcher
     {
         private readonly IAmazonEventBridge _eb;
 
-        private readonly IOptions<EventBridgeEventDispatcherOptions> _options;
+        private readonly IOptions<EventBridgeDomainEventDispatcherOptions> _options;
 
-        public EventBridgeEventDispatcher(IAmazonEventBridge eb, IOptions<EventBridgeEventDispatcherOptions> options)
+        public EventBridgeDomainEventDispatcher(IAmazonEventBridge eb, IOptions<EventBridgeDomainEventDispatcherOptions> options)
         {
             _eb = eb;
             _options = options;
         }
 
-        public async Task DispatchAsync<TEvent>(TEvent @event, CancellationToken cancellationToken = default) where TEvent : IEvent
+        public async Task DispatchAsync<TEvent>(TEvent @event, CancellationToken cancellationToken = default) where TEvent : IDomainEvent
         {
             var settings = new JsonSerializerOptions
             {
@@ -28,9 +28,7 @@ namespace CrispyBacon.Events.AwsEventBridge
             };
 
             var content = JsonSerializer.Serialize(@event, settings);
-            var contentType = MediaTypeNames.Application.Json;
-
-            var detail = JsonSerializer.Serialize(new EventBridgePayload(content, contentType), settings);
+            var detail = JsonSerializer.Serialize(content, settings);
             var detailType = @event.Name;
 
             var request = new PutEventsRequest

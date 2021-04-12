@@ -1,11 +1,11 @@
 ﻿using CrispyBacon.Commands;
 using CrunchyPeanutButter.Domain.Models.Bars;
 
-namespace CrunchyPeanutButter.Domain.Commands.Bars
+namespace CrunchyPeanutButter.Domain.Commands.Bars.CreateBar
 {
-    public class UpdateBarCommand : ICommand<Bar>
+    public class CreateBarCommand : ICommand
     {
-        public UpdateBarCommand(Bar bar)
+        public CreateBarCommand(Bar bar)
         {
             Bar = bar;
         }

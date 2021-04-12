@@ -1,6 +1,6 @@
 ﻿namespace CrispyBacon.Events.AwsEventBridge
 {
-    public sealed class EventBridgeEventDispatcherOptions
+    public sealed class EventBridgeDomainEventDispatcherOptions
     {
         public string EventBusName { get; set; }
 

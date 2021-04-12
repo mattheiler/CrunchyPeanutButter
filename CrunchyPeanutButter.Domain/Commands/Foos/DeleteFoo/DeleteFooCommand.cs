@@ -1,8 +1,8 @@
 ﻿using CrispyBacon.Commands;
 
-namespace CrunchyPeanutButter.Domain.Commands.Foos
+namespace CrunchyPeanutButter.Domain.Commands.Foos.DeleteFoo
 {
-    public class DeleteFooCommand : ICommand<bool>
+    public class DeleteFooCommand : ICommand
     {
         public DeleteFooCommand(in long id)
         {

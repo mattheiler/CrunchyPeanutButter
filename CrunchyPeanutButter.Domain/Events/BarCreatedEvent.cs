@@ -3,7 +3,7 @@ using CrunchyPeanutButter.Domain.Models.Bars;
 
 namespace CrunchyPeanutButter.Domain.Events
 {
-    public class BarCreatedEvent : IEvent
+    public class BarCreatedEvent : IDomainEvent
     {
         public BarCreatedEvent(Bar bar)
         {

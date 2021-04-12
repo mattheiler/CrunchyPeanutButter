@@ -41,7 +41,7 @@ namespace CrunchyPeanutButter.Api
             services
                 .AddAWSService<IAmazonEventBridge>();
             services
-                .Configure<EventBridgeEventDispatcherOptions>(Configuration.GetSection("DomainEvents"));
+                .Configure<EventBridgeDomainEventDispatcherOptions>(Configuration.GetSection("DomainEvents"));
 
             services
                 .AddMediatR(

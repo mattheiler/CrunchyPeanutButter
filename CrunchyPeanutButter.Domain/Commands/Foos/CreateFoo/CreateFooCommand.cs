@@ -1,9 +1,9 @@
 ﻿using CrispyBacon.Commands;
 using CrunchyPeanutButter.Domain.Models.Foos;
 
-namespace CrunchyPeanutButter.Domain.Commands.Foos
+namespace CrunchyPeanutButter.Domain.Commands.Foos.CreateFoo
 {
-    public class CreateFooCommand : ICommand<Foo>
+    public class CreateFooCommand : ICommand
     {
         public CreateFooCommand(Foo foo)
         {
