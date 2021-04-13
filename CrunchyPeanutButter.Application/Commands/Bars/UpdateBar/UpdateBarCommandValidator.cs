@@ -2,11 +2,12 @@
 
 namespace CrunchyPeanutButter.Application.Commands.Bars
 {
-    public class UpdateBarCommandValidator : AbstractValidator<UpdateBarCommand>
+    public class GetFoosQueryValidator : AbstractValidator<UpdateBarCommand>
     {
-        public UpdateBarCommandValidator()
+        public GetFoosQueryValidator()
         {
-            RuleFor(cmd => cmd.Args.Name).NotNull();
+            RuleFor(request => request.Id).GreaterThan(0);
+            RuleFor(request => request.Args.Name).NotNull();
         }
     }
 }

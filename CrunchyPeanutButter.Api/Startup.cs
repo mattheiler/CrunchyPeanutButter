@@ -1,14 +1,21 @@
-using System.Text.Json;
+using System.Linq;
+using System.Net;
+using System.Net.Mime;
+using AutoMapper;
 using CrunchyPeanutButter.Application;
 using CrunchyPeanutButter.Domain;
 using CrunchyPeanutButter.Infrastructure;
 using CrunchyPeanutButter.Persistence;
+using FluentValidation;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 
 namespace CrunchyPeanutButter.Api
 {
@@ -46,6 +53,21 @@ namespace CrunchyPeanutButter.Api
         {
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
+
+            app.UseExceptionHandler(errorApp =>
+            {
+                errorApp.Run(async context =>
+                {
+                    var exceptionHandlerPathFeature = context.Features.Get<IExceptionHandlerPathFeature>();
+                    if (exceptionHandlerPathFeature?.Error is ValidationException e)
+                    {
+                        context.Response.StatusCode = (int) HttpStatusCode.BadRequest;
+                        context.Response.ContentType = MediaTypeNames.Application.Json;
+
+                        await context.Response.WriteAsync(JsonConvert.SerializeObject(e.Errors.Select(error => error.ErrorMessage).ToList()));
+                    }
+                });
+            });
 
             app.UseHttpsRedirection();
 

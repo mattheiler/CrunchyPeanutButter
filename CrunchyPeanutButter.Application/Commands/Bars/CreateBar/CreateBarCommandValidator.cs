@@ -6,7 +6,7 @@ namespace CrunchyPeanutButter.Application.Commands.Bars
     {
         public CreateBarCommandValidator()
         {
-            RuleFor(cmd => cmd.Args.Name).NotNull();
+            RuleFor(request => request.Args.Name).NotNull();
         }
     }
 }
