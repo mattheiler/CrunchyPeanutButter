@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using CrunchyPeanutButter.Application.Abstractions.Stores;
+using CrunchyPeanutButter.Application.Abstractions.Persistence;
 using MediatR;
 
 namespace CrunchyPeanutButter.Application.Commands.Foos

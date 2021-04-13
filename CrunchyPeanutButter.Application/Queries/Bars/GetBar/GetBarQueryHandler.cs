@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using CrunchyPeanutButter.Application.Abstractions.Stores;
+using CrunchyPeanutButter.Application.Abstractions.Persistence;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 

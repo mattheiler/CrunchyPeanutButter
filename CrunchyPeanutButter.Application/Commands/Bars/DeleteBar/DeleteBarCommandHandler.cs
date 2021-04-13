@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using CrunchyPeanutButter.Application.Abstractions.Stores;
+using CrunchyPeanutButter.Application.Abstractions.Persistence;
 using MediatR;
 
 namespace CrunchyPeanutButter.Application.Commands.Bars
