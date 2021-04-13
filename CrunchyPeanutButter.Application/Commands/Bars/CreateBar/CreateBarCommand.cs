@@ -1,15 +1,14 @@
-﻿using CrunchyPeanutButter.Domain.Models.Bars;
-using MediatR;
+﻿using MediatR;
 
-namespace CrunchyPeanutButter.Application.Commands.Bars.CreateBar
+namespace CrunchyPeanutButter.Application.Commands.Bars
 {
     public class CreateBarCommand : IRequest
     {
-        public CreateBarCommand(Bar bar)
+        public CreateBarCommand(CreateBarCommandArgs args)
         {
-            Bar = bar;
+            Args = args;
         }
 
-        public Bar Bar { get; }
+        public CreateBarCommandArgs Args { get; }
     }
 }

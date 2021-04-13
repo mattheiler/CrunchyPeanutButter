@@ -7,9 +7,9 @@ using CrunchyPeanutButter.Application.Abstractions.Stores;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace CrunchyPeanutButter.Application.Queries.Foos.GetFoo
+namespace CrunchyPeanutButter.Application.Queries.Foos
 {
-    public class GetFooQueryHandler : IRequestHandler<GetFooQuery, FooViewModel>
+    public class GetFooQueryHandler : IRequestHandler<GetFooQuery, GetFooQueryResult>
     {
         private readonly IDbContext _context;
 
@@ -21,13 +21,13 @@ namespace CrunchyPeanutButter.Application.Queries.Foos.GetFoo
             _mappings = mappings;
         }
 
-        public Task<FooViewModel> Handle(GetFooQuery request, CancellationToken cancellationToken)
+        public Task<GetFooQueryResult> Handle(GetFooQuery request, CancellationToken cancellationToken)
         {
             return
                 _context
                     .Foos
                     .Select(foo => foo.Id == request.Id)
-                    .ProjectTo<FooViewModel>(_mappings)
+                    .ProjectTo<GetFooQueryResult>(_mappings)
                     .SingleOrDefaultAsync(cancellationToken);
         }
     }

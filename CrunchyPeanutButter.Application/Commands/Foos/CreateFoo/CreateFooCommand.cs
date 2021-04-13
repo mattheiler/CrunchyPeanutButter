@@ -1,15 +1,14 @@
-﻿using CrunchyPeanutButter.Domain.Models.Foos;
-using MediatR;
+﻿using MediatR;
 
-namespace CrunchyPeanutButter.Application.Commands.Foos.CreateFoo
+namespace CrunchyPeanutButter.Application.Commands.Foos
 {
     public class CreateFooCommand : IRequest
     {
-        public CreateFooCommand(Foo foo)
+        public CreateFooCommand(CreateFooCommandArgs args)
         {
-            Foo = foo;
+            Args = args;
         }
 
-        public Foo Foo { get; }
+        public CreateFooCommandArgs Args { get; }
     }
 }

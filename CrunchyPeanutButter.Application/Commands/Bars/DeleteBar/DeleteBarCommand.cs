@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CrunchyPeanutButter.Application.Commands.Bars.DeleteBar
+namespace CrunchyPeanutButter.Application.Commands.Bars
 {
     public class DeleteBarCommand : IRequest
     {

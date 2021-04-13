@@ -1,8 +1,8 @@
 ﻿using MediatR;
 
-namespace CrunchyPeanutButter.Application.Queries.Foos.GetFoo
+namespace CrunchyPeanutButter.Application.Queries.Foos
 {
-    public class GetFooQuery : IRequest<FooViewModel>
+    public class GetFooQuery : IRequest<GetFooQueryResult>
     {
         public GetFooQuery(int id)
         {

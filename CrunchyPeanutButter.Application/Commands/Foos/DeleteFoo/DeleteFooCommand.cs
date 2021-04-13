@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CrunchyPeanutButter.Application.Commands.Foos.DeleteFoo
+namespace CrunchyPeanutButter.Application.Commands.Foos
 {
     public class DeleteFooCommand : IRequest
     {

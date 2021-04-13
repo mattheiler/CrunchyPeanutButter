@@ -1,18 +1,17 @@
-﻿using CrunchyPeanutButter.Domain.Models.Bars;
-using MediatR;
+﻿using MediatR;
 
-namespace CrunchyPeanutButter.Application.Commands.Bars.UpdateBar
+namespace CrunchyPeanutButter.Application.Commands.Bars
 {
     public class UpdateBarCommand : IRequest
     {
-        public UpdateBarCommand(int id, Bar bar)
+        public UpdateBarCommand(int id, UpdateBarCommandArgs args)
         {
             Id = id;
-            Bar = bar;
+            Args = args;
         }
 
         public int Id { get; }
 
-        public Bar Bar { get; }
+        public UpdateBarCommandArgs Args { get; }
     }
 }

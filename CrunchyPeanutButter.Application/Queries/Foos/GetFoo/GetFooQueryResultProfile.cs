@@ -3,11 +3,11 @@ using CrunchyPeanutButter.Domain.Models.Foos;
 
 namespace CrunchyPeanutButter.Application.Queries.Foos
 {
-    public class FooProfile : Profile
+    public class GetFooQueryResultProfile : Profile
     {
-        public FooProfile()
+        public GetFooQueryResultProfile()
         {
-            CreateMap<Foo, FooViewModel>();
+            CreateMap<Foo, GetFooQueryResult>();
         }
     }
 }

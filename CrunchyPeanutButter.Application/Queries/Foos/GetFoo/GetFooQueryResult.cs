@@ -1,6 +1,6 @@
-﻿namespace CrunchyPeanutButter.Application.Queries.Bars
+﻿namespace CrunchyPeanutButter.Application.Queries.Foos
 {
-    public class BarViewModel
+    public class GetFooQueryResult
     {
         public int Id { get; set; }
 

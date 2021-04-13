@@ -1,24 +1,28 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using CrunchyPeanutButter.Application.Abstractions.Stores;
 using MediatR;
 
-namespace CrunchyPeanutButter.Application.Commands.Bars.UpdateBar
+namespace CrunchyPeanutButter.Application.Commands.Bars
 {
     public class UpdateBarCommandHandler : IRequestHandler<UpdateBarCommand>
     {
         private readonly IDbContext _context;
 
-        public UpdateBarCommandHandler(IDbContext context)
+        private readonly IMapper _mapper;
+
+        public UpdateBarCommandHandler(IDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public async Task<Unit> Handle(UpdateBarCommand request, CancellationToken cancellationToken)
         {
-            var bar = request.Bar;
+            var bar = await _context.Bars.FindAsync(request.Id);
 
-            _context.Bars.Update(bar);
+            _mapper.Map(request.Args, bar);
 
             await _context.SaveChangesAsync(cancellationToken);
 

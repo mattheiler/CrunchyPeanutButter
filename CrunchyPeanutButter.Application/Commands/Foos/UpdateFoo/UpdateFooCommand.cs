@@ -1,18 +1,17 @@
-﻿using CrunchyPeanutButter.Domain.Models.Foos;
-using MediatR;
+﻿using MediatR;
 
-namespace CrunchyPeanutButter.Application.Commands.Foos.UpdateFoo
+namespace CrunchyPeanutButter.Application.Commands.Foos
 {
     public class UpdateFooCommand : IRequest
     {
-        public UpdateFooCommand(int id, Foo foo)
+        public UpdateFooCommand(int id, UpdateFooCommandArgs args)
         {
             Id = id;
-            Foo = foo;
+            Args = args;
         }
 
         public int Id { get; }
 
-        public Foo Foo { get; }
+        public UpdateFooCommandArgs Args { get; }
     }
 }
