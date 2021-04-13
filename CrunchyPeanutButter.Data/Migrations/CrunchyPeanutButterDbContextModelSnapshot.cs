@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace CrunchyPeanutButter.Data.Migrations.Migrations
+namespace CrunchyPeanutButter.Data.Migrations
 {
     [DbContext(typeof(CrunchyPeanutButterDbContext))]
     internal class CrunchyPeanutButterDbContextModelSnapshot : ModelSnapshot

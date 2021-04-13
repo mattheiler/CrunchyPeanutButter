@@ -1,10 +1,11 @@
-﻿using CrunchyPeanutButter.Domain.Models.Bars;
+﻿using CrunchyPeanutButter.Application.Abstractions;
+using CrunchyPeanutButter.Domain.Models.Bars;
 using CrunchyPeanutButter.Domain.Models.Foos;
 using Microsoft.EntityFrameworkCore;
 
 namespace CrunchyPeanutButter.Data
 {
-    public class CrunchyPeanutButterDbContext : DbContext
+    public class CrunchyPeanutButterDbContext : DbContext, IDbContext
     {
         public CrunchyPeanutButterDbContext(DbContextOptions<CrunchyPeanutButterDbContext> options)
             : base(options)

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace CrunchyPeanutButter.Data.Migrations.Migrations
+namespace CrunchyPeanutButter.Data.Migrations
 {
     public partial class InitialCreate : Migration
     {

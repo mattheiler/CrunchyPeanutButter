@@ -1,11 +1,12 @@
-﻿using System.Threading.Tasks;
-using CrispyBacon.Collections;
-using CrunchyPeanutButter.Domain.Commands.Foos.CreateFoo;
-using CrunchyPeanutButter.Domain.Commands.Foos.DeleteFoo;
-using CrunchyPeanutButter.Domain.Commands.Foos.UpdateFoo;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using CrunchyPeanutButter.Application.Commands.Foos.CreateFoo;
+using CrunchyPeanutButter.Application.Commands.Foos.DeleteFoo;
+using CrunchyPeanutButter.Application.Commands.Foos.UpdateFoo;
+using CrunchyPeanutButter.Application.Queries.Foos;
+using CrunchyPeanutButter.Application.Queries.Foos.GetFoo;
+using CrunchyPeanutButter.Application.Queries.Foos.GetFoos;
 using CrunchyPeanutButter.Domain.Models.Foos;
-using CrunchyPeanutButter.Queries.Facades;
-using CrunchyPeanutButter.Queries.Models.Foos;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,44 +16,45 @@ namespace CrunchyPeanutButter.Api.Controllers
     [ApiController]
     public class FooController : ControllerBase
     {
-        private readonly IMediator _mediator;
+        private readonly ISender _sender;
 
-        private readonly IFooQueries _queries;
-
-        public FooController(IMediator mediator, IFooQueries queries)
+        public FooController(ISender sender)
         {
-            _mediator = mediator;
-            _queries = queries;
+            _sender = sender;
         }
 
-        [HttpGet("{id:long}")]
-        public Task<FooDetails> FindAsync(long id)
+        [HttpGet("{id:int}")]
+        public Task<FooViewModel> FindAsync(int id)
         {
-            return _queries.FindAsync(id);
+            return _sender.Send(new GetFooQuery(id));
         }
 
         [HttpGet]
-        public Task<Page<FooHeader>> PageAsync(int pageIndex, int pageSize, string sortBy = nameof(Foo.Id), SortDirection sortDirection = default)
+        public Task<List<FooViewModel>> PageAsync(int pageIndex, int pageSize)
         {
-            return _queries.PageAsync(sortBy, sortDirection, pageIndex, pageSize);
+            return _sender.Send(new GetFoosQuery
+            {
+                PageIndex = pageIndex,
+                PageSize = pageSize
+            });
         }
 
         [HttpPost]
         public Task CreateAsync(Foo foo)
         {
-            return _mediator.Send(new CreateFooCommand(foo));
+            return _sender.Send(new CreateFooCommand(foo));
         }
 
-        [HttpPut("{id:long}")]
-        public Task UpdateAsync(long id, Foo foo)
+        [HttpPut("{id:int}")]
+        public Task UpdateAsync(int id, Foo foo)
         {
-            return _mediator.Send(new UpdateFooCommand(foo));
+            return _sender.Send(new UpdateFooCommand(id, foo));
         }
 
-        [HttpDelete("{id:long}")]
-        public Task DeleteAsync(long id)
+        [HttpDelete("{id:int}")]
+        public Task DeleteAsync(int id)
         {
-            return _mediator.Send(new DeleteFooCommand(id));
+            return _sender.Send(new DeleteFooCommand(id));
         }
     }
 }

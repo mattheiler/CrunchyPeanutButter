@@ -20,13 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CrispyBacon.Events.AwsEventBridge\CrispyBacon.Events.AwsEventBridge.csproj" />
-    <ProjectReference Include="..\CrispyBacon.Events\CrispyBacon.Events.csproj" />
-    <ProjectReference Include="..\CrunchyPeanutButter.Data.Queries\CrunchyPeanutButter.Data.Queries.csproj" />
-    <ProjectReference Include="..\CrunchyPeanutButter.Data.Stores\CrunchyPeanutButter.Data.Stores.csproj" />
+    <ProjectReference Include="..\CrunchyPeanutButter.Application\CrunchyPeanutButter.Application.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Data\CrunchyPeanutButter.Data.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Domain\CrunchyPeanutButter.Domain.csproj" />
-    <ProjectReference Include="..\CrunchyPeanutButter.Queries\CrunchyPeanutButter.Queries.csproj" />
   </ItemGroup>
 
   <ItemGroup>

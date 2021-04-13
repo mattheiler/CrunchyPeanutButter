@@ -1,16 +1,13 @@
-﻿using Newtonsoft.Json;
+﻿using CrunchyPeanutButter.Domain.Abstractions.Models;
 
 namespace CrunchyPeanutButter.Domain.Models.Bars
 {
-    [JsonObject]
-    public class Ack
+    public class Ack : IDomainEntity
     {
         public Bar Bar { get; private set; }
 
-        [JsonProperty]
         public int BarId { get; private set; }
 
-        [JsonProperty]
         public string Name { get; set; }
     }
 }

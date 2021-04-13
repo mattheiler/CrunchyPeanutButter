@@ -1,10 +1,9 @@
-﻿using CrunchyPeanutButter.Domain.Models.Bars;
-using Newtonsoft.Json;
+﻿using CrunchyPeanutButter.Domain.Abstractions.Models;
+using CrunchyPeanutButter.Domain.Models.Bars;
 
 namespace CrunchyPeanutButter.Domain.Models.Foos
 {
-    [JsonObject]
-    public class FooBar
+    public class FooBar : IDomainEntity
     {
         private FooBar(Bar bar)
         {
@@ -18,13 +17,10 @@ namespace CrunchyPeanutButter.Domain.Models.Foos
 
         public Foo Foo { get; private set; }
 
-        [JsonProperty]
         public int FooId { get; private set; }
 
-        // TODO hide this, but expose the bar ID....
         public Bar Bar { get; private set; }
 
-        [JsonProperty]
         public int BarId { get; private set; }
     }
 }

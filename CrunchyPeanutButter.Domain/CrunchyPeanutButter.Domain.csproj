@@ -5,17 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
-    <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\CrispyBacon.Collections.EntityFrameworkCore\CrispyBacon.Collections.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="..\CrispyBacon.Collections\CrispyBacon.Collections.csproj" />
-    <ProjectReference Include="..\CrispyBacon.Commands\CrispyBacon.Commands.csproj" />
-    <ProjectReference Include="..\CrispyBacon.Events\CrispyBacon.Events.csproj" />
-    <ProjectReference Include="..\CrispyBacon.Models\CrispyBacon.Models.csproj" />
-    <ProjectReference Include="..\CrispyBacon.Stores\CrispyBacon.Stores.csproj" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
   </ItemGroup>
 
 </Project>

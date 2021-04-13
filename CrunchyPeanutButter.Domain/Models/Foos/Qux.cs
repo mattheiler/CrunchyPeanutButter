@@ -1,19 +1,15 @@
-﻿using Newtonsoft.Json;
+﻿using CrunchyPeanutButter.Domain.Abstractions.Models;
 
 namespace CrunchyPeanutButter.Domain.Models.Foos
 {
-    [JsonObject]
-    public class Qux
+    public class Qux : IDomainEntity
     {
-        [JsonProperty]
         public int Id { get; private set; }
 
         public Baz Baz { get; private set; }
 
-        [JsonProperty]
         public int BazId { get; private set; }
 
-        [JsonProperty]
         public string Name { get; set; }
     }
 }

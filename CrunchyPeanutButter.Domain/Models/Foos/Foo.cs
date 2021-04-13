@@ -1,22 +1,16 @@
 ﻿using System.Collections.Generic;
-using CrispyBacon.Models;
-using Newtonsoft.Json;
+using CrunchyPeanutButter.Domain.Abstractions.Models;
 
 namespace CrunchyPeanutButter.Domain.Models.Foos
 {
-    [JsonObject]
-    public class Foo : IAggregateRoot
+    public class Foo : IDomainEntity
     {
-        [JsonProperty]
         public int Id { get; private set; }
 
-        [JsonProperty]
         public string Name { get; set; }
 
-        [JsonProperty]
         public ICollection<FooBar> Bars { get; } = new List<FooBar>();
 
-        [JsonProperty]
         public ICollection<Baz> Bazes { get; } = new List<Baz>();
     }
 }

@@ -1,11 +1,6 @@
 using System.Reflection;
-using Amazon.EventBridge;
-using CrispyBacon.Events.AwsEventBridge;
+using CrunchyPeanutButter.Application.Abstractions;
 using CrunchyPeanutButter.Data;
-using CrunchyPeanutButter.Data.Queries;
-using CrunchyPeanutButter.Data.Stores;
-using CrunchyPeanutButter.Domain.Stores;
-using CrunchyPeanutButter.Queries.Facades;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -31,27 +26,13 @@ namespace CrunchyPeanutButter.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddDbContext<CrunchyPeanutButterDbContext>(ef =>
-                    ef.UseSqlServer(Configuration.GetConnectionString("CrunchyPeanutButter"), sql =>
-                        sql.MigrationsAssembly("CrunchyPeanutButter.Data.Migrations")));
+                .AddDbContext<CrunchyPeanutButterDbContext>(ef => ef.UseSqlServer(Configuration.GetConnectionString("CrunchyPeanutButter"), sql => sql.MigrationsAssembly("CrunchyPeanutButter.Data.Migrations")));
 
             services
-                .AddScoped<ICrunchyPeanutButterUnitOfWork, CrunchyPeanutButterUnitOfWork>();
+                .AddScoped<IDbContext, CrunchyPeanutButterDbContext>();
 
             services
-                .AddAWSService<IAmazonEventBridge>();
-            services
-                .Configure<EventBridgeDomainEventDispatcherOptions>(Configuration.GetSection("DomainEvents"));
-
-            services
-                .AddMediatR(
-                    Assembly.Load("CrispyBacon.Events.AwsEventBridge"),
-                    Assembly.Load("CrunchyPeanutButter.Domain"),
-                    Assembly.Load("CrunchyPeanutButter.Validators"));
-
-            services
-                .AddScoped<IBarQueries, BarQueries>()
-                .AddScoped<IFooQueries, FooQueries>();
+                .AddMediatR(Assembly.Load("CrunchyPeanutButter.Application"));
 
             services
                 .AddControllers()

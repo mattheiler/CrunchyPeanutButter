@@ -1,11 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using CrunchyPeanutButter.Domain.Abstractions.Models;
 
 namespace CrunchyPeanutButter.Domain.Models.Bars
 {
-    [JsonObject]
-    public class Fum
+    public class Fum : IDomainEntity
     {
-        [JsonProperty]
         public string Name { get; set; }
     }
 }
