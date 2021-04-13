@@ -1,7 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using CrunchyPeanutButter.Application.Abstractions;
-using CrunchyPeanutButter.Domain.Abstractions.Events;
+using CrunchyPeanutButter.Application.Abstractions.Stores;
 using CrunchyPeanutButter.Domain.Events.Bars;
 using MediatR;
 
@@ -11,12 +10,12 @@ namespace CrunchyPeanutButter.Application.Commands.Bars.CreateBar
     {
         private readonly IDbContext _context;
 
-        private readonly IDomainEventDispatcher _events;
+        private readonly IPublisher _publisher;
 
-        public CreateBarCommandHandler(IDbContext context, IDomainEventDispatcher events)
+        public CreateBarCommandHandler(IDbContext context, IPublisher publisher)
         {
             _context = context;
-            _events = events;
+            _publisher = publisher;
         }
 
         public async Task<Unit> Handle(CreateBarCommand request, CancellationToken cancellationToken)
@@ -27,7 +26,7 @@ namespace CrunchyPeanutButter.Application.Commands.Bars.CreateBar
 
             await _context.SaveChangesAsync(cancellationToken);
 
-            await _events.Publish(new BarCreatedEvent(bar), cancellationToken);
+            await _publisher.Publish(new BarCreatedEvent(bar), cancellationToken);
 
             return default;
         }

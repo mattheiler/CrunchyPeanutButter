@@ -1,8 +1,6 @@
-﻿using CrunchyPeanutButter.Domain.Abstractions.Models;
-
-namespace CrunchyPeanutButter.Domain.Models.Foos
+﻿namespace CrunchyPeanutButter.Domain.Models.Foos
 {
-    public class Qux : IDomainEntity
+    public class Qux
     {
         public int Id { get; private set; }
 

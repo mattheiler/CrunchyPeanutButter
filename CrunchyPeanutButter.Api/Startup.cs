@@ -1,10 +1,9 @@
-using System.Reflection;
-using CrunchyPeanutButter.Application.Abstractions;
-using CrunchyPeanutButter.Data;
-using MediatR;
+using CrunchyPeanutButter.Application;
+using CrunchyPeanutButter.Domain;
+using CrunchyPeanutButter.Infrastructure;
+using CrunchyPeanutButter.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -21,33 +20,26 @@ namespace CrunchyPeanutButter.Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddDbContext<CrunchyPeanutButterDbContext>(ef => ef.UseSqlServer(Configuration.GetConnectionString("CrunchyPeanutButter"), sql => sql.MigrationsAssembly("CrunchyPeanutButter.Data.Migrations")));
+                .AddDomain(Configuration)
+                .AddApplication(Configuration)
+                .AddInfrastructure(Configuration)
+                .AddPersistence(Configuration);
 
-            services
-                .AddScoped<IDbContext, CrunchyPeanutButterDbContext>();
+            services.AddControllers();
 
-            services
-                .AddMediatR(Assembly.Load("CrunchyPeanutButter.Application"));
-
-            services
-                .AddControllers();
-
-            services
-                .AddSwaggerGen(options =>
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    options.SwaggerDoc("v1", new OpenApiInfo
-                    {
-                        Title = "My API",
-                        Version = "v1"
-                    });
+                    Title = "My API",
+                    Version = "v1"
                 });
+            });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -59,16 +51,14 @@ namespace CrunchyPeanutButter.Api
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
 
             app.UseSwagger();
 
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
-            // specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI(c =>
+            app.UseSwaggerUI(options =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-                c.RoutePrefix = string.Empty;
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                options.RoutePrefix = string.Empty;
             });
         }
     }

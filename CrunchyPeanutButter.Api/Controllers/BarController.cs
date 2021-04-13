@@ -24,13 +24,13 @@ namespace CrunchyPeanutButter.Api.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public Task<BarViewModel> FindAsync(int id)
+        public Task<BarViewModel> GetBarAsync(int id)
         {
             return _sender.Send(new GetBarQuery(id));
         }
 
         [HttpGet]
-        public Task<List<BarViewModel>> PageAsync(int pageIndex, int pageSize)
+        public Task<List<BarViewModel>> GetBarsAsync(int pageIndex = 0, int pageSize = 20)
         {
             return _sender.Send(new GetBarsQuery
             {

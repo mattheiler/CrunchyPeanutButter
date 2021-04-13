@@ -1,1 +1,0 @@
-﻿dotnet ef database update -s ../CrunchyPeanutButter.Api -p ../CrunchyPeanutButter.Data.Migrations

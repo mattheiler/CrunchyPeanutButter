@@ -1,8 +1,6 @@
-﻿using CrunchyPeanutButter.Domain.Abstractions.Models;
-
-namespace CrunchyPeanutButter.Domain.Models.Bars
+﻿namespace CrunchyPeanutButter.Domain.Models.Bars
 {
-    public class Ack : IDomainEntity
+    public class Ack
     {
         public Bar Bar { get; private set; }
 

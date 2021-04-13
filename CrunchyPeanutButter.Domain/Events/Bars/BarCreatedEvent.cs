@@ -1,9 +1,9 @@
-﻿using CrunchyPeanutButter.Domain.Abstractions.Events;
-using CrunchyPeanutButter.Domain.Models.Bars;
+﻿using CrunchyPeanutButter.Domain.Models.Bars;
+using MediatR;
 
 namespace CrunchyPeanutButter.Domain.Events.Bars
 {
-    public class BarCreatedEvent : IDomainEvent
+    public class BarCreatedEvent : INotification
     {
         public BarCreatedEvent(Bar bar)
         {

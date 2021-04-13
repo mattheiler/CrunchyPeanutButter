@@ -1,8 +1,6 @@
-﻿using CrunchyPeanutButter.Domain.Abstractions.Models;
-
-namespace CrunchyPeanutButter.Domain.Models.Bars
+﻿namespace CrunchyPeanutButter.Domain.Models.Bars
 {
-    public class Fum : IDomainEntity
+    public class Fum
     {
         public string Name { get; set; }
     }

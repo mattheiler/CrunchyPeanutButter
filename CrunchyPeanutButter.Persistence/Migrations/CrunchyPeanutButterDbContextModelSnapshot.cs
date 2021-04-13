@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace CrunchyPeanutButter.Data.Migrations
+namespace CrunchyPeanutButter.Persistence.Migrations
 {
     [DbContext(typeof(CrunchyPeanutButterDbContext))]
     internal class CrunchyPeanutButterDbContextModelSnapshot : ModelSnapshot
@@ -13,11 +13,11 @@ namespace CrunchyPeanutButter.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.2")
+                .HasAnnotation("ProductVersion", "3.1.14")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("CrunchyPeanutButter.Domain.Bars.Ack", b =>
+            modelBuilder.Entity("CrunchyPeanutButter.Domain.Models.Bars.Ack", b =>
             {
                 b.Property<int>("BarId")
                     .HasColumnType("int");
@@ -30,7 +30,7 @@ namespace CrunchyPeanutButter.Data.Migrations
                 b.ToTable("Ack");
             });
 
-            modelBuilder.Entity("CrunchyPeanutButter.Domain.Bars.Bar", b =>
+            modelBuilder.Entity("CrunchyPeanutButter.Domain.Models.Bars.Bar", b =>
             {
                 b.Property<int>("Id")
                     .ValueGeneratedOnAdd()
@@ -45,7 +45,7 @@ namespace CrunchyPeanutButter.Data.Migrations
                 b.ToTable("Bars");
             });
 
-            modelBuilder.Entity("CrunchyPeanutButter.Domain.Foos.Baz", b =>
+            modelBuilder.Entity("CrunchyPeanutButter.Domain.Models.Foos.Baz", b =>
             {
                 b.Property<int>("Id")
                     .ValueGeneratedOnAdd()
@@ -65,7 +65,7 @@ namespace CrunchyPeanutButter.Data.Migrations
                 b.ToTable("Baz");
             });
 
-            modelBuilder.Entity("CrunchyPeanutButter.Domain.Foos.Foo", b =>
+            modelBuilder.Entity("CrunchyPeanutButter.Domain.Models.Foos.Foo", b =>
             {
                 b.Property<int>("Id")
                     .ValueGeneratedOnAdd()
@@ -80,7 +80,7 @@ namespace CrunchyPeanutButter.Data.Migrations
                 b.ToTable("Foos");
             });
 
-            modelBuilder.Entity("CrunchyPeanutButter.Domain.Foos.FooBar", b =>
+            modelBuilder.Entity("CrunchyPeanutButter.Domain.Models.Foos.FooBar", b =>
             {
                 b.Property<int>("FooId")
                     .HasColumnType("int");
@@ -95,7 +95,7 @@ namespace CrunchyPeanutButter.Data.Migrations
                 b.ToTable("FooBar");
             });
 
-            modelBuilder.Entity("CrunchyPeanutButter.Domain.Foos.Qux", b =>
+            modelBuilder.Entity("CrunchyPeanutButter.Domain.Models.Foos.Qux", b =>
             {
                 b.Property<int>("Id")
                     .ValueGeneratedOnAdd()
@@ -115,18 +115,18 @@ namespace CrunchyPeanutButter.Data.Migrations
                 b.ToTable("Qux");
             });
 
-            modelBuilder.Entity("CrunchyPeanutButter.Domain.Bars.Ack", b =>
+            modelBuilder.Entity("CrunchyPeanutButter.Domain.Models.Bars.Ack", b =>
             {
-                b.HasOne("CrunchyPeanutButter.Domain.Bars.Bar", "Bar")
+                b.HasOne("CrunchyPeanutButter.Domain.Models.Bars.Bar", "Bar")
                     .WithOne("Ack")
-                    .HasForeignKey("CrunchyPeanutButter.Domain.Bars.Ack", "BarId")
+                    .HasForeignKey("CrunchyPeanutButter.Domain.Models.Bars.Ack", "BarId")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired();
             });
 
-            modelBuilder.Entity("CrunchyPeanutButter.Domain.Bars.Bar", b =>
+            modelBuilder.Entity("CrunchyPeanutButter.Domain.Models.Bars.Bar", b =>
             {
-                b.OwnsOne("CrunchyPeanutButter.Domain.Bars.Fum", "Fum", b1 =>
+                b.OwnsOne("CrunchyPeanutButter.Domain.Models.Bars.Fum", "Fum", b1 =>
                 {
                     b1.Property<int>("BarId")
                         .ValueGeneratedOnAdd()
@@ -145,33 +145,33 @@ namespace CrunchyPeanutButter.Data.Migrations
                 });
             });
 
-            modelBuilder.Entity("CrunchyPeanutButter.Domain.Foos.Baz", b =>
+            modelBuilder.Entity("CrunchyPeanutButter.Domain.Models.Foos.Baz", b =>
             {
-                b.HasOne("CrunchyPeanutButter.Domain.Foos.Foo", "Foo")
+                b.HasOne("CrunchyPeanutButter.Domain.Models.Foos.Foo", "Foo")
                     .WithMany("Bazes")
                     .HasForeignKey("FooId")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired();
             });
 
-            modelBuilder.Entity("CrunchyPeanutButter.Domain.Foos.FooBar", b =>
+            modelBuilder.Entity("CrunchyPeanutButter.Domain.Models.Foos.FooBar", b =>
             {
-                b.HasOne("CrunchyPeanutButter.Domain.Bars.Bar", "Bar")
+                b.HasOne("CrunchyPeanutButter.Domain.Models.Bars.Bar", "Bar")
                     .WithMany()
                     .HasForeignKey("BarId")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired();
 
-                b.HasOne("CrunchyPeanutButter.Domain.Foos.Foo", "Foo")
+                b.HasOne("CrunchyPeanutButter.Domain.Models.Foos.Foo", "Foo")
                     .WithMany("Bars")
                     .HasForeignKey("FooId")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired();
             });
 
-            modelBuilder.Entity("CrunchyPeanutButter.Domain.Foos.Qux", b =>
+            modelBuilder.Entity("CrunchyPeanutButter.Domain.Models.Foos.Qux", b =>
             {
-                b.HasOne("CrunchyPeanutButter.Domain.Foos.Baz", "Baz")
+                b.HasOne("CrunchyPeanutButter.Domain.Models.Foos.Baz", "Baz")
                     .WithMany("Quxes")
                     .HasForeignKey("BazId")
                     .OnDelete(DeleteBehavior.Cascade)

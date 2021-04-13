@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using CrunchyPeanutButter.Domain.Abstractions.Models;
 
 namespace CrunchyPeanutButter.Domain.Models.Foos
 {
-    public class Baz : IDomainEntity
+    public class Baz
     {
         public int Id { get; private set; }
 

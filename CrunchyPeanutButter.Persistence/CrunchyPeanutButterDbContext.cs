@@ -1,9 +1,9 @@
-﻿using CrunchyPeanutButter.Application.Abstractions;
+﻿using CrunchyPeanutButter.Application.Abstractions.Stores;
 using CrunchyPeanutButter.Domain.Models.Bars;
 using CrunchyPeanutButter.Domain.Models.Foos;
 using Microsoft.EntityFrameworkCore;
 
-namespace CrunchyPeanutButter.Data
+namespace CrunchyPeanutButter.Persistence
 {
     public class CrunchyPeanutButterDbContext : DbContext, IDbContext
     {

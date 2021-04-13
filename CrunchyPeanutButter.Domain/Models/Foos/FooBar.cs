@@ -1,9 +1,8 @@
-﻿using CrunchyPeanutButter.Domain.Abstractions.Models;
-using CrunchyPeanutButter.Domain.Models.Bars;
+﻿using CrunchyPeanutButter.Domain.Models.Bars;
 
 namespace CrunchyPeanutButter.Domain.Models.Foos
 {
-    public class FooBar : IDomainEntity
+    public class FooBar
     {
         private FooBar(Bar bar)
         {

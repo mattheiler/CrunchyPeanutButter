@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace CrunchyPeanutButter.Data.Migrations
+namespace CrunchyPeanutButter.Persistence.Migrations
 {
     public partial class InitialCreate : Migration
     {
@@ -10,7 +10,7 @@ namespace CrunchyPeanutButter.Data.Migrations
                 "Bars",
                 table => new
                 {
-                    Id = table.Column<int>()
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
                     Fum_Name = table.Column<string>(nullable: true)
@@ -21,7 +21,7 @@ namespace CrunchyPeanutButter.Data.Migrations
                 "Foos",
                 table => new
                 {
-                    Id = table.Column<int>()
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true)
                 },
@@ -31,7 +31,7 @@ namespace CrunchyPeanutButter.Data.Migrations
                 "Ack",
                 table => new
                 {
-                    BarId = table.Column<int>(),
+                    BarId = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -49,9 +49,9 @@ namespace CrunchyPeanutButter.Data.Migrations
                 "Baz",
                 table => new
                 {
-                    Id = table.Column<int>()
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FooId = table.Column<int>(),
+                    FooId = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -69,8 +69,8 @@ namespace CrunchyPeanutButter.Data.Migrations
                 "FooBar",
                 table => new
                 {
-                    FooId = table.Column<int>(),
-                    BarId = table.Column<int>()
+                    FooId = table.Column<int>(nullable: false),
+                    BarId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -93,9 +93,9 @@ namespace CrunchyPeanutButter.Data.Migrations
                 "Qux",
                 table => new
                 {
-                    Id = table.Column<int>()
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BazId = table.Column<int>(),
+                    BazId = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
