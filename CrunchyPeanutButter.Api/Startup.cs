@@ -9,7 +9,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Newtonsoft.Json;
 
 namespace CrunchyPeanutButter.Api
 {
@@ -35,13 +34,12 @@ namespace CrunchyPeanutButter.Api
                 .AddMediatR(Assembly.Load("CrunchyPeanutButter.Application"));
 
             services
-                .AddControllers()
-                .AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
+                .AddControllers();
 
             services
-                .AddSwaggerGen(c =>
+                .AddSwaggerGen(options =>
                 {
-                    c.SwaggerDoc("v1", new OpenApiInfo
+                    options.SwaggerDoc("v1", new OpenApiInfo
                     {
                         Title = "My API",
                         Version = "v1"
