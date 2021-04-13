@@ -25,13 +25,9 @@ namespace CrunchyPeanutButter.Api.Controllers
         }
 
         [HttpGet]
-        public Task<List<GetBarsQueryResult>> GetBarsAsync(int pageIndex = 0, int pageSize = 20)
+        public Task<List<GetBarsQueryResult>> GetBarsAsync([FromQuery] GetBarsQueryParams @params)
         {
-            return _sender.Send(new GetBarsQuery
-            {
-                PageIndex = pageIndex,
-                PageSize = pageSize
-            });
+            return _sender.Send(new GetBarsQuery(@params));
         }
 
         [HttpPost]

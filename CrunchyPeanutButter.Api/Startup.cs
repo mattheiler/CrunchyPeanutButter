@@ -1,3 +1,4 @@
+using System.Text.Json;
 using CrunchyPeanutButter.Application;
 using CrunchyPeanutButter.Domain;
 using CrunchyPeanutButter.Infrastructure;
@@ -32,6 +33,7 @@ namespace CrunchyPeanutButter.Api
 
             services.AddSwaggerGen(options =>
             {
+                options.DescribeAllParametersInCamelCase();
                 options.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Title = "My API",

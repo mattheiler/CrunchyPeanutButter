@@ -5,8 +5,11 @@ namespace CrunchyPeanutButter.Application.Queries.Bars
 {
     public class GetBarsQuery : IRequest<List<GetBarsQueryResult>>
     {
-        public int PageIndex { get; set; }
+        public GetBarsQuery(GetBarsQueryParams @params)
+        {
+            Params = @params;
+        }
 
-        public int PageSize { get; set; }
+        public GetBarsQueryParams Params { get; }
     }
 }

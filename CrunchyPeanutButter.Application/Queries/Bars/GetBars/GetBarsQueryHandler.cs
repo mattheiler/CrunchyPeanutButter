@@ -28,8 +28,8 @@ namespace CrunchyPeanutButter.Application.Queries.Bars
                 _context
                     .Bars
                     .OrderBy(foo => foo.Id)
-                    .Skip(request.PageSize * request.PageIndex)
-                    .Take(request.PageSize)
+                    .Skip(request.Params.PageSize * request.Params.PageIndex)
+                    .Take(request.Params.PageSize)
                     .ProjectTo<GetBarsQueryResult>(_mappings)
                     .ToListAsync(cancellationToken);
         }

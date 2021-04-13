@@ -24,7 +24,7 @@ namespace CrunchyPeanutButter.ApiClient
 
         public async Task<IReadOnlyCollection<Bar>> GetBarsAsync(int? pageIndex = default, int? pageSize = default)
         {
-            return await _options.Value.BaseUrl.AppendPathSegments("bars").SetQueryParams(new {pageIndex, pageSize}).GetJsonAsync<Bar[]>();
+            return await _options.Value.BaseUrl.AppendPathSegments("bars").SetQueryParams(new { pageIndex, pageSize }).GetJsonAsync<Bar[]>();
         }
 
         public Task CreateBarAsync(Bar bar)
@@ -49,7 +49,7 @@ namespace CrunchyPeanutButter.ApiClient
 
         public async Task<IReadOnlyCollection<Foo>> GetFoosAsync(int? pageIndex = default, int? pageSize = default)
         {
-            return await _options.Value.BaseUrl.AppendPathSegments("foos").SetQueryParams(new {pageIndex, pageSize}).GetJsonAsync<Foo[]>();
+            return await _options.Value.BaseUrl.AppendPathSegments("foos").SetQueryParams(new { pageIndex, pageSize }).GetJsonAsync<Foo[]>();
         }
 
         public Task CreateFooAsync(Foo foo)

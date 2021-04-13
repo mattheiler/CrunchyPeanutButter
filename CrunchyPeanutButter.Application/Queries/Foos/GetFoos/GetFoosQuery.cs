@@ -5,8 +5,11 @@ namespace CrunchyPeanutButter.Application.Queries.Foos
 {
     public class GetFoosQuery : IRequest<List<GetFoosQueryResult>>
     {
-        public int PageIndex { get; set; }
+        public GetFoosQuery(GetFoosQueryParams @params)
+        {
+            Params = @params;
+        }
 
-        public int PageSize { get; set; }
+        public GetFoosQueryParams Params { get; }
     }
 }
