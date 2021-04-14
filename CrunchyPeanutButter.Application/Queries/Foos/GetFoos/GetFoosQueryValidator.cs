@@ -6,7 +6,7 @@ namespace CrunchyPeanutButter.Application.Queries.Foos
     {
         public GetFoosQueryValidator()
         {
-            RuleFor(request => request.Params.PageIndex).GreaterThan(0);
+            RuleFor(request => request.Params.PageIndex).GreaterThanOrEqualTo(0);
             RuleFor(request => request.Params.PageSize).GreaterThan(0);
         }
     }

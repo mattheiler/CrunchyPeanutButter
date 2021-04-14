@@ -7,7 +7,7 @@ namespace CrunchyPeanutButter.Application.Commands.Foos
         public UpdateFooCommandValidator()
         {
             RuleFor(request => request.Id).GreaterThan(0);
-            RuleFor(request => request.Args.Name).NotNull();
+            RuleFor(request => request.Args.Name).NotNull().NotEmpty();
         }
     }
 }

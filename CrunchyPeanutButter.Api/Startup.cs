@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using AutoMapper;
 using CrunchyPeanutButter.Application;
 using CrunchyPeanutButter.Domain;
 using CrunchyPeanutButter.Infrastructure;
