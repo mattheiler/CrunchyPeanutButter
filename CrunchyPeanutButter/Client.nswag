@@ -93,7 +93,7 @@
       "enumNameGeneratorType": null,
       "serviceHost": null,
       "serviceSchemes": null,
-      "output": "Client.cs",
+      "output": "Client.nswag.cs",
       "newLineBehavior": "Auto"
     }
   }

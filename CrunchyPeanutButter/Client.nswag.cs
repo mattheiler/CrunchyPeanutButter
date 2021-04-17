@@ -16,7 +16,7 @@ namespace CrunchyPeanutButter
     using System = global::System;
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.10.9.0 (NJsonSchema v10.4.1.0 (Newtonsoft.Json v12.0.0.0))")]
-    public partial interface IClient
+    public partial interface ICrunchyPeanutButter
     {
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
@@ -111,13 +111,13 @@ namespace CrunchyPeanutButter
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.10.9.0 (NJsonSchema v10.4.1.0 (Newtonsoft.Json v12.0.0.0))")]
-    public partial class Client : IClient
+    public partial class CrunchyPeanutButter : ICrunchyPeanutButter
     {
         private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<System.Text.Json.JsonSerializerOptions> _settings;
     
-        public Client(string baseUrl, System.Net.Http.HttpClient httpClient)
+        public CrunchyPeanutButter(string baseUrl, System.Net.Http.HttpClient httpClient)
         {
             BaseUrl = baseUrl;
             _httpClient = httpClient;
