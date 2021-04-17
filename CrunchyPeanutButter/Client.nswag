@@ -41,7 +41,7 @@
       "useRequestAndResponseSerializationSettings": false,
       "serializeTypeInformation": false,
       "queryNullValue": "",
-      "className": "{controller}CrunchyPeanutButter",
+      "className": "{controller}Client",
       "operationGenerationMode": "SingleClientFromPathSegments",
       "additionalNamespaceUsages": [],
       "additionalContractNamespaceUsages": [],
@@ -93,7 +93,7 @@
       "enumNameGeneratorType": null,
       "serviceHost": null,
       "serviceSchemes": null,
-      "output": "Client.nswag.cs",
+      "output": "Client.Generated.cs",
       "newLineBehavior": "Auto"
     }
   }
