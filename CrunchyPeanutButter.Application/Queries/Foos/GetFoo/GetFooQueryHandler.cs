@@ -7,7 +7,7 @@ using CrunchyPeanutButter.Application.Abstractions.Persistence;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace CrunchyPeanutButter.Application.Queries.Foos
+namespace CrunchyPeanutButter.Application
 {
     public class GetFooQueryHandler : IRequestHandler<GetFooQuery, GetFooQueryResult>
     {

@@ -8,10 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CrunchyPeanutButter.Application.Queries.Bars.GetBars {
-    using System;
-    
-    
+namespace CrunchyPeanutButter.Application {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>

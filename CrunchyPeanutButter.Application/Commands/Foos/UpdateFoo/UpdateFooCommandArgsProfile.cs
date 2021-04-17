@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using CrunchyPeanutButter.Domain.Models.Foos;
 
-namespace CrunchyPeanutButter.Application.Commands.Foos
+namespace CrunchyPeanutButter.Application
 {
     public class UpdateFooCommandArgsProfile : Profile
     {

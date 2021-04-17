@@ -1,4 +1,4 @@
-﻿namespace CrunchyPeanutButter.Application.Queries.Bars
+﻿namespace CrunchyPeanutButter.Application
 {
     public class GetBarsQueryResult
     {

@@ -6,7 +6,7 @@ using CrunchyPeanutButter.Domain.Events.Bars;
 using CrunchyPeanutButter.Domain.Models.Bars;
 using MediatR;
 
-namespace CrunchyPeanutButter.Application.Commands.Bars
+namespace CrunchyPeanutButter.Application
 {
     public class CreateBarCommandHandler : IRequestHandler<CreateBarCommand>
     {

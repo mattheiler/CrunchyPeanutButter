@@ -4,7 +4,7 @@ using AutoMapper;
 using CrunchyPeanutButter.Application.Abstractions.Persistence;
 using MediatR;
 
-namespace CrunchyPeanutButter.Application.Commands.Bars
+namespace CrunchyPeanutButter.Application
 {
     public class UpdateBarCommandHandler : IRequestHandler<UpdateBarCommand>
     {

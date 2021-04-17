@@ -1,29 +1,27 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using CrunchyPeanutButter.ApiClient.Abstractions.Models;
+﻿using System.Threading.Tasks;
 
 namespace CrunchyPeanutButter.ApiClient.Abstractions
 {
     public interface ICrunchyPeanutButter
     {
-        Task<Bar> GetBarAsync(int id);
+        Task<GetBarResponse> GetBarAsync(GetBarRequest request);
 
-        Task<IReadOnlyCollection<Bar>> GetBarsAsync(int? pageIndex = default, int? pageSize = default);
+        Task<GetBarsResponse> GetBarsAsync(GetBarsRequest request);
 
-        Task CreateBarAsync(Bar bar);
+        Task<CreateBarResponse> CreateBarAsync(CreateBarRequest request);
 
-        Task UpdateBarAsync(int id, Bar bar);
+        Task<UpdateBarResponse> UpdateBarAsync(UpdateBarRequest request);
 
-        Task DeleteBarAsync(int id);
+        Task<DeleteBarResponse> DeleteBarAsync(DeleteBarRequest request);
 
-        Task<Foo> GetFooAsync(int id);
+        Task<GetFooResponse> GetFooAsync(GetFooRequest request);
 
-        Task<IReadOnlyCollection<Foo>> GetFoosAsync(int? pageIndex = default, int? pageSize = default);
+        Task<GetFoosResponse> GetFoosAsync(GetFoosRequest request);
 
-        Task CreateFooAsync(Foo foo);
+        Task<CreateFooResponse> CreateFooAsync(CreateFooRequest request);
 
-        Task UpdateFooAsync(int id, Foo foo);
+        Task<UpdateFooResponse> UpdateFooAsync(UpdateFooRequest request);
 
-        Task DeleteFooAsync(int id);
+        Task<DeleteFooResponse> DeleteFooAsync(DeleteFooRequest request);
     }
 }

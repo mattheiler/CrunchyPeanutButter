@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using CrunchyPeanutButter.ApiClient.Abstractions;
-using CrunchyPeanutButter.ApiClient.Abstractions.Models;
 using Flurl;
 using Flurl.Http;
 using Microsoft.Extensions.Options;
@@ -17,54 +16,60 @@ namespace CrunchyPeanutButter.ApiClient
             _options = options;
         }
 
-        public Task<Bar> GetBarAsync(int id)
+        public Task<GetBarResponse> GetBarAsync(GetBarRequest request)
         {
-            return _options.Value.BaseUrl.AppendPathSegments("bars", id).GetJsonAsync<Bar>();
+            return _options.Value.BaseUrl.AppendPathSegments("bars", request.Id).GetJsonAsync<GetBarResponse>();
         }
 
-        public async Task<IReadOnlyCollection<Bar>> GetBarsAsync(int? pageIndex = default, int? pageSize = default)
+        public async Task<GetBarsResponse> GetBarsAsync(GetBarsRequest request)
         {
-            return await _options.Value.BaseUrl.AppendPathSegments("bars").SetQueryParams(new { pageIndex, pageSize }).GetJsonAsync<Bar[]>();
+            return await _options.Value.BaseUrl.AppendPathSegments("bars").SetQueryParams(request).GetJsonAsync<GetBarsResponse>();
         }
 
-        public Task CreateBarAsync(Bar bar)
+        public async Task<CreateBarResponse> CreateBarAsync(CreateBarRequest request)
         {
-            return _options.Value.BaseUrl.AppendPathSegments("bars").PostJsonAsync(bar);
+            var response = await _options.Value.BaseUrl.AppendPathSegments("bars").PostJsonAsync(request);
+            return await response.GetJsonAsync<CreateBarResponse>();
         }
 
-        public Task UpdateBarAsync(int id, Bar bar)
+        public async Task<UpdateBarResponse> UpdateBarAsync(UpdateBarRequest request)
         {
-            return _options.Value.BaseUrl.AppendPathSegments("bars", id).PutJsonAsync(bar);
+            var response = await _options.Value.BaseUrl.AppendPathSegments("bars", request.Id).PutJsonAsync(request);
+            return await response.GetJsonAsync<UpdateBarResponse>();
         }
 
-        public Task DeleteBarAsync(int id)
+        public async Task<DeleteBarResponse> DeleteBarAsync(DeleteBarRequest request)
         {
-            return _options.Value.BaseUrl.AppendPathSegments("bars", id).DeleteAsync();
+            var response = await _options.Value.BaseUrl.AppendPathSegments("bars", request.Id).DeleteAsync();
+            return await response.GetJsonAsync<DeleteBarResponse>();
         }
 
-        public Task<Foo> GetFooAsync(int id)
+        public Task<GetFooResponse> GetFooAsync(GetFooRequest request)
         {
-            return _options.Value.BaseUrl.AppendPathSegments("foos", id).GetJsonAsync<Foo>();
+            return _options.Value.BaseUrl.AppendPathSegments("foos", request.Id).GetJsonAsync<GetFooResponse>();
         }
 
-        public async Task<IReadOnlyCollection<Foo>> GetFoosAsync(int? pageIndex = default, int? pageSize = default)
+        public async Task<GetFoosResponse> GetFoosAsync(GetFoosRequest request)
         {
-            return await _options.Value.BaseUrl.AppendPathSegments("foos").SetQueryParams(new { pageIndex, pageSize }).GetJsonAsync<Foo[]>();
+            return await _options.Value.BaseUrl.AppendPathSegments("foos").SetQueryParams(request).GetJsonAsync<GetFoosResponse>();
         }
 
-        public Task CreateFooAsync(Foo foo)
+        public async Task<CreateFooResponse> CreateFooAsync(CreateFooRequest request)
         {
-            return _options.Value.BaseUrl.AppendPathSegments("foos").PostJsonAsync(foo);
+            var response = await _options.Value.BaseUrl.AppendPathSegments("foos").PostJsonAsync(request);
+            return await response.GetJsonAsync<CreateFooResponse>();
         }
 
-        public Task UpdateFooAsync(int id, Foo foo)
+        public async Task<UpdateFooResponse> UpdateFooAsync(UpdateFooRequest request)
         {
-            return _options.Value.BaseUrl.AppendPathSegments("foos", id).PutJsonAsync(foo);
+            var response = await _options.Value.BaseUrl.AppendPathSegments("foos", request.Id).PutJsonAsync(request);
+            return await response.GetJsonAsync<UpdateFooResponse>();
         }
 
-        public Task DeleteFooAsync(int id)
+        public async Task<DeleteFooResponse> DeleteFooAsync(DeleteFooRequest request)
         {
-            return _options.Value.BaseUrl.AppendPathSegments("foos", id).DeleteAsync();
+            var response = await _options.Value.BaseUrl.AppendPathSegments("foos", request.Id).DeleteAsync();
+            return await response.GetJsonAsync<DeleteFooResponse>();
         }
     }
 }

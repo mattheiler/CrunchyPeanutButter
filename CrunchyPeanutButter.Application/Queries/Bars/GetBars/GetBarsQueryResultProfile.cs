@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using CrunchyPeanutButter.Domain.Models.Bars;
 
-namespace CrunchyPeanutButter.Application.Queries.Bars
+namespace CrunchyPeanutButter.Application
 {
     public class GetBarsQueryResultProfile : Profile
     {

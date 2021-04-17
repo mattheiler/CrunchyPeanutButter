@@ -8,10 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CrunchyPeanutButter.Application.Commands.Foos.CreateFoo {
-    using System;
-    
-    
+namespace CrunchyPeanutButter.Application {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>

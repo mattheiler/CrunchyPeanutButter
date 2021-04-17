@@ -5,7 +5,7 @@ using CrunchyPeanutButter.Application.Abstractions.Persistence;
 using CrunchyPeanutButter.Domain.Models.Foos;
 using MediatR;
 
-namespace CrunchyPeanutButter.Application.Commands.Foos
+namespace CrunchyPeanutButter.Application
 {
     public class CreateFooCommandHandler : IRequestHandler<CreateFooCommand>
     {

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CrunchyPeanutButter.Application.Commands.Bars
+namespace CrunchyPeanutButter.Application
 {
     public class UpdateBarCommand : IRequest
     {

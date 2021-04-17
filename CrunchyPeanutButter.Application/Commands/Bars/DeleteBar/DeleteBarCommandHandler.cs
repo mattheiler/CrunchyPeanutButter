@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using CrunchyPeanutButter.Application.Abstractions.Persistence;
 using MediatR;
 
-namespace CrunchyPeanutButter.Application.Commands.Bars
+namespace CrunchyPeanutButter.Application
 {
     public class DeleteBarCommandHandler : IRequestHandler<DeleteBarCommand>
     {

@@ -1,4 +1,4 @@
-﻿namespace CrunchyPeanutButter.Application.Queries.Foos
+﻿namespace CrunchyPeanutButter.Application
 {
     public class GetFooQueryResult
     {

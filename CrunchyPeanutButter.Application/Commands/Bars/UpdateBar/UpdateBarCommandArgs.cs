@@ -1,4 +1,4 @@
-﻿namespace CrunchyPeanutButter.Application.Commands.Bars
+﻿namespace CrunchyPeanutButter.Application
 {
     public class UpdateBarCommandArgs
     {

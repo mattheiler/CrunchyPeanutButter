@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CrunchyPeanutButter.Application.Queries.Bars
+namespace CrunchyPeanutButter.Application
 {
     public class GetBarQuery : IRequest<GetBarQueryResult>
     {

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CrunchyPeanutButter.Application.Commands.Foos
+namespace CrunchyPeanutButter.Application
 {
     public class UpdateFooCommand : IRequest
     {

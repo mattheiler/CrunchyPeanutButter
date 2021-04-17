@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using CrunchyPeanutButter.Domain.Models.Bars;
 
-namespace CrunchyPeanutButter.Application.Commands.Bars
+namespace CrunchyPeanutButter.Application
 {
     public class CreateBarCommandArgsProfile : Profile
     {

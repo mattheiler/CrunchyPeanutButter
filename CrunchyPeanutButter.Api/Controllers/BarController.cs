@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using CrunchyPeanutButter.Application.Commands.Bars;
-using CrunchyPeanutButter.Application.Queries.Bars;
+using CrunchyPeanutButter.Application;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

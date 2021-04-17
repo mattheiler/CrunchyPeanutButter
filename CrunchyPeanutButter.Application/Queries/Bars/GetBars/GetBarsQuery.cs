@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using MediatR;
 
-namespace CrunchyPeanutButter.Application.Queries.Bars
+namespace CrunchyPeanutButter.Application
 {
     public class GetBarsQuery : IRequest<List<GetBarsQueryResult>>
     {
