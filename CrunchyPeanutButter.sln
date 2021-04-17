@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Persist
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Infrastructure", "CrunchyPeanutButter.Infrastructure\CrunchyPeanutButter.Infrastructure.csproj", "{5F0E3C74-B687-484C-A6B8-F3CE424AC70F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrunchyPeanutButter", "CrunchyPeanutButter\CrunchyPeanutButter.csproj", "{56E74C23-ACE6-4891-9DE9-C1CC478BD01C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter", "CrunchyPeanutButter\CrunchyPeanutButter.csproj", "{56E74C23-ACE6-4891-9DE9-C1CC478BD01C}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{326198A6-9935-447A-AE55-B36F4B43C2E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{56E74C23-ACE6-4891-9DE9-C1CC478BD01C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56E74C23-ACE6-4891-9DE9-C1CC478BD01C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56E74C23-ACE6-4891-9DE9-C1CC478BD01C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{326198A6-9935-447A-AE55-B36F4B43C2E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{326198A6-9935-447A-AE55-B36F4B43C2E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{326198A6-9935-447A-AE55-B36F4B43C2E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{326198A6-9935-447A-AE55-B36F4B43C2E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
