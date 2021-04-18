@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Reflection;
 using CrunchyPeanutButter.Application;
 using CrunchyPeanutButter.Domain;
 using CrunchyPeanutButter.Infrastructure;
@@ -17,7 +18,7 @@ using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace CrunchyPeanutButter.Api
+namespace CrunchyPeanutButter.Web
 {
     public class Startup
     {
@@ -38,6 +39,8 @@ namespace CrunchyPeanutButter.Api
 
             services.AddControllers();
 
+            services.AddSpaStaticFiles(configuration => configuration.RootPath = "dist");
+
             services.AddSwaggerGen(options =>
             {
                 options.CustomOperationIds(api => api.TryGetMethodInfo(out var methodInfo) ? methodInfo.Name : null);
@@ -50,6 +53,7 @@ namespace CrunchyPeanutButter.Api
             });
         }
 
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -62,7 +66,7 @@ namespace CrunchyPeanutButter.Api
                     var exceptionHandlerPathFeature = context.Features.Get<IExceptionHandlerPathFeature>();
                     if (exceptionHandlerPathFeature?.Error is ValidationException e)
                     {
-                        context.Response.StatusCode = (int) HttpStatusCode.BadRequest;
+                        context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                         context.Response.ContentType = MediaTypeNames.Application.Json;
 
                         await context.Response.WriteAsync(JsonConvert.SerializeObject(e.Errors.Select(error => error.ErrorMessage).ToList()));
@@ -71,6 +75,10 @@ namespace CrunchyPeanutButter.Api
             });
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
+
+            if (!env.IsDevelopment())
+                app.UseSpaStaticFiles();
 
             app.UseRouting();
 
@@ -84,6 +92,14 @@ namespace CrunchyPeanutButter.Api
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
                 options.RoutePrefix = string.Empty;
+            });
+
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = "./";
+
+                if (env.IsDevelopment())
+                    spa.UseProxyToSpaDevelopmentServer("https://host.docker.internal:4200");
             });
         }
     }

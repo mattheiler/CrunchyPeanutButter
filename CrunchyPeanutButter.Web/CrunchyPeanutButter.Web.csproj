@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<UserSecretsId>68c288e1-84df-4724-8a5d-8cba8f7df370</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\CrunchyPeanutButter.Application\CrunchyPeanutButter.Application.csproj" />
+		<ProjectReference Include="..\CrunchyPeanutButter.Infrastructure\CrunchyPeanutButter.Infrastructure.csproj" />
+		<ProjectReference Include="..\CrunchyPeanutButter.Persistence\CrunchyPeanutButter.Persistence.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="3.1.14" />
+		<PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.14" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.13" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.2" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.1.2" />
+	</ItemGroup>
+
+</Project>

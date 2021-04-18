@@ -6,3 +6,10 @@ services:
     build:
       context: .
       dockerfile: CrunchyPeanutButter.Api/Dockerfile
+
+  crunchypeanutbutter.web:
+    image: ${DOCKER_REGISTRY-}crunchypeanutbutterweb
+    build:
+      context: .
+      dockerfile: CrunchyPeanutButter.Web/Dockerfile
+

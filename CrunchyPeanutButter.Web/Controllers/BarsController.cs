@@ -4,15 +4,15 @@ using CrunchyPeanutButter.Application;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CrunchyPeanutButter.Api.Controllers
+namespace CrunchyPeanutButter.Web.Controllers
 {
     [Route("bars")]
     [ApiController]
-    public class BarController : ControllerBase
+    public class BarsController : ControllerBase
     {
         private readonly ISender _sender;
 
-        public BarController(ISender sender)
+        public BarsController(ISender sender)
         {
             _sender = sender;
         }

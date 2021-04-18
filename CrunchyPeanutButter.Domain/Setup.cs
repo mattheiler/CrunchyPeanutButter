@@ -1,13 +1,12 @@
 ﻿using System.Reflection;
 using MediatR.Registration;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CrunchyPeanutButter.Domain
 {
     public static class Setup
     {
-        public static IServiceCollection AddDomain(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddDomain(this IServiceCollection services)
         {
             ServiceRegistrar.AddMediatRClasses(services, new[] {Assembly.GetExecutingAssembly()});
             return services;

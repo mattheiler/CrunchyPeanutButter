@@ -6,7 +6,7 @@
     <ProjectGuid>326198a6-9935-447a-ae55-b36f4b43c2e6</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>{Scheme}://localhost:{ServicePort}</DockerServiceUrl>
-    <DockerServiceName>crunchypeanutbutter.api</DockerServiceName>
+    <DockerServiceName>crunchypeanutbutter.web</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.override.yml">

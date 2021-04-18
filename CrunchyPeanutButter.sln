@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{C03A87A4-313A-4F05-AC4C-B07A2DAE6B1D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{66B618A2-D786-4513-B02C-3EA6B8569D20}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation (Service)", "Presentation (Service)", "{66B618A2-D786-4513-B02C-3EA6B8569D20}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Application", "CrunchyPeanutButter.Application\CrunchyPeanutButter.Application.csproj", "{91DE3B6F-3805-47CE-BA79-FEC41B02E2C7}"
 EndProject
@@ -26,6 +26,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter", "CrunchyPeanutButter\CrunchyPeanutButter.csproj", "{56E74C23-ACE6-4891-9DE9-C1CC478BD01C}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{326198A6-9935-447A-AE55-B36F4B43C2E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrunchyPeanutButter.Web", "CrunchyPeanutButter.Web\CrunchyPeanutButter.Web.csproj", "{F6325448-67C3-4598-9D71-A333A96883EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation (Application)", "Presentation (Application)", "{D9288EEC-CE12-4B0D-98E3-432A0B64BF46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +69,10 @@ Global
 		{326198A6-9935-447A-AE55-B36F4B43C2E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{326198A6-9935-447A-AE55-B36F4B43C2E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{326198A6-9935-447A-AE55-B36F4B43C2E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6325448-67C3-4598-9D71-A333A96883EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6325448-67C3-4598-9D71-A333A96883EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6325448-67C3-4598-9D71-A333A96883EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6325448-67C3-4598-9D71-A333A96883EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +85,7 @@ Global
 		{5F18ECDB-F6B2-41C8-94B2-ABB7CBE15F90} = {B21EEE7F-CA1E-4B37-923C-4039F6B11F06}
 		{5F0E3C74-B687-484C-A6B8-F3CE424AC70F} = {B21EEE7F-CA1E-4B37-923C-4039F6B11F06}
 		{56E74C23-ACE6-4891-9DE9-C1CC478BD01C} = {66B618A2-D786-4513-B02C-3EA6B8569D20}
+		{F6325448-67C3-4598-9D71-A333A96883EA} = {D9288EEC-CE12-4B0D-98E3-432A0B64BF46}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1DDC67EE-68B3-407C-BD96-F05C472FF225}

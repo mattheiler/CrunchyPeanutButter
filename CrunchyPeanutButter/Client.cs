@@ -1,25 +1,14 @@
 ﻿using System.Net.Http;
-using System.Text;
-using System.Text.Json;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace CrunchyPeanutButter
 {
-    public partial class Client
+    public class Client
     {
-        partial void UpdateJsonSerializerSettings(JsonSerializerOptions settings)
+        protected Task<HttpRequestMessage> CreateHttpRequestMessageAsync(CancellationToken cancellationToken)
         {
-        }
-
-        partial void PrepareRequest(HttpClient client, HttpRequestMessage request, string url)
-        {
-        }
-
-        partial void PrepareRequest(HttpClient client, HttpRequestMessage request, StringBuilder urlBuilder)
-        {
-        }
-
-        partial void ProcessResponse(HttpClient client, HttpResponseMessage response)
-        {
+            return Task.FromResult(new HttpRequestMessage());
         }
     }
 }

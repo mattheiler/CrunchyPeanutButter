@@ -16,108 +16,63 @@ namespace CrunchyPeanutButter
     using System = global::System;
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.10.9.0 (NJsonSchema v10.4.1.0 (Newtonsoft.Json v12.0.0.0))")]
-    public partial interface IClient
+    public partial interface IBarsClient
     {
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<GetBarQueryResult> BarsGetAsync(int id);
+        System.Threading.Tasks.Task<GetBarQueryResult> GetBarAsync(int id);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<GetBarQueryResult> BarsGetAsync(int id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<GetBarQueryResult> GetBarAsync(int id, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task BarsPutAsync(int id, UpdateBarCommandArgs body);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>Success</returns>
-        /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task BarsPutAsync(int id, UpdateBarCommandArgs body, System.Threading.CancellationToken cancellationToken);
-    
-        /// <returns>Success</returns>
-        /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task BarsDeleteAsync(int id);
+        System.Threading.Tasks.Task UpdateBarAsync(int id, UpdateBarCommandArgs body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task BarsDeleteAsync(int id, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task UpdateBarAsync(int id, UpdateBarCommandArgs body, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<GetBarsQueryResult>> BarsGetAsync(int? pageIndex, int? pageSize);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>Success</returns>
-        /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<GetBarsQueryResult>> BarsGetAsync(int? pageIndex, int? pageSize, System.Threading.CancellationToken cancellationToken);
-    
-        /// <returns>Success</returns>
-        /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task BarsPostAsync(CreateBarCommandArgs body);
+        System.Threading.Tasks.Task DeleteBarAsync(int id);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task BarsPostAsync(CreateBarCommandArgs body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task DeleteBarAsync(int id, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<GetFooQueryResult> FoosGetAsync(int id);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>Success</returns>
-        /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<GetFooQueryResult> FoosGetAsync(int id, System.Threading.CancellationToken cancellationToken);
-    
-        /// <returns>Success</returns>
-        /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task FoosPutAsync(int id, UpdateFooCommandArgs body);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<GetBarsQueryResult>> GetBarsAsync(int? pageIndex, int? pageSize);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task FoosPutAsync(int id, UpdateFooCommandArgs body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<GetBarsQueryResult>> GetBarsAsync(int? pageIndex, int? pageSize, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task FoosDeleteAsync(int id);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>Success</returns>
-        /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task FoosDeleteAsync(int id, System.Threading.CancellationToken cancellationToken);
-    
-        /// <returns>Success</returns>
-        /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<GetFoosQueryResult>> FoosGetAsync(int? pageIndex, int? pageSize);
+        System.Threading.Tasks.Task CreateBarAsync(CreateBarCommandArgs body);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<GetFoosQueryResult>> FoosGetAsync(int? pageIndex, int? pageSize, System.Threading.CancellationToken cancellationToken);
-    
-        /// <returns>Success</returns>
-        /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task FoosPostAsync(CreateFooCommandArgs body);
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>Success</returns>
-        /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task FoosPostAsync(CreateFooCommandArgs body, System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task CreateBarAsync(CreateBarCommandArgs body, System.Threading.CancellationToken cancellationToken);
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.10.9.0 (NJsonSchema v10.4.1.0 (Newtonsoft.Json v12.0.0.0))")]
-    public partial class Client : IClient
+    public partial class BarsClient : Client, IBarsClient
     {
         private string _baseUrl = "";
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<System.Text.Json.JsonSerializerOptions> _settings;
     
-        public Client(string baseUrl, System.Net.Http.HttpClient httpClient)
+        public BarsClient(string baseUrl, System.Net.Http.HttpClient httpClient)
         {
             BaseUrl = baseUrl;
             _httpClient = httpClient;
@@ -147,15 +102,15 @@ namespace CrunchyPeanutButter
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<GetBarQueryResult> BarsGetAsync(int id)
+        public System.Threading.Tasks.Task<GetBarQueryResult> GetBarAsync(int id)
         {
-            return BarsGetAsync(id, System.Threading.CancellationToken.None);
+            return GetBarAsync(id, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<GetBarQueryResult> BarsGetAsync(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<GetBarQueryResult> GetBarAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -168,7 +123,7 @@ namespace CrunchyPeanutButter
             var disposeClient_ = false;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("text/plain"));
@@ -225,15 +180,15 @@ namespace CrunchyPeanutButter
     
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task BarsPutAsync(int id, UpdateBarCommandArgs body)
+        public System.Threading.Tasks.Task UpdateBarAsync(int id, UpdateBarCommandArgs body)
         {
-            return BarsPutAsync(id, body, System.Threading.CancellationToken.None);
+            return UpdateBarAsync(id, body, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task BarsPutAsync(int id, UpdateBarCommandArgs body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task UpdateBarAsync(int id, UpdateBarCommandArgs body, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -246,7 +201,7 @@ namespace CrunchyPeanutButter
             var disposeClient_ = false;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(System.Text.Json.JsonSerializer.Serialize(body, _settings.Value));
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
@@ -300,15 +255,15 @@ namespace CrunchyPeanutButter
     
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task BarsDeleteAsync(int id)
+        public System.Threading.Tasks.Task DeleteBarAsync(int id)
         {
-            return BarsDeleteAsync(id, System.Threading.CancellationToken.None);
+            return DeleteBarAsync(id, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task BarsDeleteAsync(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task DeleteBarAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -321,7 +276,7 @@ namespace CrunchyPeanutButter
             var disposeClient_ = false;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("DELETE");
     
@@ -372,15 +327,15 @@ namespace CrunchyPeanutButter
     
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<GetBarsQueryResult>> BarsGetAsync(int? pageIndex, int? pageSize)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<GetBarsQueryResult>> GetBarsAsync(int? pageIndex, int? pageSize)
         {
-            return BarsGetAsync(pageIndex, pageSize, System.Threading.CancellationToken.None);
+            return GetBarsAsync(pageIndex, pageSize, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<GetBarsQueryResult>> BarsGetAsync(int? pageIndex, int? pageSize, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<GetBarsQueryResult>> GetBarsAsync(int? pageIndex, int? pageSize, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/bars?");
@@ -398,7 +353,7 @@ namespace CrunchyPeanutButter
             var disposeClient_ = false;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("text/plain"));
@@ -455,15 +410,15 @@ namespace CrunchyPeanutButter
     
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task BarsPostAsync(CreateBarCommandArgs body)
+        public System.Threading.Tasks.Task CreateBarAsync(CreateBarCommandArgs body)
         {
-            return BarsPostAsync(body, System.Threading.CancellationToken.None);
+            return CreateBarAsync(body, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task BarsPostAsync(CreateBarCommandArgs body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task CreateBarAsync(CreateBarCommandArgs body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/bars");
@@ -472,7 +427,7 @@ namespace CrunchyPeanutButter
             var disposeClient_ = false;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(System.Text.Json.JsonSerializer.Serialize(body, _settings.Value));
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
@@ -524,17 +479,202 @@ namespace CrunchyPeanutButter
             }
         }
     
+        protected struct ObjectResponseResult<T>
+        {
+            public ObjectResponseResult(T responseObject, string responseText)
+            {
+                this.Object = responseObject;
+                this.Text = responseText;
+            }
+    
+            public T Object { get; }
+    
+            public string Text { get; }
+        }
+    
+        public bool ReadResponseAsString { get; set; }
+        
+        protected virtual async System.Threading.Tasks.Task<ObjectResponseResult<T>> ReadObjectResponseAsync<T>(System.Net.Http.HttpResponseMessage response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.Threading.CancellationToken cancellationToken)
+        {
+            if (response == null || response.Content == null)
+            {
+                return new ObjectResponseResult<T>(default(T), string.Empty);
+            }
+        
+            if (ReadResponseAsString)
+            {
+                var responseText = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    var typedBody = System.Text.Json.JsonSerializer.Deserialize<T>(responseText, JsonSerializerSettings);
+                    return new ObjectResponseResult<T>(typedBody, responseText);
+                }
+                catch (System.Text.Json.JsonException exception)
+                {
+                    var message = "Could not deserialize the response body string as " + typeof(T).FullName + ".";
+                    throw new CrunchyPeanutButterException(message, (int)response.StatusCode, responseText, headers, exception);
+                }
+            }
+            else
+            {
+                try
+                {
+                    using (var responseStream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false))
+                    {
+                        var typedBody = await System.Text.Json.JsonSerializer.DeserializeAsync<T>(responseStream, JsonSerializerSettings, cancellationToken).ConfigureAwait(false);
+                        return new ObjectResponseResult<T>(typedBody, string.Empty);
+                    }
+                }
+                catch (System.Text.Json.JsonException exception)
+                {
+                    var message = "Could not deserialize the response body stream as " + typeof(T).FullName + ".";
+                    throw new CrunchyPeanutButterException(message, (int)response.StatusCode, string.Empty, headers, exception);
+                }
+            }
+        }
+    
+        private string ConvertToString(object value, System.Globalization.CultureInfo cultureInfo)
+        {
+            if (value == null)
+            {
+                return "";
+            }
+        
+            if (value is System.Enum)
+            {
+                var name = System.Enum.GetName(value.GetType(), value);
+                if (name != null)
+                {
+                    var field = System.Reflection.IntrospectionExtensions.GetTypeInfo(value.GetType()).GetDeclaredField(name);
+                    if (field != null)
+                    {
+                        var attribute = System.Reflection.CustomAttributeExtensions.GetCustomAttribute(field, typeof(System.Runtime.Serialization.EnumMemberAttribute)) 
+                            as System.Runtime.Serialization.EnumMemberAttribute;
+                        if (attribute != null)
+                        {
+                            return attribute.Value != null ? attribute.Value : name;
+                        }
+                    }
+        
+                    var converted = System.Convert.ToString(System.Convert.ChangeType(value, System.Enum.GetUnderlyingType(value.GetType()), cultureInfo));
+                    return converted == null ? string.Empty : converted;
+                }
+            }
+            else if (value is bool) 
+            {
+                return System.Convert.ToString((bool)value, cultureInfo).ToLowerInvariant();
+            }
+            else if (value is byte[])
+            {
+                return System.Convert.ToBase64String((byte[]) value);
+            }
+            else if (value.GetType().IsArray)
+            {
+                var array = System.Linq.Enumerable.OfType<object>((System.Array) value);
+                return string.Join(",", System.Linq.Enumerable.Select(array, o => ConvertToString(o, cultureInfo)));
+            }
+        
+            var result = System.Convert.ToString(value, cultureInfo);
+            return result == null ? "" : result;
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.10.9.0 (NJsonSchema v10.4.1.0 (Newtonsoft.Json v12.0.0.0))")]
+    public partial interface IFoosClient
+    {
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<GetFooQueryResult> FoosGetAsync(int id)
+        System.Threading.Tasks.Task<GetFooQueryResult> GetFooAsync(int id);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<GetFooQueryResult> GetFooAsync(int id, System.Threading.CancellationToken cancellationToken);
+    
+        /// <returns>Success</returns>
+        /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task UpdateFooAsync(int id, UpdateFooCommandArgs body);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task UpdateFooAsync(int id, UpdateFooCommandArgs body, System.Threading.CancellationToken cancellationToken);
+    
+        /// <returns>Success</returns>
+        /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task DeleteFooAsync(int id);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task DeleteFooAsync(int id, System.Threading.CancellationToken cancellationToken);
+    
+        /// <returns>Success</returns>
+        /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<GetFoosQueryResult>> GetFoosAsync(int? pageIndex, int? pageSize);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<GetFoosQueryResult>> GetFoosAsync(int? pageIndex, int? pageSize, System.Threading.CancellationToken cancellationToken);
+    
+        /// <returns>Success</returns>
+        /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task CreateFooAsync(CreateFooCommandArgs body);
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Success</returns>
+        /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task CreateFooAsync(CreateFooCommandArgs body, System.Threading.CancellationToken cancellationToken);
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.10.9.0 (NJsonSchema v10.4.1.0 (Newtonsoft.Json v12.0.0.0))")]
+    public partial class FoosClient : Client, IFoosClient
+    {
+        private string _baseUrl = "";
+        private System.Net.Http.HttpClient _httpClient;
+        private System.Lazy<System.Text.Json.JsonSerializerOptions> _settings;
+    
+        public FoosClient(string baseUrl, System.Net.Http.HttpClient httpClient)
         {
-            return FoosGetAsync(id, System.Threading.CancellationToken.None);
+            BaseUrl = baseUrl;
+            _httpClient = httpClient;
+            _settings = new System.Lazy<System.Text.Json.JsonSerializerOptions>(CreateSerializerSettings);
+        }
+    
+        private System.Text.Json.JsonSerializerOptions CreateSerializerSettings()
+        {
+            var settings = new System.Text.Json.JsonSerializerOptions();
+            UpdateJsonSerializerSettings(settings);
+            return settings;
+        }
+    
+        public string BaseUrl
+        {
+            get { return _baseUrl; }
+            set { _baseUrl = value; }
+        }
+    
+        protected System.Text.Json.JsonSerializerOptions JsonSerializerSettings { get { return _settings.Value; } }
+    
+        partial void UpdateJsonSerializerSettings(System.Text.Json.JsonSerializerOptions settings);
+    
+    
+        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
+        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
+        partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
+        /// <returns>Success</returns>
+        /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<GetFooQueryResult> GetFooAsync(int id)
+        {
+            return GetFooAsync(id, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<GetFooQueryResult> FoosGetAsync(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<GetFooQueryResult> GetFooAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -547,7 +687,7 @@ namespace CrunchyPeanutButter
             var disposeClient_ = false;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("text/plain"));
@@ -604,15 +744,15 @@ namespace CrunchyPeanutButter
     
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task FoosPutAsync(int id, UpdateFooCommandArgs body)
+        public System.Threading.Tasks.Task UpdateFooAsync(int id, UpdateFooCommandArgs body)
         {
-            return FoosPutAsync(id, body, System.Threading.CancellationToken.None);
+            return UpdateFooAsync(id, body, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task FoosPutAsync(int id, UpdateFooCommandArgs body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task UpdateFooAsync(int id, UpdateFooCommandArgs body, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -625,7 +765,7 @@ namespace CrunchyPeanutButter
             var disposeClient_ = false;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(System.Text.Json.JsonSerializer.Serialize(body, _settings.Value));
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
@@ -679,15 +819,15 @@ namespace CrunchyPeanutButter
     
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task FoosDeleteAsync(int id)
+        public System.Threading.Tasks.Task DeleteFooAsync(int id)
         {
-            return FoosDeleteAsync(id, System.Threading.CancellationToken.None);
+            return DeleteFooAsync(id, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task FoosDeleteAsync(int id, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task DeleteFooAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
             if (id == null)
                 throw new System.ArgumentNullException("id");
@@ -700,7 +840,7 @@ namespace CrunchyPeanutButter
             var disposeClient_ = false;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("DELETE");
     
@@ -751,15 +891,15 @@ namespace CrunchyPeanutButter
     
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<GetFoosQueryResult>> FoosGetAsync(int? pageIndex, int? pageSize)
+        public System.Threading.Tasks.Task<System.Collections.Generic.ICollection<GetFoosQueryResult>> GetFoosAsync(int? pageIndex, int? pageSize)
         {
-            return FoosGetAsync(pageIndex, pageSize, System.Threading.CancellationToken.None);
+            return GetFoosAsync(pageIndex, pageSize, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<GetFoosQueryResult>> FoosGetAsync(int? pageIndex, int? pageSize, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<GetFoosQueryResult>> GetFoosAsync(int? pageIndex, int? pageSize, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/foos?");
@@ -777,7 +917,7 @@ namespace CrunchyPeanutButter
             var disposeClient_ = false;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     request_.Method = new System.Net.Http.HttpMethod("GET");
                     request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("text/plain"));
@@ -834,15 +974,15 @@ namespace CrunchyPeanutButter
     
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task FoosPostAsync(CreateFooCommandArgs body)
+        public System.Threading.Tasks.Task CreateFooAsync(CreateFooCommandArgs body)
         {
-            return FoosPostAsync(body, System.Threading.CancellationToken.None);
+            return CreateFooAsync(body, System.Threading.CancellationToken.None);
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="CrunchyPeanutButterException">A server side error occurred.</exception>
-        public async System.Threading.Tasks.Task FoosPostAsync(CreateFooCommandArgs body, System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task CreateFooAsync(CreateFooCommandArgs body, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/foos");
@@ -851,7 +991,7 @@ namespace CrunchyPeanutButter
             var disposeClient_ = false;
             try
             {
-                using (var request_ = new System.Net.Http.HttpRequestMessage())
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
                     var content_ = new System.Net.Http.StringContent(System.Text.Json.JsonSerializer.Serialize(body, _settings.Value));
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
