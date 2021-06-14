@@ -11,7 +11,5 @@ namespace CrunchyPeanutButter.Domain.Events.Bars
         }
 
         public Bar Bar { get; }
-
-        public string Name { get; } = nameof(BarCreatedEvent);
     }
 }
