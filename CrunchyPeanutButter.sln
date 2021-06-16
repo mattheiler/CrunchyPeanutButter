@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Api", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Api.Tests", "CrunchyPeanutButter.Api.Tests\CrunchyPeanutButter.Api.Tests.csproj", "{740A0083-7CC1-4AD1-A0E0-FFA5ADC04698}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.ApiClient", "CrunchyPeanutButter.ApiClient\CrunchyPeanutButter.ApiClient.csproj", "{56E74C23-ACE6-4891-9DE9-C1CC478BD01C}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8D1EAF74-5453-4335-BC66-3823C4F2FB56}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{B21EEE7F-CA1E-4B37-923C-4039F6B11F06}"
@@ -23,11 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Persist
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Infrastructure", "CrunchyPeanutButter.Infrastructure\CrunchyPeanutButter.Infrastructure.csproj", "{5F0E3C74-B687-484C-A6B8-F3CE424AC70F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter", "CrunchyPeanutButter\CrunchyPeanutButter.csproj", "{56E74C23-ACE6-4891-9DE9-C1CC478BD01C}"
-EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{326198A6-9935-447A-AE55-B36F4B43C2E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrunchyPeanutButter.Web", "CrunchyPeanutButter.Web\CrunchyPeanutButter.Web.csproj", "{F6325448-67C3-4598-9D71-A333A96883EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Web", "CrunchyPeanutButter.Web\CrunchyPeanutButter.Web.csproj", "{F6325448-67C3-4598-9D71-A333A96883EA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation (Application)", "Presentation (Application)", "{D9288EEC-CE12-4B0D-98E3-432A0B64BF46}"
 EndProject

@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CrunchyPeanutButter
+namespace CrunchyPeanutButter.ApiClient
 {
     public class Client
     {
