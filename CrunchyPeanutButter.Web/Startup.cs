@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using System.Reflection;
 using CrunchyPeanutButter.Application;
 using CrunchyPeanutButter.Domain;
 using CrunchyPeanutButter.Infrastructure;
@@ -39,7 +38,7 @@ namespace CrunchyPeanutButter.Web
 
             services.AddControllers();
 
-            services.AddSpaStaticFiles(configuration => configuration.RootPath = "dist");
+            services.AddSpaStaticFiles(configuration => configuration.RootPath = "App/dist");
 
             services.AddSwaggerGen(options =>
             {
@@ -91,15 +90,14 @@ namespace CrunchyPeanutButter.Web
             app.UseSwaggerUI(options =>
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-                options.RoutePrefix = string.Empty;
             });
 
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "./";
+                spa.Options.SourcePath = "./App";
 
                 if (env.IsDevelopment())
-                    spa.UseProxyToSpaDevelopmentServer("https://host.docker.internal:4200");
+                    spa.UseProxyToSpaDevelopmentServer("http://host.docker.internal:4200");
             });
         }
     }
