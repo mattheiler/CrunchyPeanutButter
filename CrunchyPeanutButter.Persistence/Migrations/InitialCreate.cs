@@ -74,7 +74,7 @@ namespace CrunchyPeanutButter.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FooBar", x => new {x.FooId, x.BarId});
+                    table.PrimaryKey("PK_FooBar", x => new { x.FooId, x.BarId });
                     table.ForeignKey(
                         "FK_FooBar_Bars_BarId",
                         x => x.BarId,

@@ -1,6 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using CrunchyPeanutButter.Core.Abstractions.Persistence;
+using CrunchyPeanutButter.Core.Abstractions;
 using MediatR;
 
 namespace CrunchyPeanutButter.Core

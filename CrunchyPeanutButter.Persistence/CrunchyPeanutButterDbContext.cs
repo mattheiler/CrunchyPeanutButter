@@ -1,4 +1,4 @@
-﻿using CrunchyPeanutButter.Core.Abstractions.Persistence;
+﻿using CrunchyPeanutButter.Core.Abstractions;
 using CrunchyPeanutButter.Core.Models.Bars;
 using CrunchyPeanutButter.Core.Models.Foos;
 using Microsoft.EntityFrameworkCore;
@@ -34,7 +34,7 @@ namespace CrunchyPeanutButter.Persistence
 
             model
                 .Entity<FooBar>()
-                .HasKey(e => new {e.FooId, e.BarId});
+                .HasKey(e => new { e.FooId, e.BarId });
         }
     }
 }

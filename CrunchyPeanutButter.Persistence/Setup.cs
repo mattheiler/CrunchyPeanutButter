@@ -1,4 +1,4 @@
-﻿using CrunchyPeanutButter.Core.Abstractions.Persistence;
+﻿using CrunchyPeanutButter.Core.Abstractions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

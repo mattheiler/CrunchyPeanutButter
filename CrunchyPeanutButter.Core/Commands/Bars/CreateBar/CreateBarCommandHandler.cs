@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using CrunchyPeanutButter.Core.Abstractions.Persistence;
+using CrunchyPeanutButter.Core.Abstractions;
 using CrunchyPeanutButter.Core.Events.Bars;
 using CrunchyPeanutButter.Core.Models.Bars;
 using MediatR;

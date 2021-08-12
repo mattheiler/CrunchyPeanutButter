@@ -4,7 +4,7 @@ using CrunchyPeanutButter.Core.Models.Bars;
 using CrunchyPeanutButter.Core.Models.Foos;
 using Microsoft.EntityFrameworkCore;
 
-namespace CrunchyPeanutButter.Core.Abstractions.Persistence
+namespace CrunchyPeanutButter.Core.Abstractions
 {
     public interface IDbContext
     {
