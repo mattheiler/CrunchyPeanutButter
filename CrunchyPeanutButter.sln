@@ -3,23 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Domain", "CrunchyPeanutButter.Domain\CrunchyPeanutButter.Domain.csproj", "{8C4C4CCA-AA66-4117-A10C-35290269D637}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Api", "CrunchyPeanutButter.Api\CrunchyPeanutButter.Api.csproj", "{A299810C-3E86-4773-9F90-28B8CBB77D75}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Api.Tests", "CrunchyPeanutButter.Api.Tests\CrunchyPeanutButter.Api.Tests.csproj", "{740A0083-7CC1-4AD1-A0E0-FFA5ADC04698}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.ApiClient", "CrunchyPeanutButter.ApiClient\CrunchyPeanutButter.ApiClient.csproj", "{56E74C23-ACE6-4891-9DE9-C1CC478BD01C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8D1EAF74-5453-4335-BC66-3823C4F2FB56}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{B21EEE7F-CA1E-4B37-923C-4039F6B11F06}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{C03A87A4-313A-4F05-AC4C-B07A2DAE6B1D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation (Service)", "Presentation (Service)", "{66B618A2-D786-4513-B02C-3EA6B8569D20}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Application", "CrunchyPeanutButter.Application\CrunchyPeanutButter.Application.csproj", "{91DE3B6F-3805-47CE-BA79-FEC41B02E2C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Core", "CrunchyPeanutButter.Core\CrunchyPeanutButter.Core.csproj", "{91DE3B6F-3805-47CE-BA79-FEC41B02E2C7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Persistence", "CrunchyPeanutButter.Persistence\CrunchyPeanutButter.Persistence.csproj", "{5F18ECDB-F6B2-41C8-94B2-ABB7CBE15F90}"
 EndProject
@@ -29,26 +13,12 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Web", "CrunchyPeanutButter.Web\CrunchyPeanutButter.Web.csproj", "{F6325448-67C3-4598-9D71-A333A96883EA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation (Application)", "Presentation (Application)", "{D9288EEC-CE12-4B0D-98E3-432A0B64BF46}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8C4C4CCA-AA66-4117-A10C-35290269D637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C4C4CCA-AA66-4117-A10C-35290269D637}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C4C4CCA-AA66-4117-A10C-35290269D637}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C4C4CCA-AA66-4117-A10C-35290269D637}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A299810C-3E86-4773-9F90-28B8CBB77D75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A299810C-3E86-4773-9F90-28B8CBB77D75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A299810C-3E86-4773-9F90-28B8CBB77D75}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A299810C-3E86-4773-9F90-28B8CBB77D75}.Release|Any CPU.Build.0 = Release|Any CPU
-		{740A0083-7CC1-4AD1-A0E0-FFA5ADC04698}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{740A0083-7CC1-4AD1-A0E0-FFA5ADC04698}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{740A0083-7CC1-4AD1-A0E0-FFA5ADC04698}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{740A0083-7CC1-4AD1-A0E0-FFA5ADC04698}.Release|Any CPU.Build.0 = Release|Any CPU
 		{91DE3B6F-3805-47CE-BA79-FEC41B02E2C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{91DE3B6F-3805-47CE-BA79-FEC41B02E2C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91DE3B6F-3805-47CE-BA79-FEC41B02E2C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -61,10 +31,6 @@ Global
 		{5F0E3C74-B687-484C-A6B8-F3CE424AC70F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F0E3C74-B687-484C-A6B8-F3CE424AC70F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F0E3C74-B687-484C-A6B8-F3CE424AC70F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{56E74C23-ACE6-4891-9DE9-C1CC478BD01C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{56E74C23-ACE6-4891-9DE9-C1CC478BD01C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{56E74C23-ACE6-4891-9DE9-C1CC478BD01C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{56E74C23-ACE6-4891-9DE9-C1CC478BD01C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{326198A6-9935-447A-AE55-B36F4B43C2E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{326198A6-9935-447A-AE55-B36F4B43C2E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{326198A6-9935-447A-AE55-B36F4B43C2E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -76,16 +42,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{8C4C4CCA-AA66-4117-A10C-35290269D637} = {C03A87A4-313A-4F05-AC4C-B07A2DAE6B1D}
-		{A299810C-3E86-4773-9F90-28B8CBB77D75} = {66B618A2-D786-4513-B02C-3EA6B8569D20}
-		{740A0083-7CC1-4AD1-A0E0-FFA5ADC04698} = {8D1EAF74-5453-4335-BC66-3823C4F2FB56}
-		{91DE3B6F-3805-47CE-BA79-FEC41B02E2C7} = {C03A87A4-313A-4F05-AC4C-B07A2DAE6B1D}
-		{5F18ECDB-F6B2-41C8-94B2-ABB7CBE15F90} = {B21EEE7F-CA1E-4B37-923C-4039F6B11F06}
-		{5F0E3C74-B687-484C-A6B8-F3CE424AC70F} = {B21EEE7F-CA1E-4B37-923C-4039F6B11F06}
-		{56E74C23-ACE6-4891-9DE9-C1CC478BD01C} = {66B618A2-D786-4513-B02C-3EA6B8569D20}
-		{F6325448-67C3-4598-9D71-A333A96883EA} = {D9288EEC-CE12-4B0D-98E3-432A0B64BF46}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1DDC67EE-68B3-407C-BD96-F05C472FF225}

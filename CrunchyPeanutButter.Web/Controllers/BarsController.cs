@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using CrunchyPeanutButter.Application;
+using CrunchyPeanutButter.Core;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

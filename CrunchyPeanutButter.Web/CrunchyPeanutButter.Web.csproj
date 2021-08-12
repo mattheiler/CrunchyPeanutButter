@@ -9,7 +9,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\CrunchyPeanutButter.Application\CrunchyPeanutButter.Application.csproj" />
+		<ProjectReference Include="..\CrunchyPeanutButter.Application\CrunchyPeanutButter.Core.csproj" />
+		<ProjectReference Include="..\CrunchyPeanutButter.Core\CrunchyPeanutButter.Core.csproj" />
 		<ProjectReference Include="..\CrunchyPeanutButter.Infrastructure\CrunchyPeanutButter.Infrastructure.csproj" />
 		<ProjectReference Include="..\CrunchyPeanutButter.Persistence\CrunchyPeanutButter.Persistence.csproj" />
 	</ItemGroup>

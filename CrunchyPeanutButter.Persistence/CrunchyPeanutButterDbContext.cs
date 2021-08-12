@@ -1,6 +1,6 @@
-﻿using CrunchyPeanutButter.Application.Abstractions.Persistence;
-using CrunchyPeanutButter.Domain.Models.Bars;
-using CrunchyPeanutButter.Domain.Models.Foos;
+﻿using CrunchyPeanutButter.Core.Abstractions.Persistence;
+using CrunchyPeanutButter.Core.Models.Bars;
+using CrunchyPeanutButter.Core.Models.Foos;
 using Microsoft.EntityFrameworkCore;
 
 namespace CrunchyPeanutButter.Persistence

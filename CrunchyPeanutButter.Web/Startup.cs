@@ -1,8 +1,7 @@
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using CrunchyPeanutButter.Application;
-using CrunchyPeanutButter.Domain;
+using CrunchyPeanutButter.Core;
 using CrunchyPeanutButter.Infrastructure;
 using CrunchyPeanutButter.Persistence;
 using FluentValidation;
@@ -31,8 +30,7 @@ namespace CrunchyPeanutButter.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddDomain()
-                .AddApplication()
+                .AddCore()
                 .AddInfrastructure(Configuration)
                 .AddPersistence(Configuration);
 
