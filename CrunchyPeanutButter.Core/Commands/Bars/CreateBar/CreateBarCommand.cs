@@ -6,7 +6,7 @@ using MediatR;
 namespace CrunchyPeanutButter.Core.Bars.CreateBar
 {
     [Serializable]
-    [AutoMap(typeof(Bar))]
+    [AutoMap(typeof(Bar), ReverseMap = true)]
     public class CreateBarCommand : IRequest
     {
         public Guid Id { get; set; }

@@ -1,8 +1,11 @@
 ﻿using System;
+using AutoMapper;
+using CrunchyPeanutButter.Core.Bars.UpdateBar;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrunchyPeanutButter.Web.Models.Bars
 {
+    [AutoMap(typeof(UpdateBarCommand), ReverseMap = true)]
     public class UpdateBarRequest
     {
         [FromRoute]

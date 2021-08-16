@@ -2,14 +2,13 @@
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using CrunchyPeanutButter.Core.Bars.CreateBar;
-using CrunchyPeanutButter.Core.Bars.DeleteBar;
-using CrunchyPeanutButter.Core.Bars.UpdateBar;
+using CrunchyPeanutButter.Core.Foos.CreateFoo;
+using CrunchyPeanutButter.Core.Foos.DeleteFoo;
+using CrunchyPeanutButter.Core.Foos.UpdateFoo;
 using CrunchyPeanutButter.Core.GetFoo;
 using CrunchyPeanutButter.Core.GetFoos;
 using CrunchyPeanutButter.Web.Models.Foos;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrunchyPeanutButter.Web.Controllers
@@ -31,21 +30,21 @@ namespace CrunchyPeanutButter.Web.Controllers
         [HttpPost]
         public async Task CreateFoo(CreateFooRequest request)
         {
-            var command = _mapper.Map<CreateBarCommand>(request);
+            var command = _mapper.Map<CreateFooCommand>(request);
             await _sender.Send(command);
         }
 
         [HttpPut("{id}")]
         public async Task UpdateFoo(UpdateFooRequest request)
         {
-            var command = _mapper.Map<UpdateBarCommand>(request);
+            var command = _mapper.Map<UpdateFooCommand>(request);
             await _sender.Send(command);
         }
 
         [HttpDelete("{id}")]
         public async Task DeleteFoo(DeleteFooRequest request)
         {
-            var command = _mapper.Map<DeleteBarCommand>(request);
+            var command = _mapper.Map<DeleteFooCommand>(request);
             await _sender.Send(command);
         }
 

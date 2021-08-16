@@ -6,7 +6,7 @@ using MediatR;
 namespace CrunchyPeanutButter.Core.Foos.UpdateFoo
 {
     [Serializable]
-    [AutoMap(typeof(Foo))]
+    [AutoMap(typeof(Foo), ReverseMap = true)]
     public class UpdateFooCommand : IRequest
     {
         public Guid Id { get; set; }

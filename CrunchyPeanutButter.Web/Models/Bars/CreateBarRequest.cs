@@ -1,7 +1,10 @@
 ﻿using System;
+using AutoMapper;
+using CrunchyPeanutButter.Core.Bars.CreateBar;
 
 namespace CrunchyPeanutButter.Web.Models.Bars
 {
+    [AutoMap(typeof(CreateBarCommand), ReverseMap = true)]
     public class CreateBarRequest
     {
         public Guid Id { get; set; }

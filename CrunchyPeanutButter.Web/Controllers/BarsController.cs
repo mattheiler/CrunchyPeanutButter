@@ -9,7 +9,6 @@ using CrunchyPeanutButter.Core.GetBar;
 using CrunchyPeanutButter.Core.GetBars;
 using CrunchyPeanutButter.Web.Models.Bars;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrunchyPeanutButter.Web.Controllers
@@ -43,9 +42,9 @@ namespace CrunchyPeanutButter.Web.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task DeleteBar(DeleteBarCommand request)
+        public async Task DeleteBar(DeleteBarRequest request)
         {
-            var command = _mapper.Map<GetBarQuery>(request);
+            var command = _mapper.Map<DeleteBarCommand>(request);
             await _sender.Send(command);
         }
 
