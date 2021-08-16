@@ -1,14 +1,10 @@
-﻿using MediatR;
+﻿using System;
+using MediatR;
 
-namespace CrunchyPeanutButter.Core
+namespace CrunchyPeanutButter.Core.GetBar
 {
     public class GetBarQuery : IRequest<GetBarQueryResult>
     {
-        public GetBarQuery(int id)
-        {
-            Id = id;
-        }
-
-        public int Id { get; }
+        public Guid Id { get; set; }
     }
 }

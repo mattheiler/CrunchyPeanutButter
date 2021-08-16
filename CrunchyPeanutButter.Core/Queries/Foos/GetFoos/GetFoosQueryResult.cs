@@ -1,8 +1,14 @@
-﻿namespace CrunchyPeanutButter.Core
+﻿using System;
+using AutoMapper;
+using CrunchyPeanutButter.Core.Models.Foos;
+
+namespace CrunchyPeanutButter.Core.GetFoos
 {
+    // Option: use a mapping profile to get control of your maps.
+    [AutoMap(typeof(Foo), ReverseMap = true)]
     public class GetFoosQueryResult
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public string Name { get; set; }
     }

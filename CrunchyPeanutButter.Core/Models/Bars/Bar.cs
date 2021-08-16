@@ -1,22 +1,21 @@
-﻿namespace CrunchyPeanutButter.Core.Models.Bars
+﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace CrunchyPeanutButter.Core.Models.Bars
 {
     public class Bar
     {
-        public Bar(Ack ack)
-        {
-            Ack = ack;
-        }
+        // Ids should be provided to aggregate roots to make the create non idempotent.
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public Guid Id { get; private set; }
 
-        private Bar()
-        {
-        }
+        public string Name { get; private set; }
 
-        public int Id { get; private set; }
+        public string Code { get; private set; }
 
-        public string Name { get; set; }
+        public Ack Ack { get; set; }
 
-        public Ack Ack { get; private set; }
-
-        public Fum Fum { get; private set; } = new Fum();
+        // Read-only, if you need the reverse lookup, but that should be generally avoided.
+        // public IReadOnlyCollection<FooBar> Foos { get; } = new List<FooBar>();
     }
 }

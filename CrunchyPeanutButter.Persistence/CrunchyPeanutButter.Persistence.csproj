@@ -27,7 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CrunchyPeanutButter.Application\CrunchyPeanutButter.Core.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Core\CrunchyPeanutButter.Core.csproj" />
     <ProjectReference Include="..\CrunchyPeanutButter.Infrastructure\CrunchyPeanutButter.Infrastructure.csproj" />
   </ItemGroup>

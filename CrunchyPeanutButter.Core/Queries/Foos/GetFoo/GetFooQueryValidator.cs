@@ -1,12 +1,12 @@
 ﻿using FluentValidation;
 
-namespace CrunchyPeanutButter.Core
+namespace CrunchyPeanutButter.Core.GetFoo
 {
     public class GetFooQueryValidator : AbstractValidator<GetFooQuery>
     {
         public GetFooQueryValidator()
         {
-            RuleFor(request => request.Id).GreaterThan(0);
+            RuleFor(request => request.Id).NotEmpty();
         }
     }
 }

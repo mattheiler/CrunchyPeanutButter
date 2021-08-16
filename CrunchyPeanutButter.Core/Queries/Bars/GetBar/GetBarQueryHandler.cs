@@ -7,28 +7,28 @@ using CrunchyPeanutButter.Core.Abstractions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace CrunchyPeanutButter.Core
+namespace CrunchyPeanutButter.Core.GetBar
 {
     public class GetBarQueryHandler : IRequestHandler<GetBarQuery, GetBarQueryResult>
     {
         private readonly IDbContext _context;
+        private readonly IConfigurationProvider _mapping;
 
-        private readonly IConfigurationProvider _mappings;
-
-        public GetBarQueryHandler(IDbContext context, IConfigurationProvider mappings)
+        public GetBarQueryHandler(IDbContext context, IConfigurationProvider mapping)
         {
             _context = context;
-            _mappings = mappings;
+            _mapping = mapping;
         }
 
-        public Task<GetBarQueryResult> Handle(GetBarQuery request, CancellationToken cancellationToken)
+        public async Task<GetBarQueryResult> Handle(GetBarQuery request, CancellationToken cancellationToken)
         {
-            return
-                _context
-                    .Bars
-                    .Select(bar => bar.Id == request.Id)
-                    .ProjectTo<GetBarQueryResult>(_mappings)
-                    .SingleOrDefaultAsync(cancellationToken);
+            var results =
+                await _context
+                    .Foos
+                    .Where(foo => foo.Id == request.Id)
+                    .ProjectTo<GetBarQueryResult>(_mapping)
+                    .SingleAsync(cancellationToken);
+            return results;
         }
     }
 }

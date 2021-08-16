@@ -1,8 +1,14 @@
-﻿namespace CrunchyPeanutButter.Core
+﻿using System;
+using AutoMapper;
+using CrunchyPeanutButter.Core.Models.Bars;
+
+namespace CrunchyPeanutButter.Core.GetBar
 {
+    // Option: use a mapping profile to get control of your maps.
+    [AutoMap(typeof(Bar), ReverseMap = true)]
     public class GetBarQueryResult
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         public string Name { get; set; }
     }

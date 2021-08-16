@@ -1,15 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using CrunchyPeanutButter.Core.Collections;
 using MediatR;
 
-namespace CrunchyPeanutButter.Core
+namespace CrunchyPeanutButter.Core.GetFoos
 {
-    public class GetFoosQuery : IRequest<List<GetFoosQueryResult>>
+    public class GetFoosQuery : IRequest<Page<GetFoosQueryResult>>
     {
-        public GetFoosQuery(GetFoosQueryParams @params)
-        {
-            Params = @params;
-        }
+        public int Offset { get; set; }
 
-        public GetFoosQueryParams Params { get; }
+        public int Limit { get; set; }
     }
 }

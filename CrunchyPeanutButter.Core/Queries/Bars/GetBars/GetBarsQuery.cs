@@ -1,15 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using CrunchyPeanutButter.Core.Collections;
 using MediatR;
 
-namespace CrunchyPeanutButter.Core
+namespace CrunchyPeanutButter.Core.GetBars
 {
-    public class GetBarsQuery : IRequest<List<GetBarsQueryResult>>
+    public class GetBarsQuery : IRequest<Page<GetBarsQueryResult>>
     {
-        public GetBarsQuery(GetBarsQueryParams @params)
-        {
-            Params = @params;
-        }
+        public int Offset { get; set; }
 
-        public GetBarsQueryParams Params { get; }
+        public int Limit { get; set; }
     }
 }

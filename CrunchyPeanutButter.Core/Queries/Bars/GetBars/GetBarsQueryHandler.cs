@@ -1,37 +1,35 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using CrunchyPeanutButter.Core.Abstractions;
+using CrunchyPeanutButter.Core.Collections;
+using CrunchyPeanutButter.Core.Extensions;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
-namespace CrunchyPeanutButter.Core
+namespace CrunchyPeanutButter.Core.GetBars
 {
-    public class GetBarsQueryHandler : IRequestHandler<GetBarsQuery, List<GetBarsQueryResult>>
+    public class GetBarsQueryHandler : IRequestHandler<GetBarsQuery, Page<GetBarsQueryResult>>
     {
         private readonly IDbContext _context;
+        private readonly IConfigurationProvider _mapping;
 
-        private readonly IConfigurationProvider _mappings;
-
-        public GetBarsQueryHandler(IDbContext context, IConfigurationProvider mappings)
+        public GetBarsQueryHandler(IDbContext context, IConfigurationProvider mapping)
         {
             _context = context;
-            _mappings = mappings;
+            _mapping = mapping;
         }
 
-        public Task<List<GetBarsQueryResult>> Handle(GetBarsQuery request, CancellationToken cancellationToken)
+        public async Task<Page<GetBarsQueryResult>> Handle(GetBarsQuery request, CancellationToken cancellationToken)
         {
-            return
-                _context
-                    .Bars
+            var results =
+                await _context
+                    .Foos
                     .OrderBy(foo => foo.Id)
-                    .Skip(request.Params.PageSize * request.Params.PageIndex)
-                    .Take(request.Params.PageSize)
-                    .ProjectTo<GetBarsQueryResult>(_mappings)
-                    .ToListAsync(cancellationToken);
+                    .ProjectTo<GetBarsQueryResult>(_mapping)
+                    .ToPageAsync(request.Offset, request.Limit, cancellationToken);
+            return results;
         }
     }
 }

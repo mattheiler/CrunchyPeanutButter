@@ -1,14 +1,18 @@
-﻿using MediatR;
+﻿using System;
+using AutoMapper;
+using CrunchyPeanutButter.Core.Models.Bars;
+using MediatR;
 
-namespace CrunchyPeanutButter.Core
+namespace CrunchyPeanutButter.Core.Bars.CreateBar
 {
+    [Serializable]
+    [AutoMap(typeof(Bar))]
     public class CreateBarCommand : IRequest
     {
-        public CreateBarCommand(CreateBarCommandArgs args)
-        {
-            Args = args;
-        }
+        public Guid Id { get; set; }
 
-        public CreateBarCommandArgs Args { get; }
+        public string Name { get; set; }
+
+        public string Code { get; set; }
     }
 }

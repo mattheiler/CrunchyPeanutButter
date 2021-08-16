@@ -1,13 +1,13 @@
 ﻿using FluentValidation;
 
-namespace CrunchyPeanutButter.Core
+namespace CrunchyPeanutButter.Core.GetBars
 {
     public class GetBarsQueryValidator : AbstractValidator<GetBarsQuery>
     {
         public GetBarsQueryValidator()
         {
-            RuleFor(request => request.Params.PageIndex).GreaterThanOrEqualTo(0);
-            RuleFor(request => request.Params.PageSize).GreaterThan(0);
+            RuleFor(request => request.Offset).GreaterThanOrEqualTo(0);
+            RuleFor(request => request.Limit).GreaterThan(0).LessThan(20);
         }
     }
 }

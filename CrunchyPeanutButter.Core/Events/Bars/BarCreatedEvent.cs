@@ -1,15 +1,15 @@
-﻿using CrunchyPeanutButter.Core.Models.Bars;
+﻿using System;
 using MediatR;
 
 namespace CrunchyPeanutButter.Core.Events.Bars
 {
     public class BarCreatedEvent : INotification
     {
-        public BarCreatedEvent(Bar bar)
+        public BarCreatedEvent(Guid barId)
         {
-            Bar = bar;
+            BarId = barId;
         }
 
-        public Bar Bar { get; }
+        public Guid BarId { get; }
     }
 }

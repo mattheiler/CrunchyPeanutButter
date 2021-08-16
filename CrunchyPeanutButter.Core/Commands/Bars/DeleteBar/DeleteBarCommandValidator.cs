@@ -1,12 +1,12 @@
 ﻿using FluentValidation;
 
-namespace CrunchyPeanutButter.Core
+namespace CrunchyPeanutButter.Core.Bars.DeleteBar
 {
-    public class DeleteBarCommandValidator : AbstractValidator<DeleteBarCommand>
+    public class DeleteBarCommandValidator : AbstractValidator<Foos.DeleteFoo.DeleteFooCommand>
     {
         public DeleteBarCommandValidator()
         {
-            RuleFor(request => request.Id).GreaterThan(0);
+            RuleFor(request => request.Id).NotEmpty();
         }
     }
 }

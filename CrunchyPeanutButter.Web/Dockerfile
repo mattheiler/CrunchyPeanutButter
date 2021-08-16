@@ -7,11 +7,9 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["CrunchyPeanutButter.Web/CrunchyPeanutButter.Web.csproj", "CrunchyPeanutButter.Web/"]
-COPY ["CrunchyPeanutButter.Application/CrunchyPeanutButter.Application.csproj", "CrunchyPeanutButter.Application/"]
-COPY ["CrunchyPeanutButter.Domain/CrunchyPeanutButter.Domain.csproj", "CrunchyPeanutButter.Domain/"]
-COPY ["CrunchyPeanutButter.Persistence/CrunchyPeanutButter.Persistence.csproj", "CrunchyPeanutButter.Persistence/"]
+COPY ["CrunchyPeanutButter.Core/CrunchyPeanutButter.Core.csproj", "CrunchyPeanutButter.Core/"]
 COPY ["CrunchyPeanutButter.Infrastructure/CrunchyPeanutButter.Infrastructure.csproj", "CrunchyPeanutButter.Infrastructure/"]
+COPY ["CrunchyPeanutButter.Web/CrunchyPeanutButter.Web.csproj", "CrunchyPeanutButter.Web/"]
 RUN dotnet restore "CrunchyPeanutButter.Web/CrunchyPeanutButter.Web.csproj"
 COPY . .
 WORKDIR "/src/CrunchyPeanutButter.Web"

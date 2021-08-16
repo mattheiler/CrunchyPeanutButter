@@ -1,50 +1,71 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
-using CrunchyPeanutButter.Core;
+using AutoMapper;
+using CrunchyPeanutButter.Core.Bars.CreateBar;
+using CrunchyPeanutButter.Core.Bars.DeleteBar;
+using CrunchyPeanutButter.Core.Bars.UpdateBar;
+using CrunchyPeanutButter.Core.GetBar;
+using CrunchyPeanutButter.Core.GetBars;
+using CrunchyPeanutButter.Web.Models.Bars;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrunchyPeanutButter.Web.Controllers
 {
-    [Route("bars")]
+    //[Authorize]
     [ApiController]
+    [Route("api/bars")]
     public class BarsController : ControllerBase
     {
+        private readonly IMapper _mapper;
         private readonly ISender _sender;
 
-        public BarsController(ISender sender)
+        public BarsController(ISender sender, IMapper mapper)
         {
             _sender = sender;
-        }
-
-        [HttpGet("{id:int}")]
-        public Task<GetBarQueryResult> GetBarAsync(int id)
-        {
-            return _sender.Send(new GetBarQuery(id));
-        }
-
-        [HttpGet]
-        public Task<List<GetBarsQueryResult>> GetBarsAsync([FromQuery] GetBarsQueryParams @params)
-        {
-            return _sender.Send(new GetBarsQuery(@params));
+            _mapper = mapper;
         }
 
         [HttpPost]
-        public Task CreateBarAsync(CreateBarCommandArgs args)
+        public async Task CreateBar(CreateBarRequest request)
         {
-            return _sender.Send(new CreateBarCommand(args));
+            var command = _mapper.Map<CreateBarCommand>(request);
+            await _sender.Send(command);
         }
 
-        [HttpPut("{id:int}")]
-        public Task UpdateBarAsync(int id, UpdateBarCommandArgs args)
+        [HttpPut("{id}")]
+        public async Task UpdateBar(UpdateBarRequest request)
         {
-            return _sender.Send(new UpdateBarCommand(id, args));
+            var command = _mapper.Map<UpdateBarCommand>(request);
+            await _sender.Send(command);
         }
 
-        [HttpDelete("{id:int}")]
-        public Task DeleteBarAsync(int id)
+        [HttpDelete("{id}")]
+        public async Task DeleteBar(DeleteBarCommand request)
         {
-            return _sender.Send(new DeleteBarCommand(id));
+            var command = _mapper.Map<GetBarQuery>(request);
+            await _sender.Send(command);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<GetBarResponse> GetBar(CreateBarRequest request, CancellationToken cancellationToken)
+        {
+            var query = _mapper.Map<GetBarQuery>(request);
+            var result = await _sender.Send(query, cancellationToken);
+            var response = _mapper.Map<GetBarResponse>(result);
+            return response;
+        }
+
+        [HttpGet]
+        public async Task<GetBarsResponse[]> GetBars(GetBarsRequest request, CancellationToken cancellationToken)
+        {
+            var query = _mapper.Map<GetBarsQuery>(request);
+            var results = await _sender.Send(query, cancellationToken);
+            Response.Headers.Add("X-Total-Count", results.Count.ToString());
+            var response = results.Items.Select(_mapper.Map<GetBarsResponse>).ToArray();
+            return response;
         }
     }
 }

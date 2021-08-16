@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using CrunchyPeanutButter.Core.Abstractions;
 using MediatR;
 
-namespace CrunchyPeanutButter.Core
+namespace CrunchyPeanutButter.Core.Foos.DeleteFoo
 {
     public class DeleteFooCommandHandler : IRequestHandler<DeleteFooCommand>
     {
@@ -16,14 +16,11 @@ namespace CrunchyPeanutButter.Core
 
         public async Task<Unit> Handle(DeleteFooCommand request, CancellationToken cancellationToken)
         {
-            var entity = await _context.Foos.FindAsync(request.Id);
-            if (entity == null)
-                return default;
+            var foo = await _context.Foos.FindAsync(request.Id);
 
-            _context.Foos.Remove(entity);
+            _context.Foos.Remove(foo);
 
             await _context.SaveChangesAsync(cancellationToken);
-
             return default;
         }
     }

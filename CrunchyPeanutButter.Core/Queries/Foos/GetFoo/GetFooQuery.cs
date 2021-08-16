@@ -1,14 +1,10 @@
-﻿using MediatR;
+﻿using System;
+using MediatR;
 
-namespace CrunchyPeanutButter.Core
+namespace CrunchyPeanutButter.Core.GetFoo
 {
     public class GetFooQuery : IRequest<GetFooQueryResult>
     {
-        public GetFooQuery(int id)
-        {
-            Id = id;
-        }
-
-        public int Id { get; }
+        public Guid Id { get; set; }
     }
 }

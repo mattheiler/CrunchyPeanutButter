@@ -1,17 +1,18 @@
-﻿using MediatR;
+﻿using System;
+using AutoMapper;
+using CrunchyPeanutButter.Core.Models.Foos;
+using MediatR;
 
-namespace CrunchyPeanutButter.Core
+namespace CrunchyPeanutButter.Core.Foos.UpdateFoo
 {
+    [Serializable]
+    [AutoMap(typeof(Foo))]
     public class UpdateFooCommand : IRequest
     {
-        public UpdateFooCommand(int id, UpdateFooCommandArgs args)
-        {
-            Id = id;
-            Args = args;
-        }
+        public Guid Id { get; set; }
 
-        public int Id { get; }
+        public string Name { get; set; }
 
-        public UpdateFooCommandArgs Args { get; }
+        public string Code { get; set; }
     }
 }

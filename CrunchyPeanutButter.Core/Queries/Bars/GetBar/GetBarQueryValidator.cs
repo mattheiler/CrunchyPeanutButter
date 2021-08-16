@@ -1,12 +1,12 @@
 ﻿using FluentValidation;
 
-namespace CrunchyPeanutButter.Core
+namespace CrunchyPeanutButter.Core.GetBar
 {
     public class GetBarQueryValidator : AbstractValidator<GetBarQuery>
     {
         public GetBarQueryValidator()
         {
-            RuleFor(request => request.Id).GreaterThan(0);
+            RuleFor(request => request.Id).NotEmpty();
         }
     }
 }

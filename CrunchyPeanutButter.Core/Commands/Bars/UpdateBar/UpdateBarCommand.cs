@@ -1,17 +1,18 @@
-﻿using MediatR;
+﻿using System;
+using AutoMapper;
+using CrunchyPeanutButter.Core.Models.Bars;
+using MediatR;
 
-namespace CrunchyPeanutButter.Core
+namespace CrunchyPeanutButter.Core.Bars.UpdateBar
 {
+    [Serializable]
+    [AutoMap(typeof(Bar))]
     public class UpdateBarCommand : IRequest
     {
-        public UpdateBarCommand(int id, UpdateBarCommandArgs args)
-        {
-            Id = id;
-            Args = args;
-        }
+        public Guid Id { get; set; }
 
-        public int Id { get; }
+        public string Name { get; set; }
 
-        public UpdateBarCommandArgs Args { get; }
+        public string Code { get; set; }
     }
 }

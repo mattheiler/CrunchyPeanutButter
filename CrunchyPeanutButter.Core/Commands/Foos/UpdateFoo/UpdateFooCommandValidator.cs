@@ -1,13 +1,14 @@
 ﻿using FluentValidation;
 
-namespace CrunchyPeanutButter.Core
+namespace CrunchyPeanutButter.Core.Foos.UpdateFoo
 {
     public class UpdateFooCommandValidator : AbstractValidator<UpdateFooCommand>
     {
         public UpdateFooCommandValidator()
         {
-            RuleFor(request => request.Id).GreaterThan(0);
-            RuleFor(request => request.Args.Name).NotNull().NotEmpty();
+            RuleFor(request => request.Id).NotEmpty();
+            RuleFor(request => request.Name).NotEmpty();
+            RuleFor(request => request.Code).Length(8);
         }
     }
 }

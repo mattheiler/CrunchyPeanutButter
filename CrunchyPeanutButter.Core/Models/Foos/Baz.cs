@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 
 namespace CrunchyPeanutButter.Core.Models.Foos
 {
@@ -6,12 +6,13 @@ namespace CrunchyPeanutButter.Core.Models.Foos
     {
         public int Id { get; private set; }
 
+        public string Name { get; private set; }
+
+        public string Code { get; private set; }
+
+        // This is read-only and set by the principal end - the aggregate root.
         public Foo Foo { get; private set; }
 
-        public int FooId { get; private set; }
-
-        public string Name { get; set; }
-
-        public ICollection<Qux> Quxes { get; } = new List<Qux>();
+        public Guid FooId { get; private set; }
     }
 }

@@ -1,12 +1,12 @@
 ﻿using FluentValidation;
 
-namespace CrunchyPeanutButter.Core
+namespace CrunchyPeanutButter.Core.Foos.DeleteFoo
 {
     public class DeleteFooCommandValidator : AbstractValidator<DeleteFooCommand>
     {
         public DeleteFooCommandValidator()
         {
-            RuleFor(request => request.Id).GreaterThan(0);
+            RuleFor(request => request.Id).NotEmpty();
         }
     }
 }

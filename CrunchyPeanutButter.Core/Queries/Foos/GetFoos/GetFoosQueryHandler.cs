@@ -1,37 +1,35 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using CrunchyPeanutButter.Core.Abstractions;
+using CrunchyPeanutButter.Core.Collections;
+using CrunchyPeanutButter.Core.Extensions;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
-namespace CrunchyPeanutButter.Core
+namespace CrunchyPeanutButter.Core.GetFoos
 {
-    public class GetFoosQueryHandler : IRequestHandler<GetFoosQuery, List<GetFoosQueryResult>>
+    public class GetFoosQueryHandler : IRequestHandler<GetFoosQuery, Page<GetFoosQueryResult>>
     {
         private readonly IDbContext _context;
+        private readonly IConfigurationProvider _mapping;
 
-        private readonly IConfigurationProvider _mappings;
-
-        public GetFoosQueryHandler(IDbContext context, IConfigurationProvider mappings)
+        public GetFoosQueryHandler(IDbContext context, IConfigurationProvider mapping)
         {
             _context = context;
-            _mappings = mappings;
+            _mapping = mapping;
         }
 
-        public Task<List<GetFoosQueryResult>> Handle(GetFoosQuery request, CancellationToken cancellationToken)
+        public async Task<Page<GetFoosQueryResult>> Handle(GetFoosQuery request, CancellationToken cancellationToken)
         {
-            return
-                _context
+            var results =
+                await _context
                     .Foos
                     .OrderBy(foo => foo.Id)
-                    .Skip(request.Params.PageSize * request.Params.PageIndex)
-                    .Take(request.Params.PageSize)
-                    .ProjectTo<GetFoosQueryResult>(_mappings)
-                    .ToListAsync(cancellationToken);
+                    .ProjectTo<GetFoosQueryResult>(_mapping)
+                    .ToPageAsync(request.Offset, request.Limit, cancellationToken);
+            return results;
         }
     }
 }

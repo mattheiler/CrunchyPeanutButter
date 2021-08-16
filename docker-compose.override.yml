@@ -1,23 +1,22 @@
 version: '3.4'
 
 services:
-  crunchypeanutbutter.api:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80
-    ports:
-      - "80"
-      - "443"
-    volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
   crunchypeanutbutter.web:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_URLS=http://+:80
     ports:
-      - "80"
-      - "443"
+      - 13219:80
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+  crunchypeanutbutter.webapp:
+    image: ${DOCKER_REGISTRY-}crunchypeanutbutterwebapp
+    container_name: CrunchyPeanutButter.WebApp
+    build:
+      context: ./CrunchyPeanutButter.Web/App
+    ports:
+      - 44125:4200
+      - 33351:49153
+    volumes:
+      - ./CrunchyPeanutButter.Web/App/src:/app/src
+      - ./CrunchyPeanutButter.Web/App/lib:/app/lib

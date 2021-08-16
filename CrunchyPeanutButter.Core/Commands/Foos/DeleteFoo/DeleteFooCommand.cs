@@ -1,14 +1,14 @@
-﻿using MediatR;
+﻿using System;
+using AutoMapper;
+using CrunchyPeanutButter.Core.Models.Foos;
+using MediatR;
 
-namespace CrunchyPeanutButter.Core
+namespace CrunchyPeanutButter.Core.Foos.DeleteFoo
 {
+    [Serializable]
+    [AutoMap(typeof(Foo))]
     public class DeleteFooCommand : IRequest
     {
-        public DeleteFooCommand(in long id)
-        {
-            Id = id;
-        }
-
-        public long Id { get; private set; }
+        public Guid Id { get; set; }
     }
 }

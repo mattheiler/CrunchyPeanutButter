@@ -4,12 +4,11 @@ using AutoMapper;
 using CrunchyPeanutButter.Core.Abstractions;
 using MediatR;
 
-namespace CrunchyPeanutButter.Core
+namespace CrunchyPeanutButter.Core.Foos.UpdateFoo
 {
     public class UpdateFooCommandHandler : IRequestHandler<UpdateFooCommand>
     {
         private readonly IDbContext _context;
-
         private readonly IMapper _mapper;
 
         public UpdateFooCommandHandler(IDbContext context, IMapper mapper)
@@ -22,11 +21,11 @@ namespace CrunchyPeanutButter.Core
         {
             var foo = await _context.Foos.FindAsync(request.Id);
 
-            _mapper.Map(request.Args, foo);
+            _mapper.Map(request, foo);
 
             await _context.SaveChangesAsync(cancellationToken);
-
             return default;
         }
     }
+
 }

@@ -1,12 +1,17 @@
-﻿using FluentValidation;
+﻿using System;
+using FluentValidation;
 
-namespace CrunchyPeanutButter.Core
+namespace CrunchyPeanutButter.Core.Bars.CreateBar
 {
-    public class CreateBarCommandValidator : AbstractValidator<CreateBarCommand>
+    public class CreateBarCommandValidator : AbstractValidator<Foos.CreateFoo.CreateFooCommand>
     {
         public CreateBarCommandValidator()
         {
-            RuleFor(request => request.Args.Name).NotNull().NotEmpty();
+            RuleFor(request => request.Id).NotEmpty();
+            RuleFor(request => request.Name).NotEmpty();
+            RuleFor(request => request.Code).Length(8);
+
+            throw new NotImplementedException();
         }
     }
 }

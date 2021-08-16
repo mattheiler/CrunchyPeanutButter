@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Core", "CrunchyPeanutButter.Core\CrunchyPeanutButter.Core.csproj", "{91DE3B6F-3805-47CE-BA79-FEC41B02E2C7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Persistence", "CrunchyPeanutButter.Persistence\CrunchyPeanutButter.Persistence.csproj", "{5F18ECDB-F6B2-41C8-94B2-ABB7CBE15F90}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrunchyPeanutButter.Infrastructure", "CrunchyPeanutButter.Infrastructure\CrunchyPeanutButter.Infrastructure.csproj", "{5F0E3C74-B687-484C-A6B8-F3CE424AC70F}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{326198A6-9935-447A-AE55-B36F4B43C2E6}"
@@ -23,10 +21,6 @@ Global
 		{91DE3B6F-3805-47CE-BA79-FEC41B02E2C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91DE3B6F-3805-47CE-BA79-FEC41B02E2C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91DE3B6F-3805-47CE-BA79-FEC41B02E2C7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5F18ECDB-F6B2-41C8-94B2-ABB7CBE15F90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5F18ECDB-F6B2-41C8-94B2-ABB7CBE15F90}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5F18ECDB-F6B2-41C8-94B2-ABB7CBE15F90}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5F18ECDB-F6B2-41C8-94B2-ABB7CBE15F90}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5F0E3C74-B687-484C-A6B8-F3CE424AC70F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5F0E3C74-B687-484C-A6B8-F3CE424AC70F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F0E3C74-B687-484C-A6B8-F3CE424AC70F}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -1,15 +1,8 @@
 version: '3.4'
 
 services:
-  crunchypeanutbutter.api:
-    image: ${DOCKER_REGISTRY-}crunchypeanutbutterapi
-    build:
-      context: .
-      dockerfile: CrunchyPeanutButter.Api/Dockerfile
-
   crunchypeanutbutter.web:
     image: ${DOCKER_REGISTRY-}crunchypeanutbutterweb
     build:
       context: .
       dockerfile: CrunchyPeanutButter.Web/Dockerfile
-

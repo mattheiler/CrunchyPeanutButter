@@ -1,10 +1,11 @@
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Reflection;
 using CrunchyPeanutButter.Core;
 using CrunchyPeanutButter.Infrastructure;
-using CrunchyPeanutButter.Persistence;
 using FluentValidation;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
@@ -30,24 +31,34 @@ namespace CrunchyPeanutButter.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services
+                .AddAutoMapper(Assembly.GetExecutingAssembly(), Assembly.Load("CrunchyPeanutButter.Core"), Assembly.Load("CrunchyPeanutButter.Infrastructure"))
+                .AddMediatR(Assembly.GetExecutingAssembly());
+
+            services
                 .AddCore()
-                .AddInfrastructure(Configuration)
-                .AddPersistence(Configuration);
+                .AddInfrastructure(Configuration);
 
-            services.AddControllers();
+            services
+                .AddAuthentication()
+                .AddJwtBearer();
 
-            services.AddSpaStaticFiles(configuration => configuration.RootPath = "App/dist");
+            services
+                .AddControllers();
 
-            services.AddSwaggerGen(options =>
-            {
-                options.CustomOperationIds(api => api.TryGetMethodInfo(out var methodInfo) ? methodInfo.Name : null);
-                options.DescribeAllParametersInCamelCase();
-                options.SwaggerDoc("v1", new OpenApiInfo
+            services
+                .AddSpaStaticFiles(configuration => configuration.RootPath = "App/dist");
+
+            services
+                .AddSwaggerGen(options =>
                 {
-                    Title = "My API",
-                    Version = "v1"
+                    options.CustomOperationIds(api => api.TryGetMethodInfo(out var methodInfo) ? methodInfo.Name : null);
+                    options.DescribeAllParametersInCamelCase();
+                    options.SwaggerDoc("v1", new OpenApiInfo
+                    {
+                        Title = "My API",
+                        Version = "v1"
+                    });
                 });
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,20 +82,24 @@ namespace CrunchyPeanutButter.Web
                 });
             });
 
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
+            // For development, Chrome requires secure cookies w/ http, so let's make it lax.
+            if (env.IsDevelopment())
+                app.UseCookiePolicy(new CookiePolicyOptions { MinimumSameSitePolicy = SameSiteMode.Lax });
+            else
+                app.UseHttpsRedirection();
 
+            app.UseStaticFiles();
             if (!env.IsDevelopment())
                 app.UseSpaStaticFiles();
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => endpoints.MapControllers());
 
             app.UseSwagger();
-
             app.UseSwaggerUI(options =>
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
@@ -95,7 +110,7 @@ namespace CrunchyPeanutButter.Web
                 spa.Options.SourcePath = "./App";
 
                 if (env.IsDevelopment())
-                    spa.UseProxyToSpaDevelopmentServer("http://host.docker.internal:4200");
+                    spa.UseProxyToSpaDevelopmentServer("http://crunchypeanutbutter.webapp:4200");
             });
         }
     }
