@@ -1,6 +1,6 @@
 ﻿using System;
 using AutoMapper;
-using CrunchyPeanutButter.Core.Bars.UpdateBar;
+using CrunchyPeanutButter.Core.Commands.Bars.UpdateBar;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrunchyPeanutButter.Web.Models.Bars

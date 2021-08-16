@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace CrunchyPeanutButter.Core.Foos.DeleteFoo
+namespace CrunchyPeanutButter.Core.Commands.Foos.DeleteFoo
 {
     public class DeleteFooCommandValidator : AbstractValidator<DeleteFooCommand>
     {

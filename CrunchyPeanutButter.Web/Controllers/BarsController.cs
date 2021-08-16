@@ -2,11 +2,11 @@
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using CrunchyPeanutButter.Core.Bars.CreateBar;
-using CrunchyPeanutButter.Core.Bars.DeleteBar;
-using CrunchyPeanutButter.Core.Bars.UpdateBar;
-using CrunchyPeanutButter.Core.GetBar;
-using CrunchyPeanutButter.Core.GetBars;
+using CrunchyPeanutButter.Core.Commands.Bars.CreateBar;
+using CrunchyPeanutButter.Core.Commands.Bars.DeleteBar;
+using CrunchyPeanutButter.Core.Commands.Bars.UpdateBar;
+using CrunchyPeanutButter.Core.Queries.Bars.GetBar;
+using CrunchyPeanutButter.Core.Queries.Bars.GetBars;
 using CrunchyPeanutButter.Web.Models.Bars;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;

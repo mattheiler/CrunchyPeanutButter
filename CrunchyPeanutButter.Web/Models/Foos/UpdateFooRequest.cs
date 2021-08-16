@@ -1,6 +1,6 @@
 ﻿using System;
 using AutoMapper;
-using CrunchyPeanutButter.Core.Foos.UpdateFoo;
+using CrunchyPeanutButter.Core.Commands.Foos.UpdateFoo;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrunchyPeanutButter.Web.Models.Foos

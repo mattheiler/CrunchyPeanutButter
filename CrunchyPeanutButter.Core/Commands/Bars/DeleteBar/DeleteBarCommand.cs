@@ -3,7 +3,7 @@ using AutoMapper;
 using CrunchyPeanutButter.Core.Models.Foos;
 using MediatR;
 
-namespace CrunchyPeanutButter.Core.Bars.DeleteBar
+namespace CrunchyPeanutButter.Core.Commands.Bars.DeleteBar
 {
     [Serializable]
     [AutoMap(typeof(Foo))]

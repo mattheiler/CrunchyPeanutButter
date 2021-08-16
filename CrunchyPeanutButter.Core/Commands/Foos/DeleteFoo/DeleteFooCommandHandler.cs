@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using CrunchyPeanutButter.Core.Abstractions;
 using MediatR;
 
-namespace CrunchyPeanutButter.Core.Foos.DeleteFoo
+namespace CrunchyPeanutButter.Core.Commands.Foos.DeleteFoo
 {
     public class DeleteFooCommandHandler : IRequestHandler<DeleteFooCommand>
     {

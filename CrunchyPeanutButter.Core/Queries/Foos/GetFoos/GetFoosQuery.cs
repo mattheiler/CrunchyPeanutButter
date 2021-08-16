@@ -1,7 +1,7 @@
 ﻿using CrunchyPeanutButter.Core.Collections;
 using MediatR;
 
-namespace CrunchyPeanutButter.Core.GetFoos
+namespace CrunchyPeanutButter.Core.Queries.Foos.GetFoos
 {
     public class GetFoosQuery : IRequest<Page<GetFoosQueryResult>>
     {

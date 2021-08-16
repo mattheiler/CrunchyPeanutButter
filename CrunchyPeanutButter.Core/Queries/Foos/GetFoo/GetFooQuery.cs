@@ -1,7 +1,7 @@
 ﻿using System;
 using MediatR;
 
-namespace CrunchyPeanutButter.Core.GetFoo
+namespace CrunchyPeanutButter.Core.Queries.Foos.GetFoo
 {
     public class GetFooQuery : IRequest<GetFooQueryResult>
     {

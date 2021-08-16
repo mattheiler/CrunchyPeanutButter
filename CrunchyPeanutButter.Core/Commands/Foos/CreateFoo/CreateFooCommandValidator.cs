@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace CrunchyPeanutButter.Core.Foos.CreateFoo
+namespace CrunchyPeanutButter.Core.Commands.Foos.CreateFoo
 {
     public class CreateFooCommandValidator : AbstractValidator<CreateFooCommand>
     {

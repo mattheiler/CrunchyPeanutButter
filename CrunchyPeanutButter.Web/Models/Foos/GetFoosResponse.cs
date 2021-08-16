@@ -1,6 +1,6 @@
 ﻿using System;
 using AutoMapper;
-using CrunchyPeanutButter.Core.GetFoos;
+using CrunchyPeanutButter.Core.Queries.Foos.GetFoos;
 
 namespace CrunchyPeanutButter.Web.Models.Foos
 {

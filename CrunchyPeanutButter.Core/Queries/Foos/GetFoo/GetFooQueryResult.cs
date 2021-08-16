@@ -2,7 +2,7 @@
 using AutoMapper;
 using CrunchyPeanutButter.Core.Models.Foos;
 
-namespace CrunchyPeanutButter.Core.GetFoo
+namespace CrunchyPeanutButter.Core.Queries.Foos.GetFoo
 {
     // Option: use a mapping profile to get control of your maps.
     [AutoMap(typeof(Foo))]

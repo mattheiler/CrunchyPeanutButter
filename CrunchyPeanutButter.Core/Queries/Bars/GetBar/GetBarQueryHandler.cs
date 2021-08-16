@@ -7,7 +7,7 @@ using CrunchyPeanutButter.Core.Abstractions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace CrunchyPeanutButter.Core.GetBar
+namespace CrunchyPeanutButter.Core.Queries.Bars.GetBar
 {
     public class GetBarQueryHandler : IRequestHandler<GetBarQuery, GetBarQueryResult>
     {

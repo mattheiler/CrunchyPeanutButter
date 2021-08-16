@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace CrunchyPeanutButter.Core.GetFoos
+namespace CrunchyPeanutButter.Core.Queries.Foos.GetFoos
 {
     public class GetFoosQueryValidator : AbstractValidator<GetFoosQuery>
     {

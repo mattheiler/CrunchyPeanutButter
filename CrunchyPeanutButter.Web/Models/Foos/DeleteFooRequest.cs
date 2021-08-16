@@ -1,6 +1,6 @@
 ﻿using System;
 using AutoMapper;
-using CrunchyPeanutButter.Core.Foos.DeleteFoo;
+using CrunchyPeanutButter.Core.Commands.Foos.DeleteFoo;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrunchyPeanutButter.Web.Models.Foos

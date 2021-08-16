@@ -8,7 +8,7 @@ using CrunchyPeanutButter.Core.Collections;
 using CrunchyPeanutButter.Core.Extensions;
 using MediatR;
 
-namespace CrunchyPeanutButter.Core.GetFoos
+namespace CrunchyPeanutButter.Core.Queries.Foos.GetFoos
 {
     public class GetFoosQueryHandler : IRequestHandler<GetFoosQuery, Page<GetFoosQueryResult>>
     {

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using CrunchyPeanutButter.Core.GetBars;
+using CrunchyPeanutButter.Core.Queries.Bars.GetBars;
 
 namespace CrunchyPeanutButter.Web.Models.Bars
 {

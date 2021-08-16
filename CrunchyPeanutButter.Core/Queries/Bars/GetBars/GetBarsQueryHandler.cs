@@ -8,7 +8,7 @@ using CrunchyPeanutButter.Core.Collections;
 using CrunchyPeanutButter.Core.Extensions;
 using MediatR;
 
-namespace CrunchyPeanutButter.Core.GetBars
+namespace CrunchyPeanutButter.Core.Queries.Bars.GetBars
 {
     public class GetBarsQueryHandler : IRequestHandler<GetBarsQuery, Page<GetBarsQueryResult>>
     {

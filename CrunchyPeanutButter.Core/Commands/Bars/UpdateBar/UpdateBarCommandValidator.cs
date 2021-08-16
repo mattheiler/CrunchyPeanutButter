@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace CrunchyPeanutButter.Core.Bars.UpdateBar
+namespace CrunchyPeanutButter.Core.Commands.Bars.UpdateBar
 {
     public class UpdateBarCommandValidator : AbstractValidator<UpdateBarCommand>
     {

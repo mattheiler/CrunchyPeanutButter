@@ -1,6 +1,6 @@
 ﻿using System;
 using AutoMapper;
-using CrunchyPeanutButter.Core.GetBar;
+using CrunchyPeanutButter.Core.Queries.Bars.GetBar;
 
 namespace CrunchyPeanutButter.Web.Models.Bars
 {

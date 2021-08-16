@@ -3,7 +3,7 @@ using AutoMapper;
 using CrunchyPeanutButter.Core.Models.Bars;
 using MediatR;
 
-namespace CrunchyPeanutButter.Core.Bars.CreateBar
+namespace CrunchyPeanutButter.Core.Commands.Bars.CreateBar
 {
     [Serializable]
     [AutoMap(typeof(Bar), ReverseMap = true)]

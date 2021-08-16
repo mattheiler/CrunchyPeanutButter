@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace CrunchyPeanutButter.Core.Bars.DeleteBar
+namespace CrunchyPeanutButter.Core.Commands.Bars.DeleteBar
 {
     public class DeleteBarCommandValidator : AbstractValidator<DeleteBarCommand>
     {

@@ -2,11 +2,11 @@
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
-using CrunchyPeanutButter.Core.Foos.CreateFoo;
-using CrunchyPeanutButter.Core.Foos.DeleteFoo;
-using CrunchyPeanutButter.Core.Foos.UpdateFoo;
-using CrunchyPeanutButter.Core.GetFoo;
-using CrunchyPeanutButter.Core.GetFoos;
+using CrunchyPeanutButter.Core.Commands.Foos.CreateFoo;
+using CrunchyPeanutButter.Core.Commands.Foos.DeleteFoo;
+using CrunchyPeanutButter.Core.Commands.Foos.UpdateFoo;
+using CrunchyPeanutButter.Core.Queries.Foos.GetFoo;
+using CrunchyPeanutButter.Core.Queries.Foos.GetFoos;
 using CrunchyPeanutButter.Web.Models.Foos;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;

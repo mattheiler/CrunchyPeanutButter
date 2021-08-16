@@ -3,7 +3,7 @@ using AutoMapper;
 using CrunchyPeanutButter.Core.Models.Foos;
 using MediatR;
 
-namespace CrunchyPeanutButter.Core.Foos.CreateFoo
+namespace CrunchyPeanutButter.Core.Commands.Foos.CreateFoo
 {
     [Serializable]
     [AutoMap(typeof(Foo), ReverseMap = true)]

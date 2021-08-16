@@ -4,7 +4,7 @@ using AutoMapper;
 using CrunchyPeanutButter.Core.Abstractions;
 using MediatR;
 
-namespace CrunchyPeanutButter.Core.Foos.UpdateFoo
+namespace CrunchyPeanutButter.Core.Commands.Foos.UpdateFoo
 {
     public class UpdateFooCommandHandler : IRequestHandler<UpdateFooCommand>
     {
