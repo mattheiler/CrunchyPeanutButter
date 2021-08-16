@@ -42,14 +42,14 @@ namespace CrunchyPeanutButter.Web.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task DeleteBar(DeleteBarRequest request)
+        public async Task DeleteBar([FromRoute] DeleteBarRequest request)
         {
             var command = _mapper.Map<DeleteBarCommand>(request);
             await _sender.Send(command);
         }
 
         [HttpGet("{id}")]
-        public async Task<GetBarResponse> GetBar(CreateBarRequest request, CancellationToken cancellationToken)
+        public async Task<GetBarResponse> GetBar([FromQuery] GetBarRequest request, CancellationToken cancellationToken)
         {
             var query = _mapper.Map<GetBarQuery>(request);
             var result = await _sender.Send(query, cancellationToken);
@@ -58,7 +58,7 @@ namespace CrunchyPeanutButter.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<GetBarsResponse[]> GetBars(GetBarsRequest request, CancellationToken cancellationToken)
+        public async Task<GetBarsResponse[]> GetBars([FromQuery] GetBarsRequest request, CancellationToken cancellationToken)
         {
             var query = _mapper.Map<GetBarsQuery>(request);
             var results = await _sender.Send(query, cancellationToken);

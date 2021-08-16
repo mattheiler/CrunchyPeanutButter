@@ -7,7 +7,7 @@ namespace CrunchyPeanutButter.Core.GetFoos
         public GetFoosQueryValidator()
         {
             RuleFor(request => request.Offset).GreaterThanOrEqualTo(0);
-            RuleFor(request => request.Limit).GreaterThan(0).LessThan(20);
+            RuleFor(request => request.Limit).GreaterThan(0).LessThanOrEqualTo(20);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace CrunchyPeanutButter.Core.GetBar
         {
             var results =
                 await _context
-                    .Foos
+                    .Bars
                     .Where(foo => foo.Id == request.Id)
                     .ProjectTo<GetBarQueryResult>(_mapping)
                     .SingleAsync(cancellationToken);

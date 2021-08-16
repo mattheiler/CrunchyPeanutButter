@@ -25,7 +25,7 @@ namespace CrunchyPeanutButter.Core.GetBars
         {
             var results =
                 await _context
-                    .Foos
+                    .Bars
                     .OrderBy(foo => foo.Id)
                     .ProjectTo<GetBarsQueryResult>(_mapping)
                     .ToPageAsync(request.Offset, request.Limit, cancellationToken);

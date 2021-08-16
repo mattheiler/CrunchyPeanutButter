@@ -42,14 +42,14 @@ namespace CrunchyPeanutButter.Web.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task DeleteFoo(DeleteFooRequest request)
+        public async Task DeleteFoo([FromRoute] DeleteFooRequest request)
         {
             var command = _mapper.Map<DeleteFooCommand>(request);
             await _sender.Send(command);
         }
 
         [HttpGet("{id}")]
-        public async Task<GetFooResponse> GetFoo(CreateFooRequest request, CancellationToken cancellationToken)
+        public async Task<GetFooResponse> GetFoo([FromQuery] GetFooRequest request, CancellationToken cancellationToken)
         {
             var query = _mapper.Map<GetFooQuery>(request);
             var result = await _sender.Send(query, cancellationToken);
@@ -58,7 +58,7 @@ namespace CrunchyPeanutButter.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<GetFoosResponse[]> GetFoos(GetFoosRequest request, CancellationToken cancellationToken)
+        public async Task<GetFoosResponse[]> GetFoos([FromQuery] GetFoosRequest request, CancellationToken cancellationToken)
         {
             var query = _mapper.Map<GetFoosQuery>(request);
             var results = await _sender.Send(query, cancellationToken);

@@ -8,7 +8,7 @@ using MediatR;
 
 namespace CrunchyPeanutButter.Core.Bars.CreateBar
 {
-    public class CreateBarCommandHandler : IRequestHandler<Foos.CreateFoo.CreateFooCommand>
+    public class CreateBarCommandHandler : IRequestHandler<CreateBarCommand>
     {
         private readonly IDbContext _context;
         private readonly IMapper _mapper;
@@ -21,7 +21,7 @@ namespace CrunchyPeanutButter.Core.Bars.CreateBar
             _publisher = publisher;
         }
 
-        public async Task<Unit> Handle(Foos.CreateFoo.CreateFooCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(CreateBarCommand request, CancellationToken cancellationToken)
         {
             var bar = _mapper.Map<Bar>(request);
 

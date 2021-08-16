@@ -2,7 +2,7 @@
 
 namespace CrunchyPeanutButter.Core.Bars.UpdateBar
 {
-    public class UpdateBarCommandValidator : AbstractValidator<Foos.UpdateFoo.UpdateFooCommand>
+    public class UpdateBarCommandValidator : AbstractValidator<UpdateBarCommand>
     {
         public UpdateBarCommandValidator()
         {

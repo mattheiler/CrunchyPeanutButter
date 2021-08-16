@@ -1,12 +1,11 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using CrunchyPeanutButter.Core.Abstractions;
-using CrunchyPeanutButter.Core.Foos.DeleteFoo;
 using MediatR;
 
 namespace CrunchyPeanutButter.Core.Bars.DeleteBar
 {
-    public class DeleteBarCommandHandler : IRequestHandler<DeleteFooCommand>
+    public class DeleteBarCommandHandler : IRequestHandler<DeleteBarCommand>
     {
         private readonly IDbContext _context;
 
@@ -15,7 +14,7 @@ namespace CrunchyPeanutButter.Core.Bars.DeleteBar
             _context = context;
         }
 
-        public async Task<Unit> Handle(DeleteFooCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(DeleteBarCommand request, CancellationToken cancellationToken)
         {
             var bar = await _context.Bars.FindAsync(request.Id);
 

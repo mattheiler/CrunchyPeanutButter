@@ -2,7 +2,7 @@
 
 namespace CrunchyPeanutButter.Core.Bars.DeleteBar
 {
-    public class DeleteBarCommandValidator : AbstractValidator<Foos.DeleteFoo.DeleteFooCommand>
+    public class DeleteBarCommandValidator : AbstractValidator<DeleteBarCommand>
     {
         public DeleteBarCommandValidator()
         {

@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
@@ -31,8 +32,8 @@ namespace CrunchyPeanutButter.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddAutoMapper(Assembly.GetExecutingAssembly(), Assembly.Load("CrunchyPeanutButter.Core"), Assembly.Load("CrunchyPeanutButter.Infrastructure"))
-                .AddMediatR(Assembly.GetExecutingAssembly());
+                .AddAutoMapper(Assembly.Load("CrunchyPeanutButter.Core"), Assembly.GetExecutingAssembly())
+                .AddMediatR(Assembly.Load("CrunchyPeanutButter.Core"));
 
             services
                 .AddCore()

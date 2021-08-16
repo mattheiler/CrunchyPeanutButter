@@ -6,7 +6,7 @@ using MediatR;
 
 namespace CrunchyPeanutButter.Core.Bars.UpdateBar
 {
-    public class UpdateBarCommandHandler : IRequestHandler<Foos.UpdateFoo.UpdateFooCommand>
+    public class UpdateBarCommandHandler : IRequestHandler<UpdateBarCommand>
     {
         private readonly IDbContext _context;
         private readonly IMapper _mapper;
@@ -17,7 +17,7 @@ namespace CrunchyPeanutButter.Core.Bars.UpdateBar
             _mapper = mapper;
         }
 
-        public async Task<Unit> Handle(Foos.UpdateFoo.UpdateFooCommand request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UpdateBarCommand request, CancellationToken cancellationToken)
         {
             var bar = await _context.Bars.FindAsync(request.Id);
 
