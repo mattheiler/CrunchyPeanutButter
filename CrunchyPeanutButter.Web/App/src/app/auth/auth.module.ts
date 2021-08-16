@@ -1,6 +1,8 @@
-import { NgModule, APP_INITIALIZER } from "@angular/core";
-import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { NgModule } from "@angular/core";
+import { HttpClient, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
+import { first } from "rxjs/operators";
+import { UserManager, UserManagerSettings } from "oidc-client";
 
 import { AuthInterceptor } from "./auth.interceptor";
 import { AuthService } from "./auth.service";
@@ -35,10 +37,20 @@ import { LogoutCallbackComponent } from "./logout-callback.component";
       multi: true
     },
     {
-      provide: APP_INITIALIZER,
-      useFactory: (auth: AuthService) => async () => await auth.init(),
-      deps: [AuthService],
-      multi: true
+      provide: AuthService,
+      deps: [HttpClient],
+      useFactory: (http: HttpClient) => async () => {
+        const authority = await http.get(".authority", { withCredentials: false, responseType: "text" }).pipe(first()).toPromise();
+        const settings: UserManagerSettings = {
+          authority,
+          client_id: "NexteonWebApplication1",
+          redirect_uri: location.origin + "/authentication/login-callback",
+          post_logout_redirect_uri: location.origin + "/authentication/logout-callback",
+          response_type: "code",
+          scope: "openid profile"
+        };
+        return new AuthService(new UserManager(settings));
+      }
     }
   ]
 })

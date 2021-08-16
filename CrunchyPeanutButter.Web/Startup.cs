@@ -1,8 +1,8 @@
-using System;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using System.Reflection;
+using System.Text.Json;
 using CrunchyPeanutButter.Core;
 using CrunchyPeanutButter.Infrastructure;
 using FluentValidation;
@@ -15,7 +15,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace CrunchyPeanutButter.Web
@@ -75,10 +74,12 @@ namespace CrunchyPeanutButter.Web
                     var exceptionHandlerPathFeature = context.Features.Get<IExceptionHandlerPathFeature>();
                     if (exceptionHandlerPathFeature?.Error is ValidationException e)
                     {
-                        context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                        context.Response.StatusCode = (int) HttpStatusCode.BadRequest;
                         context.Response.ContentType = MediaTypeNames.Application.Json;
 
-                        await context.Response.WriteAsync(JsonConvert.SerializeObject(e.Errors.Select(error => error.ErrorMessage).ToList()));
+                        // TODO in 5.0, use WriteAsJsonAsync
+
+                        await context.Response.WriteAsync(JsonSerializer.Serialize(e.Errors.Select(error => error.ErrorMessage).ToList()));
                     }
                 });
             });
@@ -98,13 +99,20 @@ namespace CrunchyPeanutButter.Web
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints => endpoints.MapControllers());
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                endpoints.MapGet(".authority", async context =>
+                {
+                    context.Response.StatusCode = (int) HttpStatusCode.OK;
+                    context.Response.ContentType = MediaTypeNames.Text.Plain;
+
+                    await context.Response.WriteAsync(Configuration.GetValue<string>("Authority"));
+                });
+            });
 
             app.UseSwagger();
-            app.UseSwaggerUI(options =>
-            {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-            });
+            app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"));
 
             app.UseSpa(spa =>
             {
