@@ -9,11 +9,12 @@ using CrunchyPeanutButter.Core.GetBar;
 using CrunchyPeanutButter.Core.GetBars;
 using CrunchyPeanutButter.Web.Models.Bars;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrunchyPeanutButter.Web.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/bars")]
     public class BarsController : ControllerBase

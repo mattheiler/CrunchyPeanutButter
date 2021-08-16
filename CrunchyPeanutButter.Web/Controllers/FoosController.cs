@@ -9,11 +9,12 @@ using CrunchyPeanutButter.Core.GetFoo;
 using CrunchyPeanutButter.Core.GetFoos;
 using CrunchyPeanutButter.Web.Models.Foos;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrunchyPeanutButter.Web.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/foos")]
     public class FoosController : ControllerBase
