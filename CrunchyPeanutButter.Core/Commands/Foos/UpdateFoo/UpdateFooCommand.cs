@@ -1,12 +1,9 @@
 ﻿using System;
-using AutoMapper;
-using CrunchyPeanutButter.Core.Models.Foos;
 using MediatR;
 
 namespace CrunchyPeanutButter.Core.Commands.Foos.UpdateFoo
 {
     [Serializable]
-    [AutoMap(typeof(Foo), ReverseMap = true)]
     public class UpdateFooCommand : IRequest
     {
         public Guid Id { get; set; }

@@ -6,7 +6,6 @@ namespace CrunchyPeanutButter.Core.Commands.Foos.CreateFoo
     {
         public CreateFooCommandValidator()
         {
-            RuleFor(request => request.Id).NotEmpty();
             RuleFor(request => request.Name).NotEmpty();
             RuleFor(request => request.Code).Length(8);
         }

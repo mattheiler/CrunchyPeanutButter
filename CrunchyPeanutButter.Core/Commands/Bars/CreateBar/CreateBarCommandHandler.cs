@@ -10,11 +10,11 @@ namespace CrunchyPeanutButter.Core.Commands.Bars.CreateBar
 {
     public class CreateBarCommandHandler : IRequestHandler<CreateBarCommand>
     {
-        private readonly IDbContext _context;
+        private readonly ICrunchyPeanutButterDbContext _context;
         private readonly IMapper _mapper;
         private readonly IPublisher _publisher;
 
-        public CreateBarCommandHandler(IDbContext context, IMapper mapper, IPublisher publisher)
+        public CreateBarCommandHandler(ICrunchyPeanutButterDbContext context, IMapper mapper, IPublisher publisher)
         {
             _context = context;
             _mapper = mapper;
@@ -23,7 +23,7 @@ namespace CrunchyPeanutButter.Core.Commands.Bars.CreateBar
 
         public async Task<Unit> Handle(CreateBarCommand request, CancellationToken cancellationToken)
         {
-            var bar = _mapper.Map<Bar>(request);
+            var bar = _mapper.Map(request, new Bar());
 
             await _context.Bars.AddAsync(bar, cancellationToken);
 

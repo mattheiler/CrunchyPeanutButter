@@ -12,10 +12,10 @@ namespace CrunchyPeanutButter.Core.Queries.Bars.GetBars
 {
     public class GetBarsQueryHandler : IRequestHandler<GetBarsQuery, Page<GetBarsQueryResult>>
     {
-        private readonly IDbContext _context;
+        private readonly ICrunchyPeanutButterDbContext _context;
         private readonly IConfigurationProvider _mapping;
 
-        public GetBarsQueryHandler(IDbContext context, IConfigurationProvider mapping)
+        public GetBarsQueryHandler(ICrunchyPeanutButterDbContext context, IConfigurationProvider mapping)
         {
             _context = context;
             _mapping = mapping;

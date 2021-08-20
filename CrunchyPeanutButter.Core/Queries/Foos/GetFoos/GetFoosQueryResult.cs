@@ -4,7 +4,6 @@ using CrunchyPeanutButter.Core.Models.Foos;
 
 namespace CrunchyPeanutButter.Core.Queries.Foos.GetFoos
 {
-    // Option: use a mapping profile to get control of your maps.
     [AutoMap(typeof(Foo))]
     public class GetFoosQueryResult
     {

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -9,12 +10,12 @@ using CrunchyPeanutButter.Core.Queries.Foos.GetFoo;
 using CrunchyPeanutButter.Core.Queries.Foos.GetFoos;
 using CrunchyPeanutButter.Web.Models.Foos;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrunchyPeanutButter.Web.Controllers
 {
-    [Authorize]
+    // TODO enable auth
+    // [Authorize]
     [ApiController]
     [Route("api/foos")]
     public class FoosController : ControllerBase
@@ -29,42 +30,58 @@ namespace CrunchyPeanutButter.Web.Controllers
         }
 
         [HttpPost]
-        public async Task CreateFoo(CreateFooRequest request)
+        public async Task CreateFoo(FooRequest request)
         {
-            var command = _mapper.Map<CreateFooCommand>(request);
-            await _sender.Send(command);
+            await _sender.Send(new CreateFooCommand
+            {
+                Name = request.Name,
+                Code = request.Code
+            });
         }
 
-        [HttpPut("{id}")]
-        public async Task UpdateFoo(UpdateFooRequest request)
+        [HttpPut("{id:guid}")]
+        public async Task UpdateFoo(Guid id, FooRequest request)
         {
-            var command = _mapper.Map<UpdateFooCommand>(request);
-            await _sender.Send(command);
+            await _sender.Send(new UpdateFooCommand
+            {
+                Id = id,
+                Name = request.Name,
+                Code = request.Code
+            });
         }
 
-        [HttpDelete("{id}")]
-        public async Task DeleteFoo([FromRoute] DeleteFooRequest request)
+        [HttpDelete("{id:guid}")]
+        public async Task DeleteFoo(Guid id)
         {
-            var command = _mapper.Map<DeleteFooCommand>(request);
-            await _sender.Send(command);
+            await _sender.Send(new DeleteFooCommand
+            {
+                Id = id
+            });
         }
 
-        [HttpGet("{id}")]
-        public async Task<GetFooResponse> GetFoo([FromQuery] GetFooRequest request, CancellationToken cancellationToken)
+        [HttpGet("{id:guid}")]
+        public async Task<FooResponse> GetFoo(Guid id, CancellationToken cancellationToken)
         {
-            var query = _mapper.Map<GetFooQuery>(request);
+            var query = new GetFooQuery
+            {
+                Id = id
+            };
             var result = await _sender.Send(query, cancellationToken);
-            var response = _mapper.Map<GetFooResponse>(result);
+            var response = _mapper.Map<FooResponse>(result);
             return response;
         }
 
         [HttpGet]
-        public async Task<GetFoosResponse[]> GetFoos([FromQuery] GetFoosRequest request, CancellationToken cancellationToken)
+        public async Task<FooResponse[]> GetFoos(int offset = 0, int limit = 20, CancellationToken cancellationToken = default)
         {
-            var query = _mapper.Map<GetFoosQuery>(request);
+            var query = new GetFoosQuery
+            {
+                Offset = offset,
+                Limit = limit
+            };
             var results = await _sender.Send(query, cancellationToken);
             Response.Headers.Add("X-Total-Count", results.Count.ToString());
-            var response = results.Items.Select(_mapper.Map<GetFoosResponse>).ToArray();
+            var response = results.Items.Select(_mapper.Map<FooResponse>).ToArray();
             return response;
         }
     }

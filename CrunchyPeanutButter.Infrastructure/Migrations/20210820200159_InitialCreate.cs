@@ -11,9 +11,9 @@ namespace CrunchyPeanutButter.Infrastructure.Migrations
                 name: "Bars",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Code = table.Column<string>(nullable: true)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -24,9 +24,9 @@ namespace CrunchyPeanutButter.Infrastructure.Migrations
                 name: "Foos",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Code = table.Column<string>(nullable: true)
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -37,7 +37,7 @@ namespace CrunchyPeanutButter.Infrastructure.Migrations
                 name: "Ack",
                 columns: table => new
                 {
-                    BarId = table.Column<Guid>(nullable: false)
+                    BarId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -51,14 +51,38 @@ namespace CrunchyPeanutButter.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "BarFoo",
+                columns: table => new
+                {
+                    BarsId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FoosId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BarFoo", x => new { x.BarsId, x.FoosId });
+                    table.ForeignKey(
+                        name: "FK_BarFoo_Bars_BarsId",
+                        column: x => x.BarsId,
+                        principalTable: "Bars",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_BarFoo_Foos_FoosId",
+                        column: x => x.FoosId,
+                        principalTable: "Foos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Baz",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
-                    Code = table.Column<string>(nullable: true),
-                    FooId = table.Column<Guid>(nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Code = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FooId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -71,39 +95,15 @@ namespace CrunchyPeanutButter.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "FooBar",
-                columns: table => new
-                {
-                    FooId = table.Column<Guid>(nullable: false),
-                    BarId = table.Column<Guid>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_FooBar", x => new { x.FooId, x.BarId });
-                    table.ForeignKey(
-                        name: "FK_FooBar_Bars_BarId",
-                        column: x => x.BarId,
-                        principalTable: "Bars",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_FooBar_Foos_FooId",
-                        column: x => x.FooId,
-                        principalTable: "Foos",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
+            migrationBuilder.CreateIndex(
+                name: "IX_BarFoo_FoosId",
+                table: "BarFoo",
+                column: "FoosId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Baz_FooId",
                 table: "Baz",
                 column: "FooId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_FooBar_BarId",
-                table: "FooBar",
-                column: "BarId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -112,10 +112,10 @@ namespace CrunchyPeanutButter.Infrastructure.Migrations
                 name: "Ack");
 
             migrationBuilder.DropTable(
-                name: "Baz");
+                name: "BarFoo");
 
             migrationBuilder.DropTable(
-                name: "FooBar");
+                name: "Baz");
 
             migrationBuilder.DropTable(
                 name: "Bars");

@@ -10,16 +10,31 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CrunchyPeanutButter.Infrastructure.Migrations
 {
     [DbContext(typeof(CrunchyPeanutButterDbContext))]
-    [Migration("20210816133556_InitialCreate")]
+    [Migration("20210820200159_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.17")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
+                .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("BarFoo", b =>
+                {
+                    b.Property<Guid>("BarsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("FoosId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("BarsId", "FoosId");
+
+                    b.HasIndex("FoosId");
+
+                    b.ToTable("BarFoo");
+                });
 
             modelBuilder.Entity("CrunchyPeanutButter.Core.Models.Bars.Ack", b =>
                 {
@@ -34,6 +49,7 @@ namespace CrunchyPeanutButter.Infrastructure.Migrations
             modelBuilder.Entity("CrunchyPeanutButter.Core.Models.Bars.Bar", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Code")
@@ -73,6 +89,7 @@ namespace CrunchyPeanutButter.Infrastructure.Migrations
             modelBuilder.Entity("CrunchyPeanutButter.Core.Models.Foos.Foo", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Code")
@@ -86,19 +103,19 @@ namespace CrunchyPeanutButter.Infrastructure.Migrations
                     b.ToTable("Foos");
                 });
 
-            modelBuilder.Entity("CrunchyPeanutButter.Core.Models.Foos.FooBar", b =>
+            modelBuilder.Entity("BarFoo", b =>
                 {
-                    b.Property<Guid>("FooId")
-                        .HasColumnType("uniqueidentifier");
+                    b.HasOne("CrunchyPeanutButter.Core.Models.Bars.Bar", null)
+                        .WithMany()
+                        .HasForeignKey("BarsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<Guid>("BarId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("FooId", "BarId");
-
-                    b.HasIndex("BarId");
-
-                    b.ToTable("FooBar");
+                    b.HasOne("CrunchyPeanutButter.Core.Models.Foos.Foo", null)
+                        .WithMany()
+                        .HasForeignKey("FoosId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("CrunchyPeanutButter.Core.Models.Bars.Ack", b =>
@@ -108,6 +125,8 @@ namespace CrunchyPeanutButter.Infrastructure.Migrations
                         .HasForeignKey("CrunchyPeanutButter.Core.Models.Bars.Ack", "BarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Bar");
                 });
 
             modelBuilder.Entity("CrunchyPeanutButter.Core.Models.Foos.Baz", b =>
@@ -117,21 +136,18 @@ namespace CrunchyPeanutButter.Infrastructure.Migrations
                         .HasForeignKey("FooId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Foo");
                 });
 
-            modelBuilder.Entity("CrunchyPeanutButter.Core.Models.Foos.FooBar", b =>
+            modelBuilder.Entity("CrunchyPeanutButter.Core.Models.Bars.Bar", b =>
                 {
-                    b.HasOne("CrunchyPeanutButter.Core.Models.Bars.Bar", "Bar")
-                        .WithMany()
-                        .HasForeignKey("BarId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Ack");
+                });
 
-                    b.HasOne("CrunchyPeanutButter.Core.Models.Foos.Foo", "Foo")
-                        .WithMany("Bars")
-                        .HasForeignKey("FooId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+            modelBuilder.Entity("CrunchyPeanutButter.Core.Models.Foos.Foo", b =>
+                {
+                    b.Navigation("Bazs");
                 });
 #pragma warning restore 612, 618
         }

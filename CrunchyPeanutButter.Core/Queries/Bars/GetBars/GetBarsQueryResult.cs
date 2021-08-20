@@ -4,7 +4,6 @@ using CrunchyPeanutButter.Core.Models.Bars;
 
 namespace CrunchyPeanutButter.Core.Queries.Bars.GetBars
 {
-    // Option: use a mapping profile to get control of your maps.
     [AutoMap(typeof(Bar))]
     public class GetBarsQueryResult
     {

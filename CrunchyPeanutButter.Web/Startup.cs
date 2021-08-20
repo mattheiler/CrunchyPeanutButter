@@ -3,14 +3,16 @@ using System.Net;
 using System.Net.Mime;
 using System.Reflection;
 using System.Text.Json;
-using CrunchyPeanutButter.Core;
-using CrunchyPeanutButter.Infrastructure;
+using CrunchyPeanutButter.Core.Abstractions;
+using CrunchyPeanutButter.Core.Behaviors;
+using CrunchyPeanutButter.Infrastructure.Data;
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -30,13 +32,18 @@ namespace CrunchyPeanutButter.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services
-                .AddAutoMapper(Assembly.Load("CrunchyPeanutButter.Core"), Assembly.GetExecutingAssembly())
-                .AddMediatR(Assembly.Load("CrunchyPeanutButter.Core"));
+            services.AddAutoMapper(Assembly.Load("CrunchyPeanutButter.Core"), Assembly.Load("CrunchyPeanutButter.Infrastructure"), Assembly.GetExecutingAssembly());
+
+            services.AddMediatR(Assembly.Load("CrunchyPeanutButter.Core"));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestLoggingBehavior<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
+
+            AssemblyScanner.FindValidatorsInAssembly(Assembly.Load("CrunchyPeanutButter.Core")).ForEach(item => services.AddScoped(item.InterfaceType, item.ValidatorType));
 
             services
-                .AddCore()
-                .AddInfrastructure(Configuration);
+                .AddDbContext<CrunchyPeanutButterDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CrunchyPeanutButter")))
+                .AddTransient<ICrunchyPeanutButterDbContext, CrunchyPeanutButterDbContext>(provider => provider.GetService<CrunchyPeanutButterDbContext>());
 
             services
                 .AddAuthentication()
@@ -62,8 +69,10 @@ namespace CrunchyPeanutButter.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, CrunchyPeanutButterDbContext db)
         {
+            db.Database.Migrate();
+
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
 

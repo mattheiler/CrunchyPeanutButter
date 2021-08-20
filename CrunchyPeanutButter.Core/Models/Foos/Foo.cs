@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+using CrunchyPeanutButter.Core.Models.Bars;
 
 namespace CrunchyPeanutButter.Core.Models.Foos
 {
     public class Foo
     {
-        // Ids should be provided to aggregate roots to make the create non idempotent.
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public Guid Id { get; private set; }
 
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
-        public string Code { get; private set; }
+        public string Code { get; set; }
 
-        public ICollection<FooBar> Bars { get; } = new List<FooBar>();
+        public ICollection<Bar> Bars { get; } = new List<Bar>();
 
         public ICollection<Baz> Bazs { get; } = new List<Baz>();
     }

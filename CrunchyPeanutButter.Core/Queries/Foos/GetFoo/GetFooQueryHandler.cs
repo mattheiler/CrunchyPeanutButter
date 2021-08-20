@@ -11,10 +11,10 @@ namespace CrunchyPeanutButter.Core.Queries.Foos.GetFoo
 {
     public class GetFooQueryHandler : IRequestHandler<GetFooQuery, GetFooQueryResult>
     {
-        private readonly IDbContext _context;
+        private readonly ICrunchyPeanutButterDbContext _context;
         private readonly IConfigurationProvider _mapping;
 
-        public GetFooQueryHandler(IDbContext context, IConfigurationProvider mapping)
+        public GetFooQueryHandler(ICrunchyPeanutButterDbContext context, IConfigurationProvider mapping)
         {
             _context = context;
             _mapping = mapping;

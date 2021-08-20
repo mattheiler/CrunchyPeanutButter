@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CrunchyPeanutButter.Infrastructure.Data
 {
-    public class CrunchyPeanutButterDbContext : DbContext, IDbContext
+    public class CrunchyPeanutButterDbContext : DbContext, ICrunchyPeanutButterDbContext
     {
         public CrunchyPeanutButterDbContext(DbContextOptions<CrunchyPeanutButterDbContext> options)
             : base(options)
@@ -29,8 +29,8 @@ namespace CrunchyPeanutButter.Infrastructure.Data
                 .HasKey(e => e.BarId);
 
             model
-                .Entity<FooBar>()
-                .HasKey(e => new { e.FooId, e.BarId });
+                .Entity<Foo>()
+                .HasMany(e => e.Bars);
         }
     }
 }

@@ -9,10 +9,10 @@ namespace CrunchyPeanutButter.Core.Commands.Foos.CreateFoo
 {
     public class CreateFooCommandHandler : IRequestHandler<CreateFooCommand>
     {
-        private readonly IDbContext _context;
+        private readonly ICrunchyPeanutButterDbContext _context;
         private readonly IMapper _mapper;
 
-        public CreateFooCommandHandler(IDbContext context, IMapper mapper)
+        public CreateFooCommandHandler(ICrunchyPeanutButterDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
